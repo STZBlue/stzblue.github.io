@@ -292,9 +292,6 @@ td:last-child{font-weight:800}
 #menu{top:calc(100% + 10px);right:0;min-width:225px;padding:6px;border-radius:16px;border-color:var(--br);background:var(--card);box-shadow:0 18px 50px rgba(8,26,65,.20);backdrop-filter:blur(18px)}
 #menu button{display:flex;align-items:center;gap:10px;min-height:43px;padding:10px 12px;border-radius:11px;font-size:13px;transition:background .15s,color .15s}
 #menu button .ic{color:var(--ac)}
-#menu button.menu-history-notes{display:flex;align-items:center;gap:10px;text-align:left}
-#menu button.menu-history-notes .menu-history-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px;width:20px;height:20px;color:var(--ac)}
-#menu button.menu-history-notes .menu-history-label{display:inline-block;visibility:visible;opacity:1;white-space:normal;}
 #menu button:hover{background:var(--tr);color:var(--ac)}
 .dwp{border-right:1px solid var(--br)}
 .dwh{padding:calc(24px + env(safe-area-inset-top,0px)) 22px 22px;background:radial-gradient(circle at 100% 0%,#4382ff 0,transparent 48%),linear-gradient(145deg,#102966,#1f57c4 85%)}
@@ -438,126 +435,6 @@ td:last-child{font-weight:800}
   .stat-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mdl{animation:none!important}}
-
-
-/* Refinamento visual global — identidade STZBLUE */
-:root{--stz-radius:22px;--stz-focus:color-mix(in srgb,var(--ac) 70%,white)}
-::selection{background:color-mix(in srgb,var(--ac) 24%,transparent);color:var(--tx)}
-.card,.mdl,.dwp,.note-card,.stat-tile,.sr,.year-picker{border-color:color-mix(in srgb,var(--br) 88%,var(--ac) 12%)}
-.card{box-shadow:var(--stz-shadow);backdrop-filter:saturate(1.04);}
-.card h3{letter-spacing:-.035em}
-.btn{border:1px solid color-mix(in srgb,var(--ac) 68%,var(--br));border-radius:12px;box-shadow:0 5px 13px -10px var(--ac);transition:transform .18s ease,box-shadow .18s ease,filter .18s ease,background .18s ease}
-.chip{transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}
-input,select,textarea{transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
-input:focus,select:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 13%,transparent);outline:none}
-nav button{transition:background .18s ease,color .18s ease,transform .18s ease}
-nav button.on{box-shadow:0 3px 12px rgba(4,20,70,.16)}
-#dw .dwp{box-shadow:0 22px 70px rgba(1,12,38,.34);border-right:1px solid color-mix(in srgb,var(--ac) 18%,var(--br))}
-.mdl{box-shadow:0 28px 90px rgba(0,10,35,.30);animation:stz-modal-in .18s ease-out both}
-.bim-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;margin:10px 0 18px;border:1px solid color-mix(in srgb,var(--ac) 22%,var(--br));border-radius:16px;background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 9%,var(--card)),var(--card));}
-.bim-actions>div{display:flex;flex-direction:column;gap:2px}.bim-actions>div b{font-size:14px;letter-spacing:-.02em}.bim-actions>div small{font-size:12px}.danger-chip{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 35%,var(--br));display:inline-flex;align-items:center;justify-content:center;gap:7px}.danger-chip:hover{background:color-mix(in srgb,var(--bad) 8%,var(--card));border-color:var(--bad)}
-/* Desktop: melhor uso da largura sem esticar linhas de leitura */
-@media(min-width:1100px){
-  main{padding-left:clamp(30px,3vw,52px);padding-right:clamp(30px,3vw,52px)}
-  #app[data-tab="boletim"]{max-width:1120px;margin-inline:auto}
-  #app[data-tab="boletim"]>.bt{position:sticky;top:8px;z-index:3;padding:8px 0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);border-radius:14px}
-  #app[data-tab="boletim"] .year-picker{max-width:100%;}
-  #app[data-tab="painel"]{column-gap:22px}
-  #app[data-tab="painel"]>.card:not(:first-child):not(:last-child){min-height:100%}
-}
-@media(max-width:600px){
-  .bim-actions{align-items:stretch;padding:12px;gap:10px}
-  .bim-actions .chip{width:100%;min-height:42px}
-  .card{box-shadow:0 6px 20px rgba(12,40,100,.045)}
-}
-@media(prefers-reduced-motion:reduce){.btn,.chip,input,select,textarea,nav button{transition:none!important}}
-
-
-/* STZBLUE · refinamento visual global */
-:root{--glow:rgba(37,99,235,.18);--focus-ring:color-mix(in srgb,var(--ac) 72%,white)}
-body{background-image:radial-gradient(ellipse at 12% 0%,var(--glow),transparent 38%);background-attachment:fixed;letter-spacing:-.012em}
-header{background:linear-gradient(125deg,#071b4d 0%,var(--hd) 48%,#2563eb 100%);box-shadow:0 8px 28px #071b4d26;border-bottom:1px solid #ffffff20}
-.brand{letter-spacing:.025em;text-shadow:0 2px 14px #0002}
-nav{scrollbar-width:thin;scrollbar-color:#ffffff55 transparent;padding:2px 0 4px}
-nav button{transition:background .18s,color .18s,transform .18s}
-nav button:hover{background:#ffffff18;color:#fff}
-nav button.on{box-shadow:0 3px 10px #00184a25}
-main{width:100%;animation:blue-in .24s ease-out}
-.card{position:relative;overflow:hidden;border-color:color-mix(in srgb,var(--br) 86%,var(--ac));box-shadow:0 10px 30px -24px color-mix(in srgb,var(--ac) 60%,transparent),0 1px 0 #ffffff08 inset}
-.card h3{letter-spacing:-.025em}
-.card.sum{background:linear-gradient(125deg,color-mix(in srgb,var(--ac) 11%,var(--card)),var(--card) 72%);border-color:color-mix(in srgb,var(--ac) 28%,var(--br))}
-.sum>div+div{border-left:1px solid var(--br);padding-left:12px}
-.big{letter-spacing:-.055em;text-shadow:0 5px 18px color-mix(in srgb,var(--ac) 13%,transparent)}
-.btn{background:linear-gradient(135deg,var(--ac),color-mix(in srgb,var(--ac) 65%,#75b8ff));}
-.chip,.btn,.x,#dots,#bell{transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease,filter .16s ease}
-.chip:active,.btn:active{transform:scale(.98)}
-input,select,textarea{transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
-input:focus,select:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 16%,transparent);outline:none}
-.section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.section-title h3{margin:0}
-.section-title .ty{margin:4px 0 0}
-.section-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 18%,var(--card)),var(--tr));color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 22%,var(--br))}
-.discipline-card .f{align-items:stretch;gap:10px}
-.discipline-card .f input{min-width:160px}
-.discipline-card .li{padding:12px 2px}
-#menu{backdrop-filter:blur(18px);box-shadow:0 18px 50px #0003}
-#menu button{display:flex;align-items:center;gap:10px;transition:background .15s}
-#menu button:hover{background:var(--tr)}
-.fs.activity-editor{max-width:860px;margin:14px auto 28px;padding:clamp(14px,2.5vw,26px);border:1px solid var(--br);border-radius:24px;background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 5%,var(--card)),var(--card) 45%);box-shadow:0 20px 55px -38px color-mix(in srgb,var(--ac) 60%,transparent)}
-.activity-editor .fsh{position:sticky;top:0;z-index:3;background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--br);padding:10px 0 14px;margin-bottom:14px}
-.activity-editor>.card{padding:clamp(14px,2vw,22px);margin:12px 0;border-radius:18px}
-.activity-editor .ti{display:flex;align-items:center;gap:12px;margin:12px 0 16px}
-.activity-editor #it{font-size:clamp(18px,2.5vw,24px);font-weight:800;padding:14px 15px;background:var(--card)}
-.activity-editor textarea{min-height:90px;resize:vertical}
-.activity-editor .rw{gap:12px}
-.activity-editor .chip{min-height:40px}
-.stat-tile,.perf-hero,.goal-row{border-radius:16px}
-button:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
-@keyframes blue-in{from{opacity:.86;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-@media(min-width:1100px){main{max-width:1440px;padding:28px 38px 72px}.card{padding:24px;margin:16px 0}.discipline-card .f input{flex:1 1 220px}.sum{padding:26px 28px}.sum>div{padding:4px 8px}.sum>div+div{padding-left:24px}.activity-editor{width:min(100%,900px)}}
-@media(max-width:600px){body{background-attachment:scroll}.card{border-radius:17px;padding:15px;margin:11px 0}.sum{gap:8px}.sum>div+div{padding-left:8px}.big{font-size:clamp(22px,7vw,30px)}.discipline-card .f input{flex-basis:100%;width:100%}.fs.activity-editor{padding:12px;border-radius:18px;margin:8px 0 20px}.activity-editor .fsh{gap:8px}.activity-editor .ti{gap:8px}.activity-editor .rw{flex-wrap:wrap}.activity-editor .rw input,.activity-editor .rw select{flex:1 1 42%;width:100%}}
-@media(prefers-reduced-motion:reduce){main{animation:none}}
-
-
-/* STZBLUE visual refinement — global, responsive and additive */
-:root{--radius-card:20px;--blue-glow:rgba(59,130,246,.18)}
-body{background-image:radial-gradient(ellipse at 8% 0%,var(--glow),transparent 38%),radial-gradient(ellipse at 100% 25%,rgba(37,99,235,.055),transparent 34%);background-attachment:fixed}
-#app{width:min(100%,1480px);margin-inline:auto;padding:clamp(12px,2.2vw,30px)}
-.card,.sr,.stat-tile,.dsec,.fs:not(.activity-editor){border-radius:var(--radius-card);border:1px solid var(--br);box-shadow:0 8px 26px -22px rgba(2,20,60,.65);transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
-.card{padding:clamp(15px,1.8vw,24px)}
-@media(hover:hover){.card:hover{border-color:color-mix(in srgb,var(--ac) 35%,var(--br));box-shadow:0 14px 32px -25px var(--ac)}}
-button,.chip,input,select,textarea{transition:background-color .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease}
-button:focus-visible,.chip:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
-button:not(:disabled):active,.chip:not(:disabled):active{transform:translateY(1px)}
-input,select,textarea{border-radius:12px;min-height:42px}
-button{border-radius:12px}
-#menu{border:1px solid var(--br);border-radius:18px;background:color-mix(in srgb,var(--card) 94%,transparent)}
-#menu button{min-height:44px;border-radius:10px;padding:10px 12px}
-.section-title{display:flex;align-items:center;gap:12px;line-height:1.25}
-.section-title h3{margin:0;letter-spacing:-.025em}
-.section-title .ty{margin:5px 0 0;line-height:1.5}
-.discipline-card{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 7%,var(--card)),var(--card) 65%);border-color:color-mix(in srgb,var(--ac) 28%,var(--br))}
-.discipline-card:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg,var(--ac),color-mix(in srgb,var(--ac) 22%,transparent));border-radius:4px}
-.discipline-card .section-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:14px;color:var(--ac);background:color-mix(in srgb,var(--ac) 13%,var(--card));border:1px solid color-mix(in srgb,var(--ac) 25%,var(--br))}
-.discipline-card .f{display:flex;gap:10px;align-items:stretch;margin-top:18px}
-.discipline-card .f input{flex:1;min-width:0}
-.discipline-card .li{padding:13px 4px;border-bottom:1px solid var(--br)}
-.discipline-card .li:last-child{border-bottom:0}
-.activity-editor{width:100%;box-sizing:border-box}
-.activity-editor .ti input{flex:1;min-width:0;background:color-mix(in srgb,var(--card) 82%,var(--bg));border:1px solid var(--br);padding:12px 14px}
-.activity-editor .f{display:flex;flex-wrap:wrap;gap:8px}
-.activity-editor .rw{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:8px 0}
-.activity-editor .rw input,.activity-editor .rw select{flex:1;min-width:130px}
-.activity-editor .card{background:color-mix(in srgb,var(--card) 88%,var(--bg));box-shadow:none}
-.activity-editor .done{box-shadow:0 5px 16px -9px var(--ac)}
-.bim-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 18px;margin:12px 0 18px;border:1px solid color-mix(in srgb,var(--ac) 30%,var(--br));border-radius:16px;background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 10%,var(--card)),var(--card) 70%)}
-.bim-actions>div{display:flex;flex-direction:column;gap:4px}
-.bim-actions small{color:var(--mut)}
-.bim-actions .danger-chip{white-space:nowrap}
-#ttl{letter-spacing:-.025em}
-@media(min-width:900px){#app{padding:28px 34px 40px}.sum,.hero{gap:clamp(20px,3vw,42px)}.stat-grid{gap:14px}.discipline-card{padding:24px 26px}.discipline-card .f{max-width:980px}}
-@media(max-width:600px){#app{padding:12px}.card{padding:15px;border-radius:17px}.discipline-card .f{flex-direction:column}.discipline-card .f input{width:100%;box-sizing:border-box}.activity-editor{padding:14px!important;border-radius:18px!important}.activity-editor .ti{align-items:stretch}.activity-editor .ti input{width:100%;box-sizing:border-box}.activity-editor .rw{align-items:stretch}.bim-actions{align-items:stretch;padding:14px}.bim-actions .danger-chip{width:100%}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 </style></head><body>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
