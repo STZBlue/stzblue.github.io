@@ -2,7 +2,7 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="theme-color" content="#0b3a9e">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>STZBLUE 0.5</title>
+<title>STZBLUE 1.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef4ff;--glow:rgba(37,99,235,.12);--card:#fff;--tx:#0f1f3d;--mut:#5a6b8c;--br:#d6e2fa;--ac:#1d4ed8;--hd:#0b3a9e;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--tr:#e3ecff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -436,6 +436,39 @@ td:last-child{font-weight:800}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mdl{animation:none!important}}
 
+
+/* Refinamento visual global — identidade STZBLUE */
+:root{--stz-radius:22px;--stz-focus:color-mix(in srgb,var(--ac) 70%,white)}
+::selection{background:color-mix(in srgb,var(--ac) 24%,transparent);color:var(--tx)}
+.card,.mdl,.dwp,.note-card,.stat-tile,.sr,.year-picker{border-color:color-mix(in srgb,var(--br) 88%,var(--ac) 12%)}
+.card{box-shadow:var(--stz-shadow);backdrop-filter:saturate(1.04);}
+.card h3{letter-spacing:-.035em}
+.btn{border:1px solid color-mix(in srgb,var(--ac) 68%,var(--br));border-radius:12px;box-shadow:0 5px 13px -10px var(--ac);transition:transform .18s ease,box-shadow .18s ease,filter .18s ease,background .18s ease}
+.chip{transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}
+input,select,textarea{transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
+input:focus,select:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 13%,transparent);outline:none}
+nav button{transition:background .18s ease,color .18s ease,transform .18s ease}
+nav button.on{box-shadow:0 3px 12px rgba(4,20,70,.16)}
+#dw .dwp{box-shadow:0 22px 70px rgba(1,12,38,.34);border-right:1px solid color-mix(in srgb,var(--ac) 18%,var(--br))}
+.mdl{box-shadow:0 28px 90px rgba(0,10,35,.30);animation:stz-modal-in .18s ease-out both}
+.bim-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;margin:10px 0 18px;border:1px solid color-mix(in srgb,var(--ac) 22%,var(--br));border-radius:16px;background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 9%,var(--card)),var(--card));}
+.bim-actions>div{display:flex;flex-direction:column;gap:2px}.bim-actions>div b{font-size:14px;letter-spacing:-.02em}.bim-actions>div small{font-size:12px}.danger-chip{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 35%,var(--br));display:inline-flex;align-items:center;justify-content:center;gap:7px}.danger-chip:hover{background:color-mix(in srgb,var(--bad) 8%,var(--card));border-color:var(--bad)}
+/* Desktop: melhor uso da largura sem esticar linhas de leitura */
+@media(min-width:1100px){
+  main{padding-left:clamp(30px,3vw,52px);padding-right:clamp(30px,3vw,52px)}
+  #app[data-tab="boletim"]{max-width:1120px;margin-inline:auto}
+  #app[data-tab="boletim"]>.bt{position:sticky;top:8px;z-index:3;padding:8px 0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);border-radius:14px}
+  #app[data-tab="boletim"] .year-picker{max-width:100%;}
+  #app[data-tab="painel"]{column-gap:22px}
+  #app[data-tab="painel"]>.card:not(:first-child):not(:last-child){min-height:100%}
+}
+@media(max-width:600px){
+  .bim-actions{align-items:stretch;padding:12px;gap:10px}
+  .bim-actions .chip{width:100%;min-height:42px}
+  .card{box-shadow:0 6px 20px rgba(12,40,100,.045)}
+}
+@media(prefers-reduced-motion:reduce){.btn,.chip,input,select,textarea,nav button{transition:none!important}}
+
 </style></head><body>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
 <main id="app"></main>
@@ -650,12 +683,12 @@ function hAdd(b){const s={id:uid(),n:hq.n,pr:hq.pr,c:COL[S.subs.length%COL.lengt
 function boletim(){
  if(!BS().length)return YR()+'<div class="card empty">Cadastre uma matéria primeiro no <b>Painel</b>.</div>';
  const B=[...R(4).map(p=>[p,p+'º BIM']),[5,'RECUPERAÇÃO'],[6,'FINAL']];
- let h=YR()+`<div class="bt">${B.map(([p,l])=>`<button class="${bim===p?'on':''}" onclick="bim=${p};ex=null;render()">${l}</button>`).join('')}</div>`;
+ let h=YR()+`<div class="bt">${B.map(([p,l])=>`<button class="${bim===p?'on':''}" onclick="bim=${p};ex=null;render()">${l}</button>`).join('')}</div>`+(bim>=1&&bim<=4?`<div class="bim-actions"><div><b>${bim}º bimestre</b><small>Gerencie as notas deste período.</small></div><button class="chip danger-chip" onclick="clearBimestre(${bim})">${ic('trash',15)} Limpar bimestre</button></div>`:'');
  return h+BS().map(s=>{
   if(bim===6){const[c,l]=fin(s),a=yA(s);return `<div class="sr"><div class="hd"><div class="cir ${cc(a)}">${f1(a)}</div><div><b>${esc(s.n)}</b><br><small>Média final</small></div><span class="pill ${c}">${l}</span></div></div>`}
   if(bim===5)return `<div class="sr"><div class="ir">${cb('r.'+s.id,cc(s.r),n1(s.r),`ask({t:'r',id:'${s.id}'})`,1)}<span>${esc(s.n)}</span></div></div>`;
   const a=pA(s,bim),o=ex===s.id,man=(s.g[bim]||{}).m!=null;
-  return `<div class="sr"><div class="hd" onclick="ex=${o?'null':`'${s.id}'`};render()">${cb('m.'+s.id,cc(a)+(man?' mn':''),f1(a),`ask({t:'m',id:'${s.id}',p:${bim}})`)}<div><b>${esc(s.n)}</b><br><small>${man?'Média manual':'Média Aritmética'}</small></div><span>${ic(o?'cu':'cd',18)}</span></div>${o?KS.slice(0,2).map(([k,l])=>{const v=gx(s,bim,k);return `<div class="ir">${cb(`g.${s.id}.${bim}.${k}`,cc(v),n1(v),`ask({t:'g',id:'${s.id}',p:${bim},k:'${k}'})`,1)}<span>${l}<br><small class="sm2">normal</small></span></div>`}).join('')+`<div class="ir">${cb(`f.${S.yr}.${bim}`,cc(S.fm[bim]),n1(S.fm[bim]),`ask({t:'f',y:${S.yr},p:${bim}})`,1)}<span>Formativa<br><small class="sm2">normal</small></span></div>`+X(s)+`<div class="ir" style="justify-content:flex-end"><button class="chip" onclick="clearBimestre(${bim})">Limpar bimestre</button></div>`:''}</div>`}).join('')}
+  return `<div class="sr"><div class="hd" onclick="ex=${o?'null':`'${s.id}'`};render()">${cb('m.'+s.id,cc(a)+(man?' mn':''),f1(a),`ask({t:'m',id:'${s.id}',p:${bim}})`)}<div><b>${esc(s.n)}</b><br><small>${man?'Média manual':'Média Aritmética'}</small></div><span>${ic(o?'cu':'cd',18)}</span></div>${o?KS.slice(0,2).map(([k,l])=>{const v=gx(s,bim,k);return `<div class="ir">${cb(`g.${s.id}.${bim}.${k}`,cc(v),n1(v),`ask({t:'g',id:'${s.id}',p:${bim},k:'${k}'})`,1)}<span>${l}<br><small class="sm2">normal</small></span></div>`}).join('')+`<div class="ir">${cb(`f.${S.yr}.${bim}`,cc(S.fm[bim]),n1(S.fm[bim]),`ask({t:'f',y:${S.yr},p:${bim}})`,1)}<span>Formativa<br><small class="sm2">normal</small></span></div>`+X(s):''}</div>`}).join('')}
 
 function horario(){if(!S.subs.length)return '<div class="card empty">Cadastre suas matérias no <b>Painel</b> primeiro.</div>';
  const hj=(new Date().getDay()+6)%7,d=hdi===null?(hj<5?hj:0):hdi,L=S.sched[d]||[];
