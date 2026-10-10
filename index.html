@@ -292,6 +292,9 @@ td:last-child{font-weight:800}
 #menu{top:calc(100% + 10px);right:0;min-width:225px;padding:6px;border-radius:16px;border-color:var(--br);background:var(--card);box-shadow:0 18px 50px rgba(8,26,65,.20);backdrop-filter:blur(18px)}
 #menu button{display:flex;align-items:center;gap:10px;min-height:43px;padding:10px 12px;border-radius:11px;font-size:13px;transition:background .15s,color .15s}
 #menu button .ic{color:var(--ac)}
+#menu button.menu-history-notes{display:flex;align-items:center;gap:10px;text-align:left}
+#menu button.menu-history-notes .menu-history-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 20px;width:20px;height:20px;color:var(--ac)}
+#menu button.menu-history-notes .menu-history-label{display:inline-block;visibility:visible;opacity:1;white-space:normal;}
 #menu button:hover{background:var(--tr);color:var(--ac)}
 .dwp{border-right:1px solid var(--br)}
 .dwh{padding:calc(24px + env(safe-area-inset-top,0px)) 22px 22px;background:radial-gradient(circle at 100% 0%,#4382ff 0,transparent 48%),linear-gradient(145deg,#102966,#1f57c4 85%)}
@@ -556,158 +559,6 @@ button{border-radius:12px}
 @media(max-width:600px){#app{padding:12px}.card{padding:15px;border-radius:17px}.discipline-card .f{flex-direction:column}.discipline-card .f input{width:100%;box-sizing:border-box}.activity-editor{padding:14px!important;border-radius:18px!important}.activity-editor .ti{align-items:stretch}.activity-editor .ti input{width:100%;box-sizing:border-box}.activity-editor .rw{align-items:stretch}.bim-actions{align-items:stretch;padding:14px}.bim-actions .danger-chip{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
-
-
-/* STZBLUE • Refino visual global v3 (tokens, layout, states e responsividade) */
-:root{
- --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-300:#93c5fd;--blue-500:#3b82f6;
- --blue-600:#2563eb;--blue-700:#1d4ed8;--blue-900:#102b69;
- --surface-elevated:color-mix(in srgb,var(--card) 94%,var(--ac) 6%);
- --focus-ring:color-mix(in srgb,var(--ac) 75%,white);
- --shadow-soft:0 14px 35px -25px color-mix(in srgb,var(--ac) 55%,transparent);
- --shadow-raised:0 22px 48px -30px color-mix(in srgb,var(--ac) 50%,transparent);
- --radius-card:22px;
-}
-html{scroll-behavior:smooth}
-body{
- background-color:var(--bg);
- background-image:radial-gradient(ellipse at 0% 0%,color-mix(in srgb,var(--ac) 14%,transparent),transparent 34%),radial-gradient(ellipse at 100% 45%,color-mix(in srgb,#38bdf8 7%,transparent),transparent 32%);
- background-attachment:fixed;
-}
-header{
- padding:14px clamp(16px,3vw,42px) 12px;
- background:linear-gradient(118deg,#0b1d48 0%,#123d91 44%,#2563eb 100%);
- border-bottom:1px solid #ffffff25;
- box-shadow:0 10px 32px -22px #020817bd;
-}
-.top{max-width:1540px;margin:0 auto 9px;min-height:42px}
-.ttl{text-wrap:balance;letter-spacing:-.035em}
-#hm,#bell,#dots{backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 #ffffff14;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
-#hm:hover,#bell:hover,#dots:hover{background:#ffffff34;box-shadow:0 5px 16px #061b4e35}
-nav{max-width:1540px;margin:auto;gap:6px;padding:4px 0 2px}
-nav button{border:1px solid transparent;padding:9px 14px;border-radius:12px;color:#dbeafe;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
-nav button.on{background:linear-gradient(140deg,#fff,#edf4ff);color:#123579;border-color:#ffffffb0;box-shadow:0 5px 16px #061b4e2b}
-nav button:hover:not(.on){background:#ffffff18;border-color:#ffffff1f;transform:translateY(-1px)}
-#gr{max-width:1540px;margin:2px auto 0;color:#dbeafe;font-size:13px}
-main{width:100%;max-width:unset;margin:0 auto;padding:clamp(18px,2.5vw,36px) clamp(16px,3vw,44px) 60px}
-#app{width:100%;max-width:1540px;margin:0 auto;padding:0}
-.card{
- border:1px solid color-mix(in srgb,var(--br) 84%,var(--ac) 16%);
- border-radius:var(--radius-card);
- padding:clamp(18px,1.8vw,28px);
- margin:0 0 18px;
- background:linear-gradient(145deg,color-mix(in srgb,var(--card) 95%,var(--ac) 5%),var(--card) 72%);
- box-shadow:0 12px 30px -25px #020817b0,inset 0 1px 0 #ffffff07;
- transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
-}
-.card h3{font-size:clamp(16px,1.1vw,19px);line-height:1.3;letter-spacing:-.035em}
-.card>.head{gap:14px}
-.card small{line-height:1.55}
-.sum.card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,30px);padding:clamp(22px,2.8vw,36px);background:linear-gradient(115deg,color-mix(in srgb,var(--hd) 90%,var(--ac)),color-mix(in srgb,var(--ac) 88%,#38bdf8));border:1px solid #ffffff36;color:#fff;box-shadow:0 22px 50px -34px #1d4ed8b3,inset 0 1px 0 #ffffff40}
-.sum>div+div{border-left:1px solid #ffffff34;padding-left:clamp(14px,2vw,30px)}
-.sum small{color:#dbeafe;font-weight:700;letter-spacing:.02em}
-.sum .big{font-size:clamp(30px,3vw,44px);color:#fff;text-shadow:0 5px 20px #061b4e42;letter-spacing:-.065em;margin-top:5px}
-.chips{gap:8px}
-.chip{padding:9px 14px;border-radius:12px;border-width:1px;background:var(--surface-elevated);font-weight:700}
-.chip.on{background:linear-gradient(125deg,var(--ac),color-mix(in srgb,var(--ac) 76%,#60a5fa));box-shadow:0 7px 18px -12px var(--ac)}
-.btn{border-radius:13px;padding:12px 18px;min-height:42px;box-shadow:0 8px 19px -12px var(--ac),inset 0 1px 0 #ffffff30}
-.btn:hover{filter:brightness(1.08);box-shadow:0 10px 24px -12px var(--ac);transform:translateY(-1px)}
-.chip:hover:not(.on){border-color:color-mix(in srgb,var(--ac) 48%,var(--br));background:color-mix(in srgb,var(--tr) 78%,var(--card));transform:translateY(-1px)}
-input,select,textarea{border:1px solid var(--br);border-radius:12px;background:color-mix(in srgb,var(--bg) 78%,var(--card));padding:11px 13px;min-height:43px;color:var(--tx)}
-textarea{line-height:1.55;min-height:90px}
-label{font-weight:700;font-size:13px;color:var(--mut);letter-spacing:.005em}
-label input,label select{margin-top:6px}
-.li{gap:12px;padding:12px 2px;border-color:color-mix(in srgb,var(--br) 75%,transparent);line-height:1.45}
-.pill{padding:5px 10px;border-width:1px;letter-spacing:.01em}
-.bar{height:11px;border-radius:99px;overflow:hidden;background:color-mix(in srgb,var(--tr) 86%,var(--card))}
-.bar i{border-radius:99px;transition:width .35s ease}
-.sr,.dsec,.stat-tile,.goal-row,.goal-detail{border-radius:17px;border-color:color-mix(in srgb,var(--br) 82%,var(--ac) 18%)}
-.sr{box-shadow:0 8px 22px -21px #0008;margin:10px 0}
-.hd{padding:15px 16px;gap:14px}
-.cir{box-shadow:0 5px 12px -8px var(--ac)}
-table{border-collapse:separate;border-spacing:0;width:100%;overflow:hidden;border-radius:14px}
-th,td{padding:11px 9px;border-top:1px solid var(--br)}
-th{background:color-mix(in srgb,var(--tr) 60%,var(--card));font-weight:800}
-#menu{min-width:268px;max-width:min(340px,calc(100vw - 24px));padding:7px;border-radius:18px;border-color:color-mix(in srgb,var(--br) 75%,var(--ac) 25%);background:color-mix(in srgb,var(--card) 96%,transparent);backdrop-filter:blur(18px);box-shadow:0 24px 64px -24px #0009}
-#menu button.menu-action{display:flex;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:48px;padding:12px 13px;border:0;border-radius:12px;text-align:left;white-space:normal;color:var(--tx);font:700 14px/1.4 'Plus Jakarta Sans',system-ui,sans-serif}
-#menu button.menu-action>.ic{display:block;flex:0 0 21px;width:21px;height:21px;color:var(--ac)}
-#menu button.menu-action .menu-item-label{display:block!important;visibility:visible!important;opacity:1!important;flex:1 1 auto;min-width:0;color:var(--tx);white-space:normal;overflow-wrap:anywhere}
-#menu button.menu-action:hover{background:var(--tr)}
-.section-title{gap:13px;margin-bottom:15px}
-.section-title .section-icon{flex:0 0 46px;width:46px;height:46px;border-radius:15px;box-shadow:inset 0 1px 0 #ffffff40,0 7px 20px -15px var(--ac)}
-.section-title .history-icon{background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 24%,var(--card)),color-mix(in srgb,#38bdf8 14%,var(--card)));}
-.discipline-card{isolation:isolate;padding:clamp(20px,2.5vw,34px);background:linear-gradient(130deg,color-mix(in srgb,var(--ac) 9%,var(--card)),var(--card) 58%);box-shadow:0 20px 42px -31px color-mix(in srgb,var(--ac) 55%,transparent),inset 0 1px 0 #ffffff0d}
-.discipline-card:after{content:"";position:absolute;z-index:-1;right:-60px;top:-70px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 11%,transparent),transparent 70%);pointer-events:none}
-.discipline-card .section-title h3{font-size:clamp(19px,1.6vw,24px)}
-.discipline-card .section-title .ty{font-size:14px;max-width:650px}
-.discipline-card .f{display:grid;grid-template-columns:minmax(180px,1fr) minmax(180px,.8fr) auto;gap:12px;margin:22px 0 16px;max-width:1040px}
-.discipline-card .f input{width:100%;min-width:0;background:var(--bg)}
-.discipline-card .f .btn{min-width:132px}
-.discipline-card .li{position:relative;padding:14px 6px;border-top:1px solid var(--br);border-bottom:0;gap:12px}
-.discipline-card .li>span:first-child{min-width:0;overflow-wrap:anywhere}
-.discipline-card .li>span:last-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.dashboard-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;align-items:stretch}
-.dashboard-grid>.card{grid-column:span 6;min-width:0;margin:0;height:100%}
-.dashboard-grid>.card.sum{grid-column:1/-1}
-.dashboard-grid>.card:nth-child(2){grid-column:1/-1}
-.dashboard-grid>.card h3{display:flex;align-items:center;gap:9px}
-.dashboard-grid>.card .f{gap:9px}
-.dashboard-grid>.card .li{gap:12px}
-.dashboard-grid .row{grid-template-columns:minmax(90px,1.1fr) minmax(70px,2fr) 42px;gap:12px}
-.fs.activity-editor{width:100%;max-width:980px;margin:12px auto 30px;padding:clamp(16px,2.5vw,34px);border:1px solid color-mix(in srgb,var(--ac) 25%,var(--br));border-radius:26px;background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 7%,var(--card)),var(--card) 45%);box-shadow:0 28px 65px -48px color-mix(in srgb,var(--ac) 65%,transparent),inset 0 1px 0 #ffffff0d}
-.activity-editor .fsh{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:4;padding:12px 0 16px;margin-bottom:18px;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--br)}
-.activity-editor .fsh b{font-size:clamp(18px,1.8vw,24px);letter-spacing:-.035em;flex:1}
-.activity-editor .fsh .done{border:0;border-radius:12px;background:linear-gradient(135deg,var(--ac),#38bdf8);color:#fff;padding:11px 18px;font-weight:800;box-shadow:0 8px 18px -12px var(--ac)}
-.activity-editor .ti{margin:12px 0 18px}
-.activity-editor #it{width:100%;min-height:54px;font-size:clamp(19px,2.2vw,25px);font-weight:800;letter-spacing:-.025em;border-radius:14px}
-.activity-editor .rw{padding:10px 0;align-items:center}
-.activity-editor .rw>.ic{flex:0 0 auto;color:var(--ac)}
-.activity-editor .card{padding:clamp(16px,2vw,24px);margin:14px 0;border-radius:18px;border-color:var(--br);background:color-mix(in srgb,var(--card) 92%,var(--bg));box-shadow:inset 0 1px 0 #ffffff08}
-.activity-editor .card h3{margin-bottom:14px}
-.activity-editor .cl{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--br)}
-.activity-editor .cl:last-of-type{border-bottom:0}
-.activity-editor .ckt{flex:1;min-width:0}
-.activity-editor .adck{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 13px;border:1px dashed color-mix(in srgb,var(--ac) 52%,var(--br));border-radius:12px;background:color-mix(in srgb,var(--ac) 6%,var(--card));color:var(--ac);font-weight:800}
-.bim-actions{border-radius:18px;padding:18px 20px;box-shadow:0 14px 30px -26px var(--ac)}
-.ov{backdrop-filter:blur(8px);background:#020817a8}
-.mdl{border:1px solid color-mix(in srgb,var(--ac) 25%,var(--br));border-radius:24px;box-shadow:0 34px 90px -35px #000c;padding:clamp(20px,3vw,30px)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid color-mix(in srgb,var(--ac) 68%,white);outline-offset:3px}
-button:disabled{cursor:not-allowed;opacity:.55}
-@media(hover:hover){.card:not(.sum):hover{border-color:color-mix(in srgb,var(--ac) 30%,var(--br));box-shadow:var(--shadow-soft)}.discipline-card:hover{box-shadow:var(--shadow-raised)}.dwm button:hover{background:var(--tr)}}
-@media(min-width:1200px){
- header .rt{gap:10px}
- .dashboard-grid{gap:22px}
- .dashboard-grid>.card{grid-column:span 6}
- .dashboard-grid>.card.sum,.dashboard-grid>.card:nth-child(2){grid-column:1/-1}
- .sum.card{min-height:132px}
- .discipline-card .li{padding:16px 8px}
- .dwp{width:350px;max-width:90vw}
-}
-@media(max-width:760px){
- body{background-attachment:scroll}
- header{padding:12px 14px 10px}
- main{padding:16px 14px 38px}
- #app{padding:0}
- .dashboard-grid{display:flex;flex-direction:column;gap:12px}
- .dashboard-grid>.card,.dashboard-grid>.card.sum,.dashboard-grid>.card:nth-child(2){width:100%;margin:0}
- .sum.card{gap:8px;padding:18px 14px;border-radius:19px}
- .sum>div+div{padding-left:10px}
- .sum small{font-size:11px}
- .sum .big{font-size:clamp(24px,7vw,32px)}
- .card{padding:17px;margin-bottom:12px;border-radius:19px}
- .discipline-card .f{grid-template-columns:minmax(0,1fr);gap:10px;margin-top:18px}
- .discipline-card .f .btn{width:100%}
- .discipline-card .li{align-items:flex-start;flex-wrap:wrap}
- .discipline-card .li>span:last-child{width:100%;padding-left:18px}
- .activity-editor .fsh{top:0;flex-wrap:wrap}
- .activity-editor .fsh b{min-width:120px}
- .activity-editor .rw{flex-wrap:wrap}
- .activity-editor .rw input,.activity-editor .rw select{flex:1 1 100%;width:100%}
- #menu{position:fixed;right:12px;top:calc(env(safe-area-inset-top,0px) + 65px);min-width:260px}
- table{font-size:12px}th,td{padding:9px 5px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
-
 </style></head><body>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
 <main id="app"></main>
@@ -794,7 +645,7 @@ function painel(){const A=alerts(),av=BS().map(yA),fs=S.subs.map(fr).filter(x=>x
  const weak=BS().map(s=>[s,yA(s)]).filter(z=>z[1]!==null&&z[1]<S.avg).sort((a,b)=>a[1]-b[1]).slice(0,3);
  if(weak.length)h+=`<div class="card"><h3>${ic('warn')} Matérias para acompanhar</h3>${weak.map(([s,v])=>`<div class="li"><span>${esc(s.n)}<br><small>Média anual abaixo de ${f1(S.avg)}</small></span><button class="chip" onclick="openSubject('${s.id}')">${f1(v)} · Ver</button></div>`).join('')}</div>`;
  if(BS().length)h+=`<div class="card"><h3>Média anual por matéria</h3>${BS().map((s,i)=>`<div class="row"><span>${esc(s.n)}</span><div class="bar"><i style="width:${(av[i]||0)*10}%;background:${s.c}"></i><u style="left:${S.avg*10}%"></u></div><b>${f1(av[i])}</b></div>`).join('')}</div>`;
- return `<div class="dashboard-grid">${h}</div>`+cad()}
+ return h+cad()}
 function materias(){
  if(!S.subs.length)return '<div class="card empty">Use a seção <b>Registro de disciplinas</b>, dentro do Painel, para cadastrar suas disciplinas.</div>';
  const T=td(),hs=new Set(hol().map(x=>x.d)),om=fmo===null?(T.startsWith(String(S.yr))?T.slice(0,7):''):fmo,sdy=fdy===null?(om===T.slice(0,7)?T:null):fdy,sa=Object.values(S.att||{}).filter(r=>r.sat),tt=S.subs.map(s=>tot(s)),P=tt.reduce((a,t)=>a+t.P,0)+sa.filter(r=>r.a===true).length,F=tt.reduce((a,t)=>a+t.F,0)+sa.filter(r=>r.a===false).length,q=P+F?P/(P+F)*100:null;
@@ -855,7 +706,7 @@ function updateBimSim(){const el=$('#bimSimResult'),s=BS().find(x=>x.id===simSub
 function setSimYear(k,v){simYearValues=simYearValues||{};simYearValues[k]=v===''?'':Math.max(0,Math.min(10,num(v)||0));render()}
 function setScenario(i,k,v){const a=scenarioList();if(!a[i])return;a[i].v[k]=v===''?0:Math.max(0,Math.min(10,num(v)||0));render()}
 function toggleVacation(ym){S.vacationMonths=S.vacationMonths||[];if(isVacationMonth(ym))S.vacationMonths=S.vacationMonths.filter(x=>x!==ym);else S.vacationMonths.push(ym);save('a configuração do mês de férias');render()}
-function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3 class="section-title"><span class="section-icon history-icon">${ic('history',21)}</span><span>Histórico de alterações de notas</span></h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda não há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
+function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3 class="section-title">${ic('history',20)} Histórico de notas</h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda não há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
 function historicoNotas(){return historyNotesHTML()}
 function planoProvas(){const items=(S.items||[]).filter(i=>i.k==='Prova').sort((a,b)=>a.d.localeCompare(b.d));const plans=S.proofPlans||{};return `<div class="card"><div class="head"><h3>${ic('book')} Plano de Provas</h3><span class="pill">${items.length} prova(s)</span></div><p class="ty">As provas aparecem aqui automaticamente quando o tipo cadastrado no Planejamento é exatamente “Prova”. Não é necessário cadastrá-las novamente.</p></div>${items.length?items.map(i=>{const pl=plans[i.id]||{topics:[],notes:'',sessions:[]},topics=Array.isArray(pl.topics)?pl.topics:[],done=topics.filter(t=>t.status==='Concluído').length,pct=topics.length?Math.round(done/topics.length*100):0,s=S.subs.find(x=>x.id===i.sid),n=dd(i.d,td());return `<div class="card"><div class="head"><div><h3>${esc(i.t)}</h3><small>${s?esc(s.n)+' · ':''}${fd(i.d)} · ${n<0?'Passou há '+(-n)+' dia(s)':n===0?'Hoje':n+' dia(s) restantes'}</small></div><button class="btn" onclick="openProof('${i.id}')">Abrir</button></div><div class="goal-track"><i style="width:${pct}%;background:var(--ac)"></i></div><small>${done}/${topics.length} conteúdos concluídos · ${pct}%</small></div>`}).join(''):'<div class="card empty">Nenhum item do tipo “Prova” cadastrado. No Planejamento, selecione explicitamente “Prova” no campo Tipo para aparecer aqui.</div>'}${proofEdit?proofEditor():''}`}
 let proofEdit=null;
@@ -1155,11 +1006,11 @@ function render(){gr();applyTheme();
  if(!ses){$('#ttl').textContent='STZBLUE';$('#yl').textContent='';$('#hm').style.display='none';$('#bell').style.display='none';$('#dots').style.display='none';$('#menu').hidden=true;$('#dw').className='dw';$('#dw').innerHTML='';$('#app').innerHTML=auth();return}
  $('#app').dataset.tab=tab;
  const n=alerts().length,t=TABS.find(x=>x[0]===tab);
- $('#hm').style.display='';$('#hm').innerHTML=ic('menu',22);$('#ttl').textContent=t?t[1]:({config:'Configurações',perfil:'Perfil',historicoNotas:'Histórico de alterações de notas'}[tab]||'STZBLUE');$('#yl').textContent=S.yr+' · '+(S.yr-2025)+'º ano';
+ $('#hm').style.display='';$('#hm').innerHTML=ic('menu',22);$('#ttl').textContent=t?t[1]:({config:'Configurações',perfil:'Perfil',historicoNotas:'Histórico de alterações das notas'}[tab]||'STZBLUE');$('#yl').textContent=S.yr+' · '+(S.yr-2025)+'º ano';
  $('#bell').style.display='';$('#dots').style.display='';$('#bell').className=n?'al':'';$('#bell').innerHTML=ic('bell',16)+(n?' '+n:'');
  $('#dw').className='dw'+(dwo?' on':'');$('#dw').innerHTML=drawer();
  $('#app').innerHTML=({painel,alertas,foco,config,materias,boletim,formativa,desempenho,simulador,relatorios,horario,agenda,planoProvas,notas,perfil,historicoNotas})[tab]()+(clearPrompt?`<div class="ov" role="dialog" aria-modal="true"><div class="mdl" style="max-width:440px"><div class="head"><h3>Limpar ${clearPrompt}º bimestre?</h3><button class="x" aria-label="Fechar" onclick="clearPrompt=null;render()">×</button></div><p class="ty">Esta opção apaga as notas parciais, bimestrais, formativas e os pontos extras deste bimestre em todas as disciplinas. As notas de recuperação e os outros bimestres serão preservados.</p><p class="ty">Essa ação não pode ser desfeita. Deseja continuar?</p><div class="f"><button class="btn" onclick="confirmClearBimestre()">Confirmar limpeza</button><button class="chip" onclick="clearPrompt=null;render()">Cancelar</button></div></div></div>`:'')+(mq&&(tab==='boletim'||tab==='formativa')?modal():'')+(hq&&(tab==='horario'||tab==='painel')?hmodal():'')+(sq&&tab==='materias'?smodal():'')+(ash&&tab==='agenda'?editor():'');
- if(mq&&mq.step===2&&$('#mv'))$('#mv').focus();if(hq&&hq.step===2&&$('#hn'))$('#hn').focus();$('#dots').innerHTML=ic('dots',20);$('#menu').innerHTML=`<button class="menu-action" onclick="go('perfil')">${ic('user',18)}<span class="menu-item-label">Perfil e conta</span></button><button class="menu-action" aria-label="Histórico de alterações de notas" onclick="go('historicoNotas')">${ic('history',20)}<span class="menu-item-label">Histórico de alterações de notas</span></button><button class="menu-action" onclick="go('config')">${ic('cfg',18)}<span class="menu-item-label">Configurações</span></button>`}
+ if(mq&&mq.step===2&&$('#mv'))$('#mv').focus();if(hq&&hq.step===2&&$('#hn'))$('#hn').focus();$('#dots').innerHTML=ic('dots',20);$('#menu').innerHTML=`<button onclick="go('perfil')">${ic('user',18)} Perfil e conta</button><button type="button" class="menu-history-notes" aria-label="Histórico de notas" onclick="go('historicoNotas')"><span class="ic menu-history-icon" aria-hidden="true">${ic('history',20)}</span><span class="menu-history-label">Histórico de notas</span></button><button onclick="go('config')">${ic('cfg',18)} Configurações</button>`}
 (async()=>{const h=location.hash;
  if(h.includes('type=recovery')){rtk=new URLSearchParams(h.slice(1)).get('access_token');am='new';history.replaceState(null,'',location.pathname)}
  else if(h.includes('error_description')){aerr='O link expirou ou é inválido. Peça um novo em "Esqueci minha senha".';am='rec';history.replaceState(null,'',location.pathname)}
