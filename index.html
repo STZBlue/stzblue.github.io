@@ -469,6 +469,52 @@ nav button.on{box-shadow:0 3px 12px rgba(4,20,70,.16)}
 }
 @media(prefers-reduced-motion:reduce){.btn,.chip,input,select,textarea,nav button{transition:none!important}}
 
+
+/* STZBLUE · refinamento visual global */
+:root{--glow:rgba(37,99,235,.18);--focus-ring:color-mix(in srgb,var(--ac) 72%,white)}
+body{background-image:radial-gradient(ellipse at 12% 0%,var(--glow),transparent 38%);background-attachment:fixed;letter-spacing:-.012em}
+header{background:linear-gradient(125deg,#071b4d 0%,var(--hd) 48%,#2563eb 100%);box-shadow:0 8px 28px #071b4d26;border-bottom:1px solid #ffffff20}
+.brand{letter-spacing:.025em;text-shadow:0 2px 14px #0002}
+nav{scrollbar-width:thin;scrollbar-color:#ffffff55 transparent;padding:2px 0 4px}
+nav button{transition:background .18s,color .18s,transform .18s}
+nav button:hover{background:#ffffff18;color:#fff}
+nav button.on{box-shadow:0 3px 10px #00184a25}
+main{width:100%;animation:blue-in .24s ease-out}
+.card{position:relative;overflow:hidden;border-color:color-mix(in srgb,var(--br) 86%,var(--ac));box-shadow:0 10px 30px -24px color-mix(in srgb,var(--ac) 60%,transparent),0 1px 0 #ffffff08 inset}
+.card h3{letter-spacing:-.025em}
+.card.sum{background:linear-gradient(125deg,color-mix(in srgb,var(--ac) 11%,var(--card)),var(--card) 72%);border-color:color-mix(in srgb,var(--ac) 28%,var(--br))}
+.sum>div+div{border-left:1px solid var(--br);padding-left:12px}
+.big{letter-spacing:-.055em;text-shadow:0 5px 18px color-mix(in srgb,var(--ac) 13%,transparent)}
+.btn{background:linear-gradient(135deg,var(--ac),color-mix(in srgb,var(--ac) 65%,#75b8ff));}
+.chip,.btn,.x,#dots,#bell{transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease,filter .16s ease}
+.chip:active,.btn:active{transform:scale(.98)}
+input,select,textarea{transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
+input:focus,select:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 16%,transparent);outline:none}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.section-title h3{margin:0}
+.section-title .ty{margin:4px 0 0}
+.section-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 18%,var(--card)),var(--tr));color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 22%,var(--br))}
+.discipline-card .f{align-items:stretch;gap:10px}
+.discipline-card .f input{min-width:160px}
+.discipline-card .li{padding:12px 2px}
+#menu{backdrop-filter:blur(18px);box-shadow:0 18px 50px #0003}
+#menu button{display:flex;align-items:center;gap:10px;transition:background .15s}
+#menu button:hover{background:var(--tr)}
+.fs.activity-editor{max-width:860px;margin:14px auto 28px;padding:clamp(14px,2.5vw,26px);border:1px solid var(--br);border-radius:24px;background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 5%,var(--card)),var(--card) 45%);box-shadow:0 20px 55px -38px color-mix(in srgb,var(--ac) 60%,transparent)}
+.activity-editor .fsh{position:sticky;top:0;z-index:3;background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--br);padding:10px 0 14px;margin-bottom:14px}
+.activity-editor>.card{padding:clamp(14px,2vw,22px);margin:12px 0;border-radius:18px}
+.activity-editor .ti{display:flex;align-items:center;gap:12px;margin:12px 0 16px}
+.activity-editor #it{font-size:clamp(18px,2.5vw,24px);font-weight:800;padding:14px 15px;background:var(--card)}
+.activity-editor textarea{min-height:90px;resize:vertical}
+.activity-editor .rw{gap:12px}
+.activity-editor .chip{min-height:40px}
+.stat-tile,.perf-hero,.goal-row{border-radius:16px}
+button:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+@keyframes blue-in{from{opacity:.86;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1100px){main{max-width:1440px;padding:28px 38px 72px}.card{padding:24px;margin:16px 0}.discipline-card .f input{flex:1 1 220px}.sum{padding:26px 28px}.sum>div{padding:4px 8px}.sum>div+div{padding-left:24px}.activity-editor{width:min(100%,900px)}}
+@media(max-width:600px){body{background-attachment:scroll}.card{border-radius:17px;padding:15px;margin:11px 0}.sum{gap:8px}.sum>div+div{padding-left:8px}.big{font-size:clamp(22px,7vw,30px)}.discipline-card .f input{flex-basis:100%;width:100%}.fs.activity-editor{padding:12px;border-radius:18px;margin:8px 0 20px}.activity-editor .fsh{gap:8px}.activity-editor .ti{gap:8px}.activity-editor .rw{flex-wrap:wrap}.activity-editor .rw input,.activity-editor .rw select{flex:1 1 42%;width:100%}}
+@media(prefers-reduced-motion:reduce){main{animation:none}}
+
 </style></head><body>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
 <main id="app"></main>
@@ -557,7 +603,7 @@ function painel(){const A=alerts(),av=BS().map(yA),fs=S.subs.map(fr).filter(x=>x
  if(BS().length)h+=`<div class="card"><h3>Média anual por matéria</h3>${BS().map((s,i)=>`<div class="row"><span>${esc(s.n)}</span><div class="bar"><i style="width:${(av[i]||0)*10}%;background:${s.c}"></i><u style="left:${S.avg*10}%"></u></div><b>${f1(av[i])}</b></div>`).join('')}</div>`;
  return h+cad()}
 function materias(){
- if(!S.subs.length)return '<div class="card empty">Use a seção <b>Disciplinas</b> no Painel para cadastrar suas disciplinas.</div>';
+ if(!S.subs.length)return '<div class="card empty">Use a seção <b>Registro de disciplinas</b>, dentro do Painel, para cadastrar suas disciplinas.</div>';
  const T=td(),hs=new Set(hol().map(x=>x.d)),om=fmo===null?(T.startsWith(String(S.yr))?T.slice(0,7):''):fmo,sdy=fdy===null?(om===T.slice(0,7)?T:null):fdy,sa=Object.values(S.att||{}).filter(r=>r.sat),tt=S.subs.map(s=>tot(s)),P=tt.reduce((a,t)=>a+t.P,0)+sa.filter(r=>r.a===true).length,F=tt.reduce((a,t)=>a+t.F,0)+sa.filter(r=>r.a===false).length,q=P+F?P/(P+F)*100:null;
  let h=`<div class="card hero">${ring(q,S.fq,96)}<div><small>Frequência geral · ${S.yr}</small><br><small>${P} presenças · ${F} faltas</small><br><small>Mínimo exigido: ${S.fq}%</small></div></div>`;
  MN.forEach((mn,m)=>{const key=`${S.yr}-${p2(m+1)}`,rs=Object.entries(S.att||{}).filter(([d])=>d.startsWith(key)),pr=isVacationMonth(key)?0:rs.filter(([,r])=>r.sat?r.a===true:!r.n&&!r.f.length).length,fa=isVacationMonth(key)?0:rs.filter(([,r])=>r.sat?r.a===false:!r.n&&r.f.length).length,op=om===key;
@@ -576,7 +622,7 @@ const tr=s=>{const a=R(4).map(p=>pA(s,p)).filter(x=>x!==null);if(a.length<2)retu
 function annualProgress(s){const vals=R(4).map(p=>pA(s,p)),known=vals.filter(v=>v!==null),sum=known.reduce((a,b)=>a+b,0),left=4-known.length,target=Number(S.cfg.annualTarget??24),needed=left?Math.max(0,(target-sum)/left):null;return{sum,left,target,needed,passed:sum>=target,complete:left===0,vals}}
 function annualBimesterTarget(s,p){const target=Number(S.cfg.annualTarget??24),others=R(4).filter(k=>k!==p).map(k=>pA(s,k)).filter(v=>v!==null),left=4-others.length;return left?Math.max(0,(target-others.reduce((a,b)=>a+b,0))/left):Math.max(0,target-others.reduce((a,b)=>a+b,0))}
 function desempenho(){
- if(!BS().length)return '<div class="card empty">Use a seção <b>Disciplinas</b> no Painel para cadastrar suas disciplinas.</div>';
+ if(!BS().length)return '<div class="card empty">Use a seção <b>Registro de disciplinas</b>, dentro do Painel, para cadastrar suas disciplinas.</div>';
  const vs=BS().map(s=>dp?pA(s,dp):yA(s)),ge=mean(vs.filter(x=>x!==null)),cur=BS().find(s=>s.id===ds)||BS()[0],
  seg=[[vs.filter(x=>x!==null&&x>=S.avg).length,'var(--ok)','Na média'],[vs.filter(x=>x!==null&&x<S.avg&&x>=S.avg-1).length,'var(--warn)','Atenção'],[vs.filter(x=>x!==null&&x<S.avg-1).length,'var(--bad)','Abaixo'],[vs.filter(x=>x===null).length,'var(--tr)','Sem notas']],
  C=2*Math.PI*40,ord=BS().map((s,i)=>[s,vs[i]]).sort((a,b)=>(b[1]===null?-1:b[1])-(a[1]===null?-1:a[1])),
@@ -616,7 +662,7 @@ function updateBimSim(){const el=$('#bimSimResult'),s=BS().find(x=>x.id===simSub
 function setSimYear(k,v){simYearValues=simYearValues||{};simYearValues[k]=v===''?'':Math.max(0,Math.min(10,num(v)||0));render()}
 function setScenario(i,k,v){const a=scenarioList();if(!a[i])return;a[i].v[k]=v===''?0:Math.max(0,Math.min(10,num(v)||0));render()}
 function toggleVacation(ym){S.vacationMonths=S.vacationMonths||[];if(isVacationMonth(ym))S.vacationMonths=S.vacationMonths.filter(x=>x!==ym);else S.vacationMonths.push(ym);save('a configuração do mês de férias');render()}
-function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3>${ic('history')} Histórico de alterações das notas</h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda não há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
+function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3 class="section-title">${ic('history',20)} Histórico de notas</h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda não há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
 function historicoNotas(){return historyNotesHTML()}
 function planoProvas(){const items=(S.items||[]).filter(i=>i.k==='Prova').sort((a,b)=>a.d.localeCompare(b.d));const plans=S.proofPlans||{};return `<div class="card"><div class="head"><h3>${ic('book')} Plano de Provas</h3><span class="pill">${items.length} prova(s)</span></div><p class="ty">As provas aparecem aqui automaticamente quando o tipo cadastrado no Planejamento é exatamente “Prova”. Não é necessário cadastrá-las novamente.</p></div>${items.length?items.map(i=>{const pl=plans[i.id]||{topics:[],notes:'',sessions:[]},topics=Array.isArray(pl.topics)?pl.topics:[],done=topics.filter(t=>t.status==='Concluído').length,pct=topics.length?Math.round(done/topics.length*100):0,s=S.subs.find(x=>x.id===i.sid),n=dd(i.d,td());return `<div class="card"><div class="head"><div><h3>${esc(i.t)}</h3><small>${s?esc(s.n)+' · ':''}${fd(i.d)} · ${n<0?'Passou há '+(-n)+' dia(s)':n===0?'Hoje':n+' dia(s) restantes'}</small></div><button class="btn" onclick="openProof('${i.id}')">Abrir</button></div><div class="goal-track"><i style="width:${pct}%;background:var(--ac)"></i></div><small>${done}/${topics.length} conteúdos concluídos · ${pct}%</small></div>`}).join(''):'<div class="card empty">Nenhum item do tipo “Prova” cadastrado. No Planejamento, selecione explicitamente “Prova” no campo Tipo para aparecer aqui.</div>'}${proofEdit?proofEditor():''}`}
 let proofEdit=null;
@@ -707,7 +753,7 @@ const concl=(T,flt)=>{const L=S.items.filter(i=>i.x&&i.k!=='Feriado'&&flt(i)).so
  if(!L.length)return `<div class="emp" style="padding-top:30px">${EMP}<b>Nada concluído ainda</b><small>As atividades concluídas aparecem aqui</small></div>`;
  const g={};L.forEach(i=>(g[i.d]=g[i.d]||[]).push(i));
  return `<div class="sec">${L.length} concluída${L.length>1?'s':''}</div>`+Object.keys(g).sort().reverse().map(d=>`<div class="dsec"><h2>${dh(d)}</h2>${g[d].map(i=>tkc(i,T)).join('')}</div>`).join('')};
-const editor=()=>{const a=adr;return `<div class="fs"><div class="fsh"><button class="rb" aria-label="Voltar" onclick="ash=false;render()">${ic('cl',22)}</button><b>${a.id?'Editar atividade':'Nova atividade'}</b><button class="done" onclick="saveEd()">Concluído</button></div>
+const editor=()=>{const a=adr;return `<div class="fs activity-editor"><div class="fsh"><button class="rb" aria-label="Voltar" onclick="ash=false;render()">${ic('cl',22)}</button><b>${a.id?'Editar atividade':'Nova atividade'}</b><button class="done" onclick="saveEd()">Concluído</button></div>
 <div class="ti"><button class="ck big" style="--c:${KC[a.k]}" aria-label="Concluída" onclick="ed2('x',!adr.x)">${a.x?ic('check',18):''}</button><input id="it" placeholder="Título da atividade" maxlength="80" value="${esc(a.t)}"></div>
 <div class="f">${KI.map(k=>`<button class="chip kc${a.k===k?' on':''}" style="--c:${KC[k]}" onclick="ed2('k','${k}')">${ic(KIC[k],14)} ${k}</button>`).join('')}</div>
 <div class="card"><div class="rw">${ic('cal',20)}<input id="idt" type="date" min="${S.yr}-01-01" max="${S.yr}-12-31" value="${a.d}"><input id="itm" type="time" value="${a.tm}"></div>${a.id?'':`<div class="rw">${ic('repeat',20)}<select id="irp">${[['1','Nunca'],['4','Toda semana · 4 vezes'],['8','Toda semana · 8 vezes'],['16','Toda semana · 16 vezes']].map(([v,l])=>`<option value="${v}"${a.r===v?' selected':''}>${l}</option>`).join('')}</select></div>`}</div>
@@ -832,7 +878,7 @@ function satA(d,a){if(a===null)delete S.att[d].a;else S.att[d].a=a;save('o regis
 function noc(d){(S.att=S.att||{})[d]={n:1};save('o registro de frequência de '+fl(d));render()}
 const mk=()=>fmo&&fmo.startsWith(S.yr)?fmo:(td().startsWith(S.yr)?td().slice(0,7):S.yr+'-03');
 const ring=(q,min,z=84)=>{const r=34,C=2*Math.PI*r,v=q===null?0:Math.min(100,q),col=q===null?'var(--mut)':q>=min?'var(--ok)':'var(--bad)';return `<svg width="${z}" height="${z}" viewBox="0 0 84 84"><circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--tr)" stroke-width="9"/><circle cx="42" cy="42" r="${r}" fill="none" stroke="${col}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C*v/100} ${C}" transform="rotate(-90 42 42)"/><text x="42" y="47" text-anchor="middle" font-size="16" font-weight="800" fill="var(--tx)">${q===null?'–':Math.round(q)+'%'}</text></svg>`};
-const cad=()=>`<div class="card"><h3>${ic('book')} Disciplinas</h3><p class="ty">Cadastre e organize as disciplinas do seu ano letivo.</p><div class="f"><input id="mn" placeholder="Nome da disciplina" maxlength="40"><input id="mp" placeholder="Professor(a)" maxlength="40"><button class="btn" onclick="addSub()">Adicionar</button></div>${!S.subs.length&&S.Y[S.yr-1]&&S.Y[S.yr-1].subs.length?'<div class="f"><button class="chip" onclick="copyPrev()">Copiar matérias do ano anterior</button></div>':''}${S.subs.map(s=>`<div class="li"><span><span class="dot" style="background:${s.c}"></span>${esc(s.n)} <small>${esc(s.pr||'')}</small></span><span><button class="chip" onclick="togB('${s.id}')">${s.nb?'Só horário':'Boletim'}</button><button class="x" onclick="delSub('${s.id}')">${pend===s.id?'Apagar?':'×'}</button></span></div>`).join('')}</div>`;
+const cad=()=>`<div class="card discipline-card"><div class="section-title"><span class="section-icon">${ic('book',21)}</span><div><h3>Registro de disciplinas</h3><p class="ty">Cadastre, organize e configure as disciplinas do seu ano letivo.</p></div></div><div class="f"><input id="mn" placeholder="Nome da disciplina" maxlength="40"><input id="mp" placeholder="Professor(a)" maxlength="40"><button class="btn" onclick="addSub()">Adicionar</button></div>${!S.subs.length&&S.Y[S.yr-1]&&S.Y[S.yr-1].subs.length?'<div class="f"><button class="chip" onclick="copyPrev()">Copiar matérias do ano anterior</button></div>':''}${S.subs.map(s=>`<div class="li"><span><span class="dot" style="background:${s.c}"></span>${esc(s.n)} <small>${esc(s.pr||'')}</small></span><span><button class="chip" onclick="togB('${s.id}')">${s.nb?'Só horário':'Boletim'}</button><button class="x" onclick="delSub('${s.id}')">${pend===s.id?'Apagar?':'×'}</button></span></div>`).join('')}</div>`;
 const hc=v=>v==null?'':v>=S.avg?'ok2':v>=S.avg-1?'wr2':'bd2';
 const HOL={};
 const isH=d=>hol().some(x=>x.d===d);
