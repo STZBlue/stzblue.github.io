@@ -296,7 +296,7 @@ td:last-child{font-weight:800}
 .dwp{border-right:1px solid var(--br)}
 .dwh{padding:calc(24px + env(safe-area-inset-top,0px)) 22px 22px;background:radial-gradient(circle at 100% 0%,#4382ff 0,transparent 48%),linear-gradient(145deg,#102966,#1f57c4 85%)}
 .brand2{font-size:16px;letter-spacing:.04em}
-.avt{width:82px;height:82px;border:3px solid #ffffffa6;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.avt{width:82px;height:82px;border:3px solid transparent;box-shadow:0 8px 20px rgba(0,0,0,.12)}
 .dwm{padding:12px}
 .dwm button{min-height:46px;gap:13px;padding:12px 14px;border-radius:13px;font-size:14px;transition:background .15s,color .15s,transform .15s}
 .dwm button .ic{width:21px;height:21px}
@@ -690,15 +690,17 @@ button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 .dwo{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .dwp{transition:transform .38s var(--ease);border-radius:0 26px 26px 0}
 .dwh{background:linear-gradient(150deg,var(--hd),#1e3fd6 60%,var(--ac2));border-radius:0 26px 0 0}
-/* Anel azul animado ao redor da foto de perfil */
-.avt{isolation:isolate;transition:transform .3s var(--spring);}
-.avt::before{content:"";position:absolute;inset:-7px;border-radius:50%;padding:3px;background:conic-gradient(from 0deg,#55d9ff,#327bff,#8c6bff,#35f0e1,#55d9ff);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:-1;animation:stzAvatarOrbit 4s linear infinite;filter:drop-shadow(0 0 5px #36aaff99);pointer-events:none}
-.avt::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid #61caff8c;box-shadow:0 0 12px #248dff66;z-index:-2;animation:stzAvatarPulse 2.8s ease-in-out infinite;pointer-events:none}
-@keyframes stzAvatarOrbit{to{transform:rotate(360deg)}}
-@keyframes stzAvatarPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.045)}}
+/* Anel líquido azul-arroxeado: encostado à foto, com ondulações suaves no contorno */
+.avt{isolation:isolate;position:relative;border-color:transparent!important;transition:transform .3s var(--spring);}
+.avt img{display:block;border-radius:50%;}
+.avt::before{content:"";position:absolute;inset:-3px;border-radius:50%;padding:3px;background:conic-gradient(from 0deg,#55d9ff,#327bff,#8c6bff,#35f0e1,#55d9ff);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:1;animation:stzAvatarLiquid 5s ease-in-out infinite,stzAvatarHue 7s linear infinite;filter:drop-shadow(0 0 5px #36aaff99);pointer-events:none;}
+.avt::after{content:"";position:absolute;inset:-3px;border-radius:46% 54% 51% 49% / 52% 46% 54% 48%;border:1px solid #61caff8c;box-shadow:0 0 12px #248dff66;z-index:0;animation:stzAvatarWave 3.8s ease-in-out infinite;pointer-events:none;}
+@keyframes stzAvatarLiquid{0%,100%{border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;transform:rotate(0deg) scale(1)}25%{border-radius:47% 53% 49% 51% / 52% 46% 54% 48%;transform:rotate(2deg) scale(1.025)}50%{border-radius:53% 47% 52% 48% / 46% 54% 46% 54%;transform:rotate(-1deg) scale(1.01)}75%{border-radius:49% 51% 46% 54% / 54% 49% 51% 46%;transform:rotate(1deg) scale(1.03)}}
+@keyframes stzAvatarHue{to{filter:hue-rotate(360deg) drop-shadow(0 0 5px #36aaff99)}}
+@keyframes stzAvatarWave{0%,100%{border-radius:46% 54% 51% 49% / 52% 46% 54% 48%;transform:rotate(0deg) scale(1);opacity:.55}50%{border-radius:53% 47% 46% 54% / 47% 55% 45% 53%;transform:rotate(8deg) scale(1.045);opacity:1}}
 .danger-chip{justify-content:center;text-align:center;color:#ff777f!important;background:rgba(239,68,68,.12)!important;border:1px solid rgba(248,89,99,.42)!important;}
 .danger-chip svg{flex:0 0 auto;color:#ff777f}
-@media(prefers-reduced-motion:reduce){.avt::before,.avt::after{animation:none!important}.avt::before{background:#55bfff}}
+
 .dwm button{transition:background .2s,color .2s,transform .25s var(--ease)}
 @media (hover:hover){.dwm button:hover{background:var(--tr);transform:translateX(4px)}}
 .dw.on .dwm button{animation:stzSlideR .45s var(--ease) both}
