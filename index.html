@@ -673,6 +673,26 @@ button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 ::selection{background:color-mix(in srgb,var(--ac) 30%,transparent)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.stz-reveal{opacity:1;transform:none}}
+
+
+/* STZBLUE — aro azul gradiente animado no avatar do menu lateral */
+.dwh .avt{
+  position:relative;
+  isolation:isolate;
+  border:3px solid transparent;
+  background:linear-gradient(145deg,#16346f,#245de0 55%,#60a5fa) padding-box,
+             conic-gradient(from 0deg,#7dd3fc,#2563eb,#a5b4fc,#38bdf8,#1d4ed8,#7dd3fc) border-box;
+  background-size:100% 100%,220% 220%;
+  background-position:center,0% 50%;
+  box-shadow:0 0 0 1px rgba(96,165,250,.28),0 0 15px rgba(37,99,235,.42),0 0 30px rgba(56,189,248,.18);
+  animation:stzAvatarGradient 6s linear infinite,stzAvatarGlow 3.2s ease-in-out infinite;
+}
+.dwh .avt img{position:relative;z-index:1;border-radius:50%;}
+.dwh .avt>span{position:relative;z-index:1;text-shadow:0 1px 8px rgba(0,0,0,.22);}
+.dwh .avt i{z-index:2;border:2px solid #dbeafe;box-shadow:0 0 12px rgba(96,165,250,.65);}
+@keyframes stzAvatarGradient{0%{background-position:center,0% 50%}50%{background-position:center,100% 50%}100%{background-position:center,0% 50%}}
+@keyframes stzAvatarGlow{0%,100%{box-shadow:0 0 0 1px rgba(96,165,250,.24),0 0 13px rgba(37,99,235,.36),0 0 24px rgba(56,189,248,.12)}50%{box-shadow:0 0 0 2px rgba(125,211,252,.48),0 0 20px rgba(37,99,235,.62),0 0 36px rgba(56,189,248,.25)}}
+@media(prefers-reduced-motion:reduce){.dwh .avt{animation:none}}
 </style>
 </head><body>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
