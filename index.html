@@ -1096,13 +1096,14 @@ function gr(){
   `Bem-vindo de volta${first?', '+first:''}! 💙`,
   `Que bom ter você aqui${first?', '+first:''}!`
  ];
- let pick=Math.floor(Math.random()*options.length);
+ let pick=null;
+ // A saudação é escolhida uma única vez por sessão da aba e reutilizada em todos os renders.
  try{
-  const key='stzblue.greeting.last.'+String(ses||'').toLowerCase();
-  const last=sessionStorage.getItem(key);
-  if(options.length>1&&last!==null&&Number(last)===pick)pick=(pick+1+Math.floor(Math.random()*(options.length-1)))%options.length;
-  sessionStorage.setItem(key,String(pick));
- }catch(e){}
+  const key='stzblue.greeting.session.'+String(ses||'').trim().toLowerCase();
+  const saved=sessionStorage.getItem(key);
+  if(saved!==null&&Number.isInteger(Number(saved))&&Number(saved)>=0&&Number(saved)<options.length)pick=Number(saved);
+  else{pick=Math.floor(Math.random()*options.length);sessionStorage.setItem(key,String(pick));}
+ }catch(e){pick=Math.floor(Math.random()*options.length)}
  $('#gr').textContent=options[pick];
 }
 const fdp=d=>{const r=(S.att||{})[d];
@@ -1205,7 +1206,7 @@ function stzCloseRelease(){
 }
 function stzShowReleaseIfNeeded(){
  if(!ses||!document.body||document.getElementById('stzReleaseOverlay'))return;
- const key='stzblue.release.seen.1.1.1.'+String(ses||'').trim().toLowerCase();
+ const key='stzblue.release.seen.1.1.1.build-20261011-a.'+String(ses||'').trim().toLowerCase();
  try{if(localStorage.getItem(key)==='1')return}catch(e){}
  const ov=document.createElement('div');
  ov.id='stzReleaseOverlay';ov.className='stz-release-overlay';
@@ -1226,7 +1227,7 @@ function stzShowReleaseIfNeeded(){
 }
 function stzReleaseEscape(e){if(e.key==='Escape'&&document.getElementById('stzReleaseOverlay'))stzConfirmRelease()}
 function stzConfirmRelease(){
- const key='stzblue.release.seen.1.1.1.'+String(ses||'').trim().toLowerCase();
+ const key='stzblue.release.seen.1.1.1.build-20261011-a.'+String(ses||'').trim().toLowerCase();
  try{localStorage.setItem(key,'1')}catch(e){}
  document.removeEventListener('keydown',stzReleaseEscape);
  stzCloseRelease();
