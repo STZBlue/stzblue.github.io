@@ -2,7 +2,7 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="theme-color" content="#0b1020">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>STZBLUE 1.1.1</title>
+<title>STZBLUE 1.2</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef4ff;--glow:rgba(37,99,235,.12);--card:#fff;--tx:#0f1f3d;--mut:#5a6b8c;--br:#d6e2fa;--ac:#1d4ed8;--hd:#0b3a9e;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--tr:#e3ecff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1252,8 +1252,108 @@ html[data-mode="light"] ::-webkit-scrollbar-thumb{background:linear-gradient(180
   .big,.big2,.ttl{background:none!important;color:#0b1a3d!important;-webkit-text-fill-color:#0b1a3d}
 }
 </style>
+<style id="stz-liquid-perf">
+/* ===== STZBLUE 1.2 — Evolução do desempenho por bimestre ===== */
+.ev-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.ev-kpi{margin:0!important;padding:14px!important}
+.ev-kpi small{display:block;color:var(--mut);font-size:12px}.ev-kpi b{display:block;font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-.02em;margin:2px 0}.ev-kpi span{font-size:12px;color:var(--mut)}
+.ev-main{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:14px;align-items:start}
+.ev-filters{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}.ev-filters label{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--mut);flex:1 1 150px;margin:0}.ev-filters select{width:100%;margin:0;min-height:42px}
+.ev-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.ev-hit{fill:transparent;cursor:pointer;outline:none}.ev-hit:focus-visible{stroke:var(--ac);stroke-width:2}
+.ev-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--mut);margin-top:6px}.ev-legend i{display:inline-block;width:18px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.ev-side{border-top:1px solid var(--br);padding-top:12px}
+.ev-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--br);font-size:14px}.ev-row:first-of-type{border-top:0}.ev-row .n{flex:1;min-width:0}.ev-row b{font-variant-numeric:tabular-nums}
+.ev-tbl{width:100%;border-collapse:collapse;font-size:13px}.ev-tbl th,.ev-tbl td{padding:8px 6px;text-align:right;border-top:1px solid var(--br);font-variant-numeric:tabular-nums}.ev-tbl th:first-child,.ev-tbl td:first-child{text-align:left}.ev-tbl th{color:var(--mut);font-weight:600;border-top:0}
+@media(max-width:900px){.ev-main{grid-template-columns:1fr}.ev-side{border-top:0;padding-top:0}.ev-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ===== STZBLUE 1.2 — Desempenho do Liquid Glass e barra de abas do computador ===== */
+:root:root:root:root{--lg-blur:calc(12px*var(--lgi));--lg-sat:calc(100% + 30%*var(--lgi))}
+
+/* Desfoque apenas em superfícies grandes; itens pequenos e aninhados ficam sem backdrop-filter */
+.tk,.sr,.al2,.note-card,.note-editor,.year-picker,.card .card,.chip,.done,.rb,.dsel,.sgm,#bell,#dots,#hm{backdrop-filter:none;-webkit-backdrop-filter:none}
+.ov,.dwo{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fs{backdrop-filter:blur(calc(1.2*var(--lg-blur))) saturate(var(--lg-sat));-webkit-backdrop-filter:blur(calc(1.2*var(--lg-blur))) saturate(var(--lg-sat))}
+.dwp,.mdl,.stz-release-card{backdrop-filter:blur(calc(1.5*var(--lg-blur))) saturate(var(--lg-sat));-webkit-backdrop-filter:blur(calc(1.5*var(--lg-blur))) saturate(var(--lg-sat))}
+
+/* Fundo ambiente: só animações compostas (transform/translate), sem blur em cada fragmento */
+.ambient-motion{contain:layout paint style}
+.ambient-motion .glass-shard,.ambient-motion .tech-cube span{backdrop-filter:none;-webkit-backdrop-filter:none}
+@keyframes shard-drift-a{from{translate:0 -1.2%}to{translate:0 1.5%}}
+@keyframes shard-drift-b{from{translate:0 1.2%}to{translate:0 -1.5%}}
+@keyframes shard-drift-c{from{translate:0 .8%}to{translate:0 -1.3%}}
+body::before{mix-blend-mode:normal;opacity:calc(.035*var(--lgi))}
+html[data-mode="light"] body::before{mix-blend-mode:normal}
+
+/* Animações contínuas caras substituídas por versões leves ou removidas */
+.bar i::after,.goal-track i::after,.dwh::after,.avt::after{animation:none;display:none}
+.avt::before{animation:stzAvatarSpin 9s linear infinite;filter:drop-shadow(0 0 4px rgba(54,170,255,.55))}
+@keyframes stzAvatarSpin{to{transform:rotate(360deg)}}
+.fab::before{box-shadow:none;border:2px solid rgba(110,150,255,.6);animation:stzFabRing 3s ease-out infinite}
+@keyframes stzFabRing{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(1.45);opacity:0}}
+.big,.big2{filter:none}
+.stz-release-confirm,.stz-release-check{animation:none}
+.stz-release-card:after{animation:none}
+
+/* As páginas só animam na troca de aba, não a cada atualização dos dados */
+.card{animation:none}
+#app.stz-tab-in>.card,#app.stz-tab-in>.dsec,#app.stz-tab-in>.chips,#app.stz-tab-in>.sgm{animation:stzFadeUp .3s var(--stz-ease) both}
+
+/* Menu lateral fechado não participa da pintura */
+.dw:not(.on) .dwo,.dw:not(.on) .dwp{visibility:hidden}
+.dwo{transition:opacity .35s var(--lg-ease),visibility 0s linear .35s}
+.dwp{transition:transform .65s var(--lg-spring),opacity .4s var(--lg-ease),visibility 0s linear .65s}
+.dw.on .dwo,.dw.on .dwp{visibility:visible;transition-delay:0s}
+
+/* Intensidade baixa, modo automático de economia e telas de toque */
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .card{backdrop-filter:none;-webkit-backdrop-filter:none}
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .ambient-motion:before,
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .ambient-motion:after,
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .ambient-motion .wave-filaments{animation:none!important;will-change:auto}
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .ambient-motion .glass-shard,
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) .ambient-motion .tech-cubes{display:none}
+html:is([data-lg="lite"],[data-lg="off"],[data-perf="low"]) body::before{display:none}
+html:is([data-lg="off"],[data-perf="low"]) .avt::before{animation:none}
+html:is([data-lg="off"],[data-perf="low"]) .fab::before{animation:none;display:none}
+@media(pointer:coarse){
+  .card{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .ambient-motion:before,.ambient-motion:after,.ambient-motion .wave-filaments{animation:none!important;will-change:auto}
+  .ambient-motion .glass-shard,.ambient-motion .tech-cubes{display:none}
+  body::before{display:none}
+}
+
+/* Sólido: nenhum backdrop-filter e sem brilhos dinâmicos nos cartões */
+html[data-lg="off"] *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html[data-lg="off"] :is(.card,.tk,.sr,.al2,.note-card,.note-editor,.year-picker)::before,
+html[data-lg="off"] :is(.card,.tk,.sr,.al2,.note-card,.note-editor,.year-picker)::after{display:none}
+
+/* Painel de abas no topo (computador) */
+.stz-tbar{display:none}
+@media(min-width:1100px) and (not (pointer:coarse)){
+  .stz-tbar{display:flex;align-items:center;gap:10px;position:sticky;top:12px;z-index:25;width:min(1500px,calc(100% - 32px));margin:12px auto 0;padding:8px 10px;border:1px solid rgba(205,218,255,.20);border-radius:28px;background:var(--glass-bg);box-shadow:var(--glass-shadow);backdrop-filter:blur(calc(1.5*var(--lg-blur))) saturate(var(--lg-sat));-webkit-backdrop-filter:blur(calc(1.5*var(--lg-blur))) saturate(var(--lg-sat))}
+  .stz-tbar:empty{display:none}
+  #hm,#dw{display:none!important}
+  header,header.stz-scrolled{position:relative;top:auto;margin-top:10px}
+  .tb-user{display:flex;align-items:center;gap:10px;flex:0 0 auto;max-width:260px;padding:4px 14px 4px 4px;border:1px solid transparent;border-radius:999px;background:none;color:var(--tx);cursor:pointer;text-align:left;font-family:inherit;transition:background .2s,border-color .2s}
+  .tb-user:hover,.tb-user.on{background:rgba(var(--lg-blue),.14);border-color:rgba(190,206,255,.3)}
+  .tb-avt{flex:0 0 46px;width:46px;height:46px;padding:2px;border-radius:50%;background:conic-gradient(from 0deg,#55d9ff,#327bff,#8c6bff,#35f0e1,#55d9ff)}
+  .tb-avt>span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#13214a;color:#fff;font-weight:800;font-size:16px}
+  .tb-avt img{width:100%;height:100%;object-fit:cover}
+  .tb-id{display:flex;flex-direction:column;min-width:0;line-height:1.2}
+  .tb-id b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tb-id small{font-size:11px}
+  .tb-tabs{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+  .tb-tabs button{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 11px;border:1px solid transparent;border-radius:999px;background:none;color:var(--tx);opacity:.86;font-family:inherit;font-size:13px;font-weight:650;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,border-color .2s,opacity .2s}
+  .tb-tabs button .ic{color:var(--ac2)}
+  .tb-tabs button:hover{background:rgba(var(--lg-blue),.14);opacity:1}
+  .tb-tabs button.on{opacity:1;background:linear-gradient(180deg,rgba(255,255,255,calc(.22*var(--lgi))),rgba(255,255,255,0) 55%),var(--lg-grad);border-color:rgba(190,215,255,.45);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,calc(.4*var(--lgi))),0 6px 18px -4px rgba(var(--lg-blue),.45)}
+  .tb-tabs button.on .ic{color:#fff}
+  .tb-sep{width:1px;height:22px;margin:0 4px;background:var(--br)}
+}
+@media print{.stz-tbar{display:none!important}}
+</style>
 </head><body>
 <div class="ambient-motion" aria-hidden="true"><span class="wave-filaments"></span><span class="glass-shard shard-one"></span><span class="glass-shard shard-two"></span><span class="glass-shard shard-three"></span><div class="tech-cubes"><i class="tech-cube cube-a"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-b"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-c"><span></span><span></span><span></span><span></span><span></span><span></span></i></div></div>
+<div id="tbar" class="stz-tbar"></div>
 <header><div class="top"><div class="lt"><button id="hm" aria-label="Menu" onclick="dr(true)"></button><div><div id="ttl" class="ttl"></div><small id="yl" style="color:#cfe0ff;font-weight:600;font-size:12px"></small></div></div><div class="rt"><button id="bell" onclick="go('alertas')"></button><button id="dots" aria-label="Menu" onclick="$('#menu').hidden=!$('#menu').hidden"></button><div id="menu" hidden></div></div></div><div id="gr" class="gr"></div></header>
 <main id="app"></main>
 <div id="dw" class="dw"></div>
@@ -1276,7 +1376,7 @@ function load(){
  if(Array.isArray(raw.subs)&&!isObj(raw.Y)){const ly=Number(raw.yr)||new Date().getFullYear();raw.Y={[ly]:{subs:raw.subs,sched:raw.sched||{},items:raw.items||[],fm:raw.fm||{},att:raw.att||{}}};['subs','sched','items','fm','att'].forEach(k=>delete raw[k]);migrated=true}
  raw.Y=isObj(raw.Y)?raw.Y:{};raw.yr=Number(raw.yr)||new Date().getFullYear();Object.keys(raw.Y).forEach(y=>raw.Y[y]=yearRecord(raw.Y[y]));
  if(!raw.Y[raw.yr]){raw.Y[raw.yr]=yearRecord({});migrated=true}
- S=raw;bind();S.me=isObj(S.me)?S.me:{};S.avg=Number.isFinite(Number(S.avg))?Math.max(0,Math.min(10,Number(S.avg))):6;S.fq=Number.isFinite(Number(S.fq))?Math.max(0,Math.min(100,Number(S.fq))):75;
+ S=Object.assign({np:4,avg:6,fq:75,me:{}},raw);bind();
  S.cfg=Object.assign({cn:1,cf:1,tema:'auto',lg:100,am:1,af:1,ap:1,mg:.5,dias:2,pend:5,ud:1,udt:7,concl:1,ini:1,fo:25,pa:5,annualTarget:24,calcAll:1,calcMin:3},isObj(S.cfg)?S.cfg:{});
  if(!S.fz){Object.values(S.Y).forEach(y=>{y.att=isObj(y.att)?y.att:{};(y.subs||[]).forEach(s=>{s.at=isObj(s.at)?s.at:{}})});S.fz=1;migrated=true}
  S.dis=Array.isArray(S.dis)?S.dis:[];S.vacationMonths=Array.isArray(S.vacationMonths)?S.vacationMonths.filter(x=>/^\d{4}-\d{2}$/.test(String(x))):[];S.proofPlans=isObj(S.proofPlans)?S.proofPlans:{};S.gradeHistory=Array.isArray(S.gradeHistory)?S.gradeHistory.filter(isObj):[];
@@ -1285,7 +1385,8 @@ function load(){
  S.np=4;S.fm=isObj(S.fm)?S.fm:{};S.gradeHistory=S.gradeHistory.slice(0,500);
  S.notes=Array.isArray(S.notes)?S.notes.filter(isObj):[];S.notes.forEach(n=>{n.id=n.id||uid();n.title=String(n.title||'').slice(0,100);n.body=String(n.body||'').slice(0,20000);n.category=String(n.category||'Geral');n.subject=String(n.subject||'');n.pinned=!!n.pinned;n.createdAt=n.createdAt||Date.now();n.updatedAt=n.updatedAt||n.createdAt});
  S.proofPlans=Object.fromEntries(Object.entries(S.proofPlans).filter(([,p])=>isObj(p)).map(([id,p])=>[id,{topics:Array.isArray(p.topics)?p.topics.filter(isObj).map(t=>({id:t.id||uid(),text:String(t.text||'').slice(0,160),status:['Pendente','Em andamento','Concluído'].includes(t.status)?t.status:'Pendente'})):[],notes:String(p.notes||'').slice(0,12000),sessions:Array.isArray(p.sessions)?p.sessions.filter(isObj).map(z=>({id:z.id||uid(),topicId:String(z.topicId||''),topic:String(z.topic||'').slice(0,160),date:/^\d{4}-\d{2}-\d{2}$/.test(String(z.date||''))?z.date:td(),status:['Pendente','Em andamento','Concluído'].includes(z.status)?z.status:'Pendente'})):[]} ]));
- LAST=JSON.stringify(S);if(migrated){try{localStorage.setItem(K,LAST)}catch(e){}setTimeout(()=>push(true),0)}
+ LAST=JSON.stringify(S);
+ if(migrated){try{localStorage.setItem(K,LAST)}catch(e){}}
 }
 const $=s=>document.querySelector(s),V=s=>$(s).value,p2=n=>String(n).padStart(2,'0');
 const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1318,7 +1419,7 @@ function alerts(){return alertsAll().filter(a=>!(S.dis||[]).includes(a.key))}
 const AC={n:['Notas','chart'],f:['Frequência','calc'],p:['Prazos','cal']};
 const alc=a=>`<span class="alc2">${ic(AC[a.c][1],20)}</span><div class="alb"><b>${esc(a.t)}</b><small>${esc(a.d)}</small></div>`;
 function alertas(){const A=alerts(),ds=alertsAll().length-A.length,L=alf==='all'?A:A.filter(a=>a.c===alf),nb=A.filter(a=>a.k==='bad').length;
- return `<div class="card hero"><div class="alh ${A.length?nb?'bad':'warn':'ok'}">${ic(A.length?'bell':'check',30)}</div><div><b class="big2">${A.length?A.length+' alerta'+(A.length>1?'s':''):'Tudo em dia'}</b><small>${nb} crítico${nb!==1?'s':''} · ${A.length-nb} em atenção</small></div></div>
+ return `<div class="card hero"><div class="alh ${A.length?nb?'bad':'warn':'ok'}">${ic(A.length?'bell':'check',30)}</div><div><b class="big2">${A.length?A.length+' alerta'+(A.length>1?'s':''):'Tudo em dia'}</b><small>${nb} crítico${nb!==1?'s':''} · ${A.length-nb} em atenç  o</small></div></div>
 <div class="chips"><button class="chip${alf==='all'?' on':''}" onclick="alf='all';render()">Todos</button>${Object.keys(AC).map(k=>`<button class="chip${alf===k?' on':''}" onclick="alf='${k}';render()">${AC[k][0]}</button>`).join('')}</div>
 ${L.length?L.map(a=>`<div class="al2 ${a.k}">${alc(a)}<div class="alx"><button class="chip" onclick="aga('${a.go}','${a.date||''}')">Abrir</button><button class="x" aria-label="Ignorar" onclick="dis('${a.key}')">×</button></div></div>`).join(''):`<div class="emp" style="padding-top:20px">${EMP}<b>Nenhum alerta</b></div>`}
 ${ds?`<div class="f"><button class="chip" onclick="rest()">Mostrar ${ds} ignorado${ds>1?'s':''}</button></div>`:''}`}
@@ -1365,14 +1466,65 @@ function desempenho(){
  if(!BS().length)return '<div class="card empty">Use a seção <b>Registro de disciplinas</b>, dentro do Painel, para cadastrar suas disciplinas.</div>';
  const vs=BS().map(s=>dp?pA(s,dp):yA(s)),ge=mean(vs.filter(x=>x!==null)),cur=BS().find(s=>s.id===ds)||BS()[0],
  seg=[[vs.filter(x=>x!==null&&x>=S.avg).length,'var(--ok)','Na média'],[vs.filter(x=>x!==null&&x<S.avg&&x>=S.avg-1).length,'var(--warn)','Atenção'],[vs.filter(x=>x!==null&&x<S.avg-1).length,'var(--bad)','Abaixo'],[vs.filter(x=>x===null).length,'var(--tr)','Sem notas']],
- C=2*Math.PI*40,ord=BS().map((s,i)=>[s,vs[i]]).sort((a,b)=>(b[1]===null?-1:b[1])-(a[1]===null?-1:a[1])),
+ C=2*Math.PI*40,
  ty=KS.slice(0,3).map(z=>[z[1],tA(cur,z[0])]).filter(x=>x[1]!==null),st=stat(yA(cur));let off=0;const goalRows=BS().map(s=>({s,g:annualProgress(s)})),goalPassed=goalRows.filter(x=>x.g.passed).length,goalAttention=goalRows.filter(x=>!x.g.passed&&x.g.left>0).sort((a,b)=>a.g.needed-b.g.needed);
+ const ord=BS().map(s=>[s,dp?pA(s,dp):yA(s)]).sort((a,b)=>(b[1]??-Infinity)-(a[1]??-Infinity));
  const donut=`<svg viewBox="0 0 100 100" width="132" height="132"><circle cx="50" cy="50" r="40" fill="none" stroke="var(--tr)" stroke-width="13"/><g transform="rotate(-90 50 50)" fill="none" stroke-width="13">${seg.map(([n,c])=>{const l=C*n/BS().length,o=off;off+=l;return n&&c!=='var(--tr)'?`<circle cx="50" cy="50" r="40" stroke="${c}" stroke-dasharray="${l} ${C-l}" stroke-dashoffset="${-o}"/>`:''}).join('')}</g><text x="50" y="49" text-anchor="middle" font-size="19" font-weight="800" fill="var(--tx)">${f1(ge)}</text><text x="50" y="62" text-anchor="middle" font-size="8" fill="var(--mut)">média</text></svg>`;
- return `<div class="card perf-hero"><div><div class="perf-title">Seu desempenho escolar</div><div class="perf-sub">Acompanhe sua evolução, veja quais matérias precisam de atenção e confira sua meta de aprovação.</div><div class="chips" style="margin-top:10px"><span class="pill ok">${goalPassed} meta(s) atingida(s)</span><span class="pill warn">${goalRows.length-goalPassed} em acompanhamento</span></div></div><div style="font-size:34px">${ic('chart',34)}</div></div><div class="card"><div class="head"><h3>${ic('flag')} Meta anual de aprovação</h3><button class="chip" onclick="go('config')">Editar meta</button></div><p class="ty">Meta configurada: <b>${f1(Number(S.cfg.annualTarget??24))} pontos</b> somando as quatro médias bimestrais. A soma é uma estimativa enquanto houver bimestres em andamento.</p>${goalRows.map(({s,g})=>`<div class="goal-row"><div class="goal-top"><span><i class="dot" style="background:${s.c}"></i> ${esc(s.n)}</span><b>${f1(g.sum)} / ${f1(g.target)}</b></div><div class="goal-track"><i style="width:${Math.max(0,Math.min(100,g.sum/Math.max(1,g.target)*100))}%;background:${g.passed?'var(--ok)':s.c}"></i></div><div class="goal-detail"><span>${g.passed?'✓ Meta atingida':g.left?`Precisa de média ${f1(g.needed)} nos ${g.left} bimestre(s) sem média registrada`:'Meta não atingida com os bimestres registrados'}</span><span>${g.left} restante(s)</span></div></div>`).join('')}</div><div class="chips">${[[0,'Ano'],...R(4).map(p=>[p,p+'º bim'])].map(([p,l])=>`<button class="chip${dp===p?' on':''}" onclick="dp=${p};render()">${l}</button>`).join('')}</div>
+ return `<div class="card perf-hero"><div><div class="perf-title">Seu desempenho escolar</div><div class="perf-sub">Acompanhe sua evolução, veja quais matérias precisam de atenção e confira sua meta de aprovação.</div><div class="chips" style="margin-top:10px"><span class="pill ok">${goalPassed} meta(s) atingida(s)</span><span class="pill warn">${goalRows.length-goalPassed} em acompanhamento</span></div></div><div style="font-size:34px">${ic('chart',34)}</div></div>${evolucaoCards()}<div class="card"><div class="head"><h3>${ic('flag')} Meta anual de aprovação</h3><button class="chip" onclick="go('config')">Editar meta</button></div><p class="ty">Meta configurada: <b>${f1(Number(S.cfg.annualTarget??24))} pontos</b> somando as quatro médias bimestrais. A soma é uma estimativa enquanto houver bimestres em andamento.</p>${goalRows.map(({s,g})=>`<div class="goal-row"><div class="goal-top"><span><i class="dot" style="background:${s.c}"></i> ${esc(s.n)}</span><b>${f1(g.sum)} / ${f1(g.target)}</b></div><div class="goal-track"><i style="width:${Math.max(0,Math.min(100,g.sum/Math.max(1,g.target)*100))}%;background:${g.passed?'var(--ok)':s.c}"></i></div><div class="goal-detail"><span>${g.passed?'✓ Meta atingida':g.left?`Precisa de média ${f1(g.needed)} nos ${g.left} bimestre(s) sem média registrada`:'Meta não atingida com os bimestres registrados'}</span><span>${g.left} restante(s)</span></div></div>`).join('')}</div><div class="chips">${[[0,'Ano'],...R(4).map(p=>[p,p+'º bim'])].map(([p,l])=>`<button class="chip${dp===p?' on':''}" onclick="dp=${p};render()">${l}</button>`).join('')}</div>
 <div class="card hero">${donut}<div class="lg">${seg.map(([n,c,l])=>`<div><i style="background:${c}"></i>${l} <b>${n}</b></div>`).join('')}</div></div>
 <div class="card"><h3>${ic('warn')} Prioridade de estudo</h3>${goalAttention.length?goalAttention.slice(0,4).map(({s,g})=>`<div class="li"><span><b>${esc(s.n)}</b><br><small>${g.left?`Meta anual: faltam ${f1(Math.max(0,g.target-g.sum))} ponto(s)`:'Confira as notas registradas'}</small></span><button class="chip" onclick="ds='${s.id}';go('simulador');simSub='${s.id}';simP=${Math.min(4,Math.max(1,R(4).find(p=>pA(s,p)===null)||4))};simTarget=null;render()">Simular</button></div>`).join(''):'<p class="ty">Todas as matérias cadastradas já atingiram a meta anual ou ainda não há notas suficientes para calcular pendências.</p>'}</div><div class="card"><h3>Ranking de desempenho</h3>${ord.map(([s,v])=>`<div class="row${s.id===cur.id?' on':''}" onclick="ds='${s.id}';render()"><span>${esc(s.n)}</span><div class="bar"><i style="width:${(v||0)*10}%;background:${s.c}"></i><u style="left:${S.avg*10}%"></u></div><b>${f1(v)}</b></div>`).join('')}</div>
 <div class="card"><h3>Mapa de notas</h3><div style="overflow-x:auto"><table class="hm"><tr><th></th>${R(4).map(p=>`<th>${p}º</th>`).join('')}<th>Ano</th></tr>${BS().map(s=>`<tr><th>${esc(s.n)}</th>${[...R(4).map(p=>pA(s,p)),yA(s)].map(v=>`<td class="${hc(v)}">${n1(v)}</td>`).join('')}</tr>`).join('')}</table></div></div>
 <div class="card"><div class="head"><h3><span class="dot" style="background:${cur.c}"></span>${esc(cur.n)}</h3><span class="pill ${st[0]}">${st[1]}</span></div><small>${ic('user',14)} ${esc(cur.pr||'Professor não informado')}</small>${chart(cur)}${tr(cur)}${nec(cur)}${ty.length?`<p class="ty">${ty.map(x=>`${x[0]}: <b>${f1(x[1])}</b>`).join(' &nbsp; ')}</p>`:''}</div>`}
+let evS='all',evC='none',evP=null,cpA=1,cpB=2;
+const evVal=(sid,p)=>{if(sid==='all')return mean(BS().map(s=>pA(s,p)).filter(x=>x!==null));const s=BS().find(z=>z.id===sid);return s?pA(s,p):null};
+const evPrev=(sid,p)=>{for(let k=p-1;k>=1;k--){const v=evVal(sid,k);if(v!==null)return v}return null};
+const evName=sid=>sid==='all'?'Média geral':(BS().find(s=>s.id===sid)||{n:'Média geral'}).n;
+const evCol=sid=>sid==='all'?'#5b9bff':(BS().find(s=>s.id===sid)||{c:'#5b9bff'}).c;
+const evDelta=(v,p)=>{if(v===null||p===null)return '<span style="color:var(--mut)">–</span>';const d=v-p;if(Math.abs(d)<.05)return '<span style="color:var(--mut)">= 0,0</span>';return `<span style="color:var(--${d>0?'ok':'bad'})">${d>0?'▲ +':'▼ −'}${f1(Math.abs(d))}</span>`};
+function evPath(r,T,B){if(r.length<2)return '';const cl=y=>Math.max(T,Math.min(B,y));let d=`M${r[0].x},${r[0].y}`;for(let i=0;i<r.length-1;i++){const p0=r[i-1]||r[i],p1=r[i],p2=r[i+1],p3=r[i+2]||p2;d+=`C${p1.x+(p2.x-p0.x)/6},${cl(p1.y+(p2.y-p0.y)/6)} ${p2.x-(p3.x-p1.x)/6},${cl(p2.y-(p3.y-p1.y)/6)} ${p2.x},${p2.y}`}return d}
+function evRuns(pts){const r=[];let c=[];pts.forEach(p=>{if(p.v===null){if(c.length)r.push(c);c=[]}else c.push(p)});if(c.length)r.push(c);return r}
+function evKpis(){
+ const ys=BS().map(yA).filter(x=>x!==null),withData=R(4).filter(p=>evVal('all',p)!==null),last=withData[withData.length-1],prev=withData[withData.length-2],best=withData.reduce((a,p)=>a===null||evVal('all',p)>evVal('all',a)?p:a,null),below=BS().filter(s=>{const v=yA(s);return v!==null&&v<S.avg}).length;
+ return `<div class="ev-kpis"><div class="card ev-kpi"><small>Média anual</small><b>${f1(mean(ys))}</b><span>todas as disciplinas</span></div><div class="card ev-kpi"><small>Último bimestre com média</small><b>${last?f1(evVal('all',last)):'–'}</b><span>${last?last+'º bim · '+evDelta(evVal('all',last),prev?evVal('all',prev):null):'Sem médias ainda'}</span></div><div class="card ev-kpi"><small>Melhor bimestre</small><b>${best?f1(evVal('all',best)):'–'}</b><span>${best?best+'º bimestre':'Sem médias ainda'}</span></div><div class="card ev-kpi"><small>Abaixo da média</small><b>${below}</b><span>de ${ys.length} disciplina(s) com notas</span></div></div>`}
+function evolucaoCards(){
+ const sids=['all',...BS().map(s=>s.id)];
+ if(!sids.includes(evS))evS='all';
+ if(evC!=='none'&&(!sids.includes(evC)||evC===evS))evC='none';
+ const W=320,H=210,L=28,RR=14,T=16,B=34,X=p=>L+(p-1)*(W-L-RR)/3,Y=v=>T+(10-v)/10*(H-T-B),col=(W-L-RR)/3;
+ const build=sid=>R(4).map(p=>{const v=evVal(sid,p);return{p,v,x:X(p),y:v===null?0:Y(v)}});
+ const A=build(evS),Bs=evC==='none'?null:build(evC),withData=R(4).filter(p=>evVal('all',p)!==null),last=withData[withData.length-1]||null,sel=R(4).includes(evP)?evP:last,color=evCol(evS);
+ let g='';
+ for(let v=0;v<=10;v+=2)g+=`<line x1="${L}" x2="${W-RR}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--br)"/><text x="${L-7}" y="${Y(v)+4}" text-anchor="end" fill="var(--mut)" font-size="10">${v}</text>`;
+ g+=`<line x1="${L}" x2="${W-RR}" y1="${Y(S.avg)}" y2="${Y(S.avg)}" stroke="var(--warn)" stroke-dasharray="5 5" opacity=".75"/><text x="${W-RR}" y="${Y(S.avg)-5}" text-anchor="end" fill="var(--warn)" font-size="9">média ${f1(S.avg)}</text>`;
+ if(sel)g+=`<line x1="${X(sel)}" x2="${X(sel)}" y1="${T}" y2="${H-B}" stroke="var(--mut)" stroke-dasharray="3 4" opacity=".6"/>`;
+ evRuns(A).forEach(r=>{const d=evPath(r,T,H-B);if(d)g+=`<path d="${d}L${r[r.length-1].x},${H-B}L${r[0].x},${H-B}Z" fill="url(#evar)"/>`});
+ if(Bs)evRuns(Bs).forEach(r=>{const d=evPath(r,T,H-B);if(d)g+=`<path d="${d}" fill="none" stroke="${evCol(evC)}" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>`});
+ evRuns(A).forEach(r=>{const d=evPath(r,T,H-B);if(d)g+=`<path d="${d}" fill="none" stroke="${color}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`});
+ const dots=(pts,c,withLabel)=>pts.filter(p=>p.v!==null).map(p=>`<circle cx="${p.x}" cy="${p.y}" r="${p.p===sel?7:5}" fill="${p.p===sel?'#fff':'var(--bg)'}" stroke="${c}" stroke-width="2.5"/>${withLabel?`<text x="${p.x}" y="${p.y-11}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--tx)">${f1(p.v)}</text>`:''}`).join('');
+ if(Bs)g+=dots(Bs,evCol(evC),false);g+=dots(A,color,true);
+ R(4).forEach(p=>{const has=evVal('all',p)!==null,x=X(p);
+  g+=`<text x="${x}" y="${H-12}" text-anchor="middle" fill="${p===sel?'var(--tx)':has?'var(--mut)':'var(--mut)'}" opacity="${has?1:.55}" font-size="11" font-weight="${p===sel?800:500}">${p}º bim</text>`;
+  if(!has)g+=`<circle cx="${x}" cy="${H-B}" r="3" fill="none" stroke="var(--mut)" opacity=".7"/>`;
+  g+=`<rect class="ev-hit" tabindex="0" role="button" aria-label="${p}º bimestre: ${has?'média geral '+f1(evVal('all',p)):'sem médias'}" x="${x-col/2}" y="${T}" width="${col}" height="${H-T}" onclick="evP=${p};render()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();evP=${p};render()}"></rect>`});
+ let side='<p class="ty">Toque em um bimestre do gráfico para ver os detalhes.</p>';
+ if(sel){
+  if(evVal('all',sel)===null)side=`<h3 style="margin:0 0 6px">${sel}º bimestre</h3><p class="ty">Ainda não há média calculada neste bimestre. Bimestres sem média não entram na curva como zero.</p>`;
+  else{
+   const subs=BS().filter(s=>evS==='all'||s.id===evS),o0=evS==='all'?null:(subs[0].g[sel]||{}),q0=o0?xs(o0):null,
+   parts=o0?[['Prova parcial',o0.a],['Formativa',S.fm[sel]],...(o0.x||[]).filter(z=>(z.t||'e')==='n'&&z.v!=null).map(z=>[z.n||'Nota extra',z.v]),['Prova bimestral',o0.b]].filter(z=>z[1]!=null):[];
+   side=`<h3 style="margin:0 0 6px">${sel}º bimestre</h3><div class="ev-kpi" style="margin:6px 0 8px"><small>${esc(evName(evS))} no bimestre</small><b>${f1(evVal(evS,sel))}</b><span>${evDelta(evVal(evS,sel),evPrev(evS,sel))} vs. bimestre anterior com média</span></div>`
+   +subs.map(s=>{const v=pA(s,sel);return `<div class="ev-row"><i class="dot" style="background:${s.c}"></i><span class="n">${esc(s.n)}</span><b>${f1(v)}</b>${evDelta(v,evPrev(s.id,sel))}</div>`}).join('')
+   +(Bs?`<div class="ev-row"><i class="dot" style="background:${evCol(evC)}"></i><span class="n">Comparação: ${esc(evName(evC))}</span><b>${f1(evVal(evC,sel))}</b>${evDelta(evVal(evC,sel),evPrev(evC,sel))}</div>`:'')
+   +(parts.length?`<p class="ty" style="margin-top:8px"><b>Notas lançadas:</b><br>${parts.map(z=>`${esc(z[0])}: <b>${f1(z[1])}</b>`).join('<br>')}${q0&&q0.e?`<br>Pontos extras: <b>+${f1(q0.e)}</b>`:''}</p>`:'')
+  }
+ }
+ const opt=(cur,list)=>list.map(id=>`<option value="${id}"${cur===id?' selected':''}>${esc(evName(id))}</option>`).join('');
+ const cmpOpts=`<option value="none"${evC==='none'?' selected':''}>Sem comparação</option>`+opt(evC,sids.filter(id=>id!==evS));
+ const evCard=`<div class="card"><div class="head"><h3>${ic('chart')} Evolução ao longo do ano</h3></div><div class="ev-main"><div><div class="ev-filters"><label>Disciplina<select aria-label="Disciplina" onchange="evS=this.value;if(evC===evS)evC='none';render()">${opt(evS,sids)}</select></label><label>Comparar com<select aria-label="Comparar com" onchange="evC=this.value;render()">${cmpOpts}</select></label></div><div class="ev-chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico de evolução das médias por bimestre"><defs><linearGradient id="evar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:${color};stop-opacity:.32"/><stop offset="1" style="stop-color:${color};stop-opacity:0"/></linearGradient></defs>${g}</svg></div><div class="ev-legend"><span><i style="background:${color}"></i>${esc(evName(evS))}</span>${Bs?`<span><i style="background:${evCol(evC)}"></i>${esc(evName(evC))} (comparação)</span>`:''}<span>○ bimestre sem média</span></div><p class="ty">As notas não têm data de lançamento: a curva usa a média de cada bimestre, que se atualiza conforme você lança notas.</p></div><div class="ev-side" aria-live="polite">${side}</div></div></div>`;
+ const bo=v=>R(4).map(b=>`<option value="${b}"${b===v?' selected':''}>${b}º bimestre</option>`).join('');
+ const rows=BS().map(s=>{const a=pA(s,cpA),b=pA(s,cpB);return `<tr><td>${esc(s.n)}</td><td>${f1(a)}</td><td>${f1(b)}</td><td>${evDelta(b,a)}</td></tr>`}).join(''),ga=evVal('all',cpA),gb=evVal('all',cpB);
+ const cmpCard=`<div class="card"><div class="head"><h3>${ic('repeat')} Comparação de bimestres</h3></div><div class="ev-filters"><label>Período A<select aria-label="Período A" onchange="cpA=+this.value;render()">${bo(cpA)}</select></label><label>Período B<select aria-label="Período B" onchange="cpB=+this.value;render()">${bo(cpB)}</select></label></div><div style="overflow-x:auto"><table class="ev-tbl"><tr><th>Disciplina</th><th>A</th><th>B</th><th>Variação</th></tr>${rows}<tr><td><b>Geral</b></td><td><b>${f1(ga)}</b></td><td><b>${f1(gb)}</b></td><td>${evDelta(gb,ga)}</td></tr></table></div></div>`;
+ return evKpis()+evCard+cmpCard}
 function simValues(s,p){const o=(s.g||{})[p]||{},q=xs(o),vals=[o.a,o.b,...q.n,S.fm[p]].filter(v=>v!=null&&Number.isFinite(v));return{sum:vals.reduce((a,b)=>a+b,0),count:vals.length,extra:q.e,current:pA(s,p),manual:o.m!=null&&o.m!==false};}
 function defaultSimScenarios(){return[{name:'Conservador',v:[4,5,6,7]},{name:'Intermediário',v:[6,6,7,8]},{name:'Otimista',v:[7,8,8,9]}]}
 function scenarioList(){if(!Array.isArray(simScenarios))simScenarios=defaultSimScenarios();return simScenarios}
@@ -1402,7 +1554,7 @@ function updateBimSim(){const el=$('#bimSimResult'),s=BS().find(x=>x.id===simSub
 function setSimYear(k,v){simYearValues=simYearValues||{};simYearValues[k]=v===''?'':Math.max(0,Math.min(10,num(v)||0));render()}
 function setScenario(i,k,v){const a=scenarioList();if(!a[i])return;a[i].v[k]=v===''?0:Math.max(0,Math.min(10,num(v)||0));render()}
 function toggleVacation(ym){S.vacationMonths=S.vacationMonths||[];if(isVacationMonth(ym))S.vacationMonths=S.vacationMonths.filter(x=>x!==ym);else S.vacationMonths.push(ym);save('a configuração do mês de férias');render()}
-function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3 class="section-title">${ic('history',20)} Histórico de notas</h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda não há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
+function historyNotesHTML(){const H=S.gradeHistory||[];return `<div class="card"><h3 class="section-title">${ic('history',20)} Histórico de notas</h3><p class="ty">Registro de notas adicionadas, editadas ou removidas, com valores anteriores e novos quando disponíveis.</p>${H.length?`<button class="chip" onclick="if(confirm('Limpar o histórico de alterações?')){S.gradeHistory=[];save();render()}">Limpar histórico</button>`:'<div class="empty">Ainda n  o há alterações registradas.</div>'}</div>${H.map(x=>`<div class="card"><div class="head"><b>${esc(x.subject)}</b><span class="pill ${x.action==='Exclusão'?'bad':x.action==='Adição'?'ok':'warn'}">${esc(x.action)}</span></div><small>${new Date(x.at).toLocaleString('pt-BR')} · ${x.bim?x.bim+'º bimestre · ':''}${esc(x.type)}</small><div class="stat-grid"><div class="stat-tile"><small>Valor anterior</small><b>${x.oldValue===''?'—':esc(x.oldValue)}</b></div><div class="stat-tile"><small>Novo valor</small><b>${x.newValue===''?'—':esc(x.newValue)}</b></div></div></div>`).join('')}`}
 function historicoNotas(){return historyNotesHTML()}
 function planoProvas(){const items=(S.items||[]).filter(i=>i.k==='Prova').sort((a,b)=>a.d.localeCompare(b.d));const plans=S.proofPlans||{};return `<div class="card"><div class="head"><h3>${ic('book')} Plano de Provas</h3><span class="pill">${items.length} prova(s)</span></div><p class="ty">As provas aparecem aqui automaticamente quando o tipo cadastrado no Planejamento é exatamente “Prova”. Não é necessário cadastrá-las novamente.</p></div>${items.length?items.map(i=>{const pl=plans[i.id]||{topics:[],notes:'',sessions:[]},topics=Array.isArray(pl.topics)?pl.topics:[],done=topics.filter(t=>t.status==='Concluído').length,pct=topics.length?Math.round(done/topics.length*100):0,s=S.subs.find(x=>x.id===i.sid),n=dd(i.d,td());return `<div class="card"><div class="head"><div><h3>${esc(i.t)}</h3><small>${s?esc(s.n)+' · ':''}${fd(i.d)} · ${n<0?'Passou há '+(-n)+' dia(s)':n===0?'Hoje':n+' dia(s) restantes'}</small></div><button class="btn" onclick="openProof('${i.id}')">Abrir</button></div><div class="goal-track"><i style="width:${pct}%;background:var(--ac)"></i></div><small>${done}/${topics.length} conteúdos concluídos · ${pct}%</small></div>`}).join(''):'<div class="card empty">Nenhum item do tipo “Prova” cadastrado. No Planejamento, selecione explicitamente “Prova” no campo Tipo para aparecer aqui.</div>'}${proofEdit?proofEditor():''}`}
 let proofEdit=null;
@@ -1417,7 +1569,7 @@ function addProofSession(){if(!proofEdit)return;proofEdit.sessions.push({id:uid(
 function proofSessionUpdate(index,k,v){if(!proofEdit||!proofEdit.sessions[index])return;const z=proofEdit.sessions[index];z[k]=k==='topic'?String(v).slice(0,160):k==='date'?(/^\d{4}-\d{2}-\d{2}$/.test(String(v))?v:td()):v;if(k==='status'&&z.topicId){const t=proofEdit.topics.find(x=>x.id===z.topicId);if(t)t.status=v}saveProofDraft();render()}
 function moveProofSession(index,delta){if(!proofEdit)return;const j=index+delta;if(j<0||j>=proofEdit.sessions.length)return;const a=proofEdit.sessions;[a[index],a[j]]=[a[j],a[index]];saveProofDraft();render()}
 function deleteProofSession(index){if(!proofEdit)return;proofEdit.sessions.splice(index,1);saveProofDraft();render()}
-function proofEditor(){const i=S.items.find(x=>x.id===proofEdit.id&&x.k==='Prova');if(!i){proofEdit=null;return ''}const options=['Pendente','Em andamento','Concluído'];return `<div class="ov" onclick="if(event.target===this)closeProof()"><div class="mdl" style="max-width:720px;max-height:90vh;overflow:auto"><div class="head"><h3>${esc(proofEdit.title)}</h3><button class="x" aria-label="Fechar" onclick="closeProof()">×</button></div><p class="ty">Registre os conteúdos, as observações do professor e organize sessões de estudo. As alterações são salvas automaticamente.</p><div class="card"><h3>Conteúdos da prova</h3>${proofEdit.topics.length?proofEdit.topics.map(t=>`<div class="li" style="align-items:flex-start"><input style="flex:1;width:100%" maxlength="160" placeholder="Ex.: equações do 1º grau" value="${esc(t.text)}" oninput="updateProofTopic('${t.id}','text',this.value)"><select style="max-width:155px" onchange="updateProofTopic('${t.id}','status',this.value)">${options.map(st=>`<option${t.status===st?' selected':''}>${st}</option>`).join('')}</select><button class="x" aria-label="Remover conteúdo" onclick="deleteProofTopic('${t.id}')">×</button></div>`).join(''):'<small>Nenhum conteúdo cadastrado ainda.</small>'}<button class="chip" onclick="addProofTopic()">+ Adicionar conteúdo</button></div><div class="card"><h3>Observações do professor e anotações</h3><textarea rows="4" maxlength="12000" placeholder="Anotações do professor, detalhes importantes..." oninput="proofEdit.notes=this.value;saveProofDraft()">${esc(proofEdit.notes)}</textarea></div><div class="card"><div class="head"><h3>Plano de estudos</h3><button class="btn" onclick="proofSchedule()">Gerar sugestão</button></div><p class="ty">Distribui os conteúdos cadastrados pelos dias anteriores à prova. Depois, edite as datas, nomes, status ou ordem das sessões.</p>${proofEdit.sessions.length?proofEdit.sessions.map((z,j)=>`<div class="note-editor"><div class="head"><b>Sessão ${j+1}</b><div><button class="x" aria-label="Mover para cima" ${j===0?'disabled':''} onclick="moveProofSession(${j},-1)">↑</button><button class="x" aria-label="Mover para baixo" ${j===proofEdit.sessions.length-1?'disabled':''} onclick="moveProofSession(${j},1)">↓</button><button class="x" aria-label="Excluir sessão" onclick="deleteProofSession(${j})">×</button></div></div><label><small>Conteúdo / tarefa</small><input maxlength="160" value="${esc(z.topic)}" placeholder="Conteúdo a estudar" onchange="proofSessionUpdate(${j},'topic',this.value)"></label><div class="note-grid"><label><small>Data</small><input type="date" value="${esc(z.date)}" onchange="proofSessionUpdate(${j},'date',this.value)"></label><label><small>Status</small><select onchange="proofSessionUpdate(${j},'status',this.value)">${options.map(st=>`<option${z.status===st?' selected':''}>${st}</option>`).join('')}</select></label></div></div>`).join(''):'<div class="empty">Nenhuma sessão criada. Cadastre conteúdos e toque em “Gerar sugestão”, ou adicione sessões manualmente.</div>'}<button class="chip" onclick="addProofSession()">+ Adicionar sessão</button></div><button class="btn" onclick="saveProofDraft();proofEdit=null;render()">Salvar e fechar</button></div></div>`}
+function proofEditor(){const i=S.items.find(x=>x.id===proofEdit.id&&x.k==='Prova');if(!i){proofEdit=null;return ''}const options=['Pendente','Em andamento','Concluído'];return `<div class="ov" onclick="if(event.target===this)closeProof()"><div class="mdl" style="max-width:720px;max-height:90vh;overflow:auto"><div class="head"><h3>${esc(proofEdit.title)}</h3><button class="x" aria-label="Fechar" onclick="closeProof()">×</button></div><p class="ty">Registre os conteúdos, as observações do professor e organize sessões de estudo. As alterações são salvas automaticamente.</p><div class="card"><h3>Conteúdos da prova</h3>${proofEdit.topics.length?proofEdit.topics.map(t=>`<div class="li" style="align-items:flex-start"><input style="flex:1;width:100%" maxlength="160" placeholder="Ex.: equações do 1º grau" value="${esc(t.text)}" oninput="updateProofTopic('${t.id}','text',this.value)"><select style="max-width:155px" onchange="updateProofTopic('${t.id}','status',this.value)">${options.map(st=>`<option${t.status===st?' selected':''}>${st}</option>`).join('')}</select><button class="x" aria-label="Remover conteúdo" onclick="deleteProofTopic('${t.id}')">×</button></div>`).join(''):'<small>Nenhum conteúdo cadastrado ainda.</small>'}<button class="chip" onclick="addProofTopic()">+ Adicionar conteúdo</button></div><div class="card"><h3>Observações do professor e anotações</h3><textarea rows="4" maxlength="12000" placeholder="Anotações do professor, detalhes importantes..." oninput="proofEdit.notes=this.value;saveProofDraft()">${esc(proofEdit.notes)}</textarea></div><div class="card"><div class="head"><h3>Plano de estudos</h3><button class="btn" onclick="proofSchedule()">Gerar sugestão</button></div><p class="ty">Distribui os conteúdos cadastrados pelos dias anteriores à prova. Depois, edite as datas, nomes, status ou ordem das sessões.</p>${proofEdit.sessions.length?proofEdit.sessions.map((z,j)=>`<div class="note-editor"><div class="head"><b>Sessão ${j+1}</b><div><button class="x" aria-label="Mover para cima" ${j===0?'disabled':''} onclick="moveProofSession(${j},-1)">↑</button><button class="x" aria-label="Mover para baixo" ${j===proofEdit.sessions.length-1?'disabled':''} onclick="moveProofSession(${j},1)">↓</button><button class="x" aria-label="Excluir sessão" onclick="deleteProofSession(${j})">×</button></div></div><label><small>Conteúdo / tarefa</small><input maxlength="160" value="${esc(z.topic)}" placeholder="Conteúdo a estudar" onchange="proofSessionUpdate(${j},'topic',this.value)"></label><div class="note-grid"><label><small>Data</small><input type="date" value="${esc(z.date)}" onchange="proofSessionUpdate(${j},'date',this.value)"></label><label><small>Status</small><select onchange="proofSessionUpdate(${j},'status',this.value)">${options.map(st=>`<option${z.status===st?' selected':''}>${st}</option>`).join('')}</select></label></div></div>`).join(''):'<div class="empty">Nenhuma sessão criada. Cadastre conte  dos e toque em “Gerar sugestão”, ou adicione sessões manualmente.</div>'}<button class="chip" onclick="addProofSession()">+ Adicionar sessão</button></div><button class="btn" onclick="saveProofDraft();proofEdit=null;render()">Salvar e fechar</button></div></div>`}
 
 function relatorios(){
  const L=BS(),vals=L.map(yA).filter(v=>v!==null),freq=L.map(fr).filter(v=>v!==null),up=S.items.filter(i=>!i.x&&i.k==='Prova'&&dd(i.d,td())>=0).sort((a,b)=>a.d.localeCompare(b.d)).slice(0,8),pending=pdg().length,completed=S.items.filter(i=>i.x&&i.k!=='Feriado').length;
@@ -1589,7 +1741,7 @@ const WD=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 const fl=d=>{const o=new Date(d+'T00:00');return `${WD[o.getDay()]}, ${o.getDate()} de ${MN[o.getMonth()].toLowerCase()}`};
 const di=d=>(new Date(d+'T00:00').getDay()+6)%7;
 const cls=d=>{const i=di(d);return i>4?[]:(S.sched[i]||[]).map((id,t)=>id?t:-1).filter(t=>t>=0)};
-function applyLg(){const e=document.documentElement;if(!e||!e.style)return;const v=S&&S.cfg&&S.cfg.lg!=null?Number(S.cfg.lg):100,n=isNaN(v)?100:Math.max(0,Math.min(150,v));e.style.setProperty('--lgi',(n/100).toFixed(2))}
+function applyLg(){const e=document.documentElement;if(!e||!e.style)return;const v=S&&S.cfg&&S.cfg.lg!=null?Number(S.cfg.lg):100,n=isNaN(v)?100:Math.max(0,Math.min(150,v));e.style.setProperty('--lgi',(n/100).toFixed(2));e.setAttribute('data-lg',n===0?'off':n<=60?'lite':'full')}
 function applyTheme(){const t=(S&&S.cfg&&S.cfg.tema)||'auto',e=document.documentElement;if(!e||!e.setAttribute)return;if(t==='auto')e.removeAttribute('data-theme');else e.setAttribute('data-theme',t==='escuro'?'dark':'light');let m=t==='claro'?'light':'dark';if(t==='auto'){try{m=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}catch(x){}}e.setAttribute('data-mode',m);applyLg()}
 try{window.matchMedia('(prefers-color-scheme: light)').addEventListener('change',()=>applyTheme())}catch(x){}
 function setLg(v,live){v=Math.max(0,Math.min(150,Math.round(Number(v))));if(isNaN(v))return;S.cfg.lg=v;applyLg();const o=document.getElementById('lgv');if(o)o.textContent=v+'%';if(!live){save();render()}}
@@ -1606,7 +1758,7 @@ function config(){const C=S.cfg,lgv=Math.max(0,Math.min(150,Math.round(Number(C.
 <div class="card"><h3>Planejamento</h3>${row('Mostrar concluídas na linha do tempo','concl')}<small>Início da semana</small><div class="f">${[[1,'Segunda'],[0,'Domingo']].map(([v,l])=>`<button class="chip${C.ini===v?' on':''}" onclick="setIni(${v})">${l}</button>`).join('')}</div></div>
 <div class="card"><h3>Foco</h3>${ni('Duração do foco (minutos)','fo',1,120,1)}${ni('Duração da pausa (minutos)','pa',1,60,1)}</div>
 <div class="card"><h3>Regras da escola</h3><div class="li"><span>Calcular média somente após preencher as três notas principais</span><button class="sw${C.calcAll!==0?' on':''}" role="switch" aria-checked="${C.calcAll!==0}" onclick="tgc('calcAll')"><i></i></button></div><small class="ty">Ativado: a média só aparece quando parcial, bimestral e formativa estiverem preenchidas. Notas extras não substituem nenhuma dessas três notas. Desativado: a média começa a ser calculada conforme as notas principais forem preenchidas.</small><label><small>Pontuação anual para passar (soma dos 4 bimestres)</small><input type="number" step="0.5" min="0" max="40" value="${C.annualTarget??24}" onchange="cfn('annualTarget',this.value)"></label><small class="ty">Exemplo: 24 significa que a soma das quatro médias bimestrais deve chegar a 24 pontos.</small><label><small>Média mínima por avaliação</small><input type="number" step="0.5" min="0" max="10" value="${S.avg}" onchange="cf('avg',this.value)"></label><label><small>Frequência mínima (%)</small><input type="number" min="0" max="100" value="${S.fq}" onchange="cf('fq',this.value)"></label></div>
-<div class="card"><h3>Alertas</h3>${row('Alertas de média','am')}${row('Alertas de frequência','af')}${row('Alertas de prazos','ap')}${ni('Média no limite: até quantos pontos acima do mínimo','mg',0,5,.5)}${ni('Avisar prazos com antecedência de (dias)','dias',0,14,1)}${ni('Avisar a partir de quantas pendências','pend',1,50,1)}${nd?`<div class="f"><button class="chip" onclick="rest()">Restaurar ${nd} alerta${nd>1?'s':''} ignorado${nd>1?'s':''}</button></div>`:''}</div><div class="stz-version-label">STZBLUE · Versão 1.1.1</div>`}
+<div class="card"><h3>Alertas</h3>${row('Alertas de média','am')}${row('Alertas de frequência','af')}${row('Alertas de prazos','ap')}${ni('Média no limite: até quantos pontos acima do mínimo','mg',0,5,.5)}${ni('Avisar prazos com antecedência de (dias)','dias',0,14,1)}${ni('Avisar a partir de quantas pendências','pend',1,50,1)}${nd?`<div class="f"><button class="chip" onclick="rest()">Restaurar ${nd} alerta${nd>1?'s':''} ignorado${nd>1?'s':''}</button></div>`:''}</div><div class="stz-version-label">STZBLUE · Versão 1.2</div>`}
 function setIni(v){S.cfg.ini=v;save('a alteração nas configurações');render()}
 
 function dr(o){dwo=o;$('#dw').className='dw'+(o?' on':'')}
@@ -1735,19 +1887,19 @@ function stzCloseRelease(){
 }
 function stzShowReleaseIfNeeded(){
  if(!ses||!document.body||document.getElementById('stzReleaseOverlay'))return;
- const key='stzblue.release.seen.1.1.1.build-20261011-a.'+String(ses||'').trim().toLowerCase();
+ const key='stzblue.release.seen.1.2.build-20261012-a.'+String(ses||'').trim().toLowerCase();
  try{if(localStorage.getItem(key)==='1')return}catch(e){}
  const ov=document.createElement('div');
  ov.id='stzReleaseOverlay';ov.className='stz-release-overlay';
  ov.setAttribute('role','presentation');
  ov.innerHTML=`<section class="stz-release-card" role="dialog" aria-modal="true" aria-labelledby="stzReleaseTitle" aria-describedby="stzReleaseSubtitle">
  <button class="stz-release-close" type="button" aria-label="Fechar novidades" onclick="stzConfirmRelease()" title="Fechar">×</button>
- <header class="stz-release-top"><div class="stz-release-kicker">STZBLUE · NOVIDADES</div><h2 class="stz-release-title" id="stzReleaseTitle">Conheça a versão 1.1.1!</h2><p class="stz-release-subtitle" id="stzReleaseSubtitle">Uma nova experiência no Blue.</p></header>
- <div class="stz-release-showcase"><div class="stz-release-showcase-inner"><div class="stz-release-spark" aria-hidden="true">✦</div><div class="stz-release-showcase-title">Seu espaço de estudos evoluiu</div><div class="stz-release-showcase-copy">Mais organização, mais personalidade e uma experiência ainda mais agradável.</div></div></div>
+ <header class="stz-release-top"><div class="stz-release-kicker">STZBLUE · NOVIDADES</div><h2 class="stz-release-title" id="stzReleaseTitle">Conheça a versão 1.2!</h2><p class="stz-release-subtitle" id="stzReleaseSubtitle">Mais fluidez e uma navegação renovada no Blue.</p></header>
+ <div class="stz-release-showcase"><div class="stz-release-showcase-inner"><div class="stz-release-spark" aria-hidden="true">✦</div><div class="stz-release-showcase-title">Liquid Glass mais leve, do jeito Blue</div><div class="stz-release-showcase-copy">Menos travamentos em celulares e computadores, com a mesma identidade visual.</div></div></div>
  <div class="stz-release-content"><h3 class="stz-release-section-title">O que há de novo?</h3>
- <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Registro de Disciplinas</strong><p>Uma área mais organizada para cadastrar e editar disciplinas e professores.</p></div></div>
- <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Saudações dinâmicas</strong><p>Mensagens de boas-vindas que deixam o Painel Central mais acolhedor.</p></div></div>
- <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Experiência refinada</strong><p>Identificação da versão e melhorias de estabilidade, mantendo a identidade visual do Blue.</p></div></div>
+ <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Painel de abas no topo</strong><p>No computador, a foto de perfil e todas as abas agora ficam em uma barra no topo da tela, em vez do menu lateral.</p></div></div>
+ <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Liquid Glass otimizado</strong><p>Animações e efeitos de vidro reformulados para rodar com mais fluidez em celulares, tablets e computadores.</p></div></div>
+ <div class="stz-release-feature"><span class="stz-release-check" aria-hidden="true">✓</span><div><strong>Intensidade Sólida de verdade</strong><p>Ao escolher Sólido nas configurações, todos os efeitos pesados são desligados para o máximo de desempenho.</p></div></div>
  </div><div class="stz-release-actions"><button class="stz-release-confirm" type="button" onclick="stzConfirmRelease()">Entendi</button></div></section>`;
  ov.addEventListener('click',e=>{if(e.target===ov)stzConfirmRelease()});
  document.addEventListener('keydown',stzReleaseEscape);
@@ -1756,15 +1908,19 @@ function stzShowReleaseIfNeeded(){
 }
 function stzReleaseEscape(e){if(e.key==='Escape'&&document.getElementById('stzReleaseOverlay'))stzConfirmRelease()}
 function stzConfirmRelease(){
- const key='stzblue.release.seen.1.1.1.build-20261011-a.'+String(ses||'').trim().toLowerCase();
+ const key='stzblue.release.seen.1.2.build-20261012-a.'+String(ses||'').trim().toLowerCase();
  try{localStorage.setItem(key,'1')}catch(e){}
  document.removeEventListener('keydown',stzReleaseEscape);
  stzCloseRelease();
 }
 
+let lastTab=null,tabInT=null;
+const tabbar=()=>{const nm=esc(((S.me&&S.me.nome)||'').trim()||'Estudante'),f=S.me&&S.me.foto;return `<button class="tb-user${tab==='perfil'?' on':''}" onclick="go('perfil')" aria-label="Abrir perfil de ${nm}"><span class="tb-avt"><span>${f?`<img src="${f}" alt="">`:ini()}</span></span><span class="tb-id"><b>${nm}</b><small>${S.yr} · ${S.yr-2025}º ano</small></span></button><div class="tb-tabs" role="navigation" aria-label="Abas do STZBLUE">${TABS.map(([id,l,i])=>`<button${tab===id?' class="on" aria-current="page"':''} onclick="go('${id}')">${ic(i,17)}<span>${l}</span></button>`).join('')}<i class="tb-sep" aria-hidden="true"></i><button${tab==='config'?' class="on" aria-current="page"':''} onclick="go('config')">${ic('cfg',17)}<span>Configurações</span></button><button onclick="logout()">${ic('out',17)}<span>Sair</span></button></div>`};
 function render(){gr();applyTheme();
- if(!ses){$('#ttl').textContent='STZBLUE';$('#yl').textContent='';$('#hm').style.display='none';$('#bell').style.display='none';$('#dots').style.display='none';$('#menu').hidden=true;$('#dw').className='dw';$('#dw').innerHTML='';$('#app').innerHTML=auth();return}
+ if(!ses){$('#tbar').innerHTML='';$('#ttl').textContent='STZBLUE';$('#yl').textContent='';$('#hm').style.display='none';$('#bell').style.display='none';$('#dots').style.display='none';$('#menu').hidden=true;$('#dw').className='dw';$('#dw').innerHTML='';$('#app').innerHTML=auth();return}
  $('#app').dataset.tab=tab;
+ if(lastTab!==tab){lastTab=tab;const a=$('#app');a.classList.add('stz-tab-in');clearTimeout(tabInT);tabInT=setTimeout(()=>a.classList.remove('stz-tab-in'),520)}
+ $('#tbar').innerHTML=tabbar();
  const n=alerts().length,t=TABS.find(x=>x[0]===tab);
  $('#hm').style.display='';$('#hm').innerHTML=ic('menu',22);$('#ttl').textContent=t?t[1]:({config:'Configurações',perfil:'Perfil',historicoNotas:'Histórico de alterações das notas'}[tab]||'STZBLUE');$('#yl').textContent=S.yr+' · '+(S.yr-2025)+'º ano';
  $('#bell').style.display='';$('#dots').style.display='';$('#bell').className=n?'al':'';$('#bell').innerHTML=ic('bell',16)+(n?' '+n:'');
@@ -1779,14 +1935,26 @@ function render(){gr();applyTheme();
 </script>
 <script>
 (function(){
- var amb=document.querySelector('.ambient-motion'),SEL='.card,.tk,.sr,.al2,.note-card,.note-editor,.year-picker',
-  still=matchMedia('(prefers-reduced-motion:reduce)').matches,raf=0,x=0,y=0,el=null;
+ var root=document.documentElement,SEL='.card,.tk,.sr,.al2,.note-card,.note-editor,.year-picker',raf=0,x=0,y=0,el=null;
  function frame(){raf=0;
-  if(amb&&!still){amb.style.setProperty('--mx',((x/innerWidth)-.5)*240+'px');amb.style.setProperty('--my',((y/innerHeight)-.5)*240+'px')}
   if(el){var r=el.getBoundingClientRect();el.style.setProperty('--spot-x',(x-r.left)+'px');el.style.setProperty('--spot-y',(y-r.top)+'px')}}
  addEventListener('pointermove',function(e){
-  if(e.pointerType==='touch')return;
-  x=e.clientX;y=e.clientY;el=e.target.closest?e.target.closest(SEL):null;
+  if(e.pointerType==='touch'||root.getAttribute('data-lg')==='off'||root.getAttribute('data-perf')==='low')return;
+  var t=e.target.closest?e.target.closest(SEL):null;if(!t)return;
+  x=e.clientX;y=e.clientY;el=t;
   if(!raf)raf=requestAnimationFrame(frame)},{passive:true});
+ /* Modo automático de economia: se a taxa de quadros ficar baixa, desliga efeitos caros nesta sessão sem alterar a configuração salva */
+ var KEY='stzblue.perf';
+ try{if(sessionStorage.getItem(KEY)==='low'){root.setAttribute('data-perf','low');return}}catch(e){}
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ setTimeout(function(){
+  var last=0,n=0,sum=0,bad=0;
+  function tick(t){
+   if(document.hidden){last=0;requestAnimationFrame(tick);return}
+   if(last){var d=t-last;if(d<250){n++;sum+=d;if(d>34)bad++}}
+   last=t;
+   if(n>=120){if(sum/n>22||bad/n>.3){root.setAttribute('data-perf','low');try{sessionStorage.setItem(KEY,'low')}catch(e){}}return}
+   requestAnimationFrame(tick)}
+  requestAnimationFrame(tick)},3000);
 })();
 </script></body></html>
