@@ -605,7 +605,10 @@ header { backdrop-filter:blur(16px); }
 
 .stz-disc-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;border:1px solid var(--br);border-radius:15px;padding:17px 18px;background:var(--card);color:var(--tx);cursor:pointer;transition:border-color .2s ease,transform .2s ease,background .2s ease}
 .stz-disc-toggle:hover{border-color:rgba(59,130,246,.55);transform:translateY(-1px)}.stz-disc-toggle strong{display:block}.stz-disc-toggle small{display:block;color:var(--mut);margin-top:4px}.stz-disc-panel{overflow:hidden;animation:stzDiscOpen .28s ease both}.stz-disc-list{display:grid;gap:8px}.stz-disc-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid var(--br);border-radius:12px}.stz-disc-item .stz-disc-meta{min-width:0}.stz-disc-item strong{display:block;overflow-wrap:anywhere}.stz-disc-item small{color:var(--mut)}@keyframes stzDiscOpen{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.stz-disc-toggle,.stz-disc-panel{animation:none!important;transition:none!important}}
+.stz-disc-scope{display:block;margin-top:5px;font-size:11px;line-height:1.35;color:var(--mut)}
+.stz-disc-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:6px;flex:0 1 auto}
+.stz-disc-actions .chip{min-height:35px;padding:7px 9px;font-size:11px;white-space:nowrap}
+@media(max-width:700px){#app[data-tab="painel"] .stz-disc-item{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}#app[data-tab="painel"] .stz-disc-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%}#app[data-tab="painel"] .stz-disc-actions .chip{width:100%;min-width:0;padding:8px 6px;white-space:normal;line-height:1.25}}@media(prefers-reduced-motion:reduce){.stz-disc-toggle,.stz-disc-panel{animation:none!important;transition:none!important}}
 
 </style>
 <style>
@@ -1011,12 +1014,12 @@ header::before{background:radial-gradient(420px 120px at 12% 0%,rgba(190,215,255
 #hm:hover,#dots:hover,#bell:hover{background:linear-gradient(135deg,rgba(79,140,255,.32),rgba(139,107,255,.26));border-color:rgba(190,206,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 24px rgba(79,100,255,.32)}
 #hm:active,#dots:active,#bell:active{transform:scale(.93)}
 
-/* Cartões: lente de vidro com brilho que varre a superfície */
+/* Reflexo de vidro estável, sem faixa clara móvel sobre as superfícies. */
 .card,.tk,.sr,.al2,.note-card,.note-editor,.year-picker{border-radius:26px;border-color:rgba(205,218,255,.16);transition:transform .55s var(--lg-ease),box-shadow .55s var(--lg-ease),border-color .4s,background .4s}
-.card::after,.tk::after,.sr::after,.al2::after,.note-card::after,.note-editor::after,.year-picker::after{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.13) 46%,rgba(190,170,255,.12) 54%,transparent 70%),linear-gradient(120deg,rgba(255,255,255,.07),transparent 28%,transparent 72%,rgba(153,124,255,.06));background-size:260% 100%,100% 100%;background-position:130% 0,0 0;background-repeat:no-repeat;opacity:1;transition:background-position 1s var(--lg-ease)}
+.card::after,.tk::after,.sr::after,.al2::after,.note-card::after,.note-editor::after,.year-picker::after{background:linear-gradient(120deg,rgba(255,255,255,.045),transparent 30%,transparent 72%,rgba(153,124,255,.04));background-size:100% 100%;background-position:0 0;background-repeat:no-repeat;opacity:1;transition:opacity .3s var(--lg-ease)}
 @media(hover:hover){
   .card:hover,.tk:hover,.sr:hover,.note-card:hover{transform:translateY(-3px)}
-  .card:hover::after,.tk:hover::after,.sr:hover::after,.al2:hover::after,.note-card:hover::after,.year-picker:hover::after{background-position:-30% 0,0 0}
+  .card:hover::after,.tk:hover::after,.sr:hover::after,.al2:hover::after,.note-card:hover::after,.year-picker:hover::after{opacity:.82}
 }
 .card:active,.tk:active,.note-card:active{transform:translateY(-1px) scale(.995)}
 .card::before,.tk::before,.sr::before,.al2::before,.note-card::before,.note-editor::before,.year-picker::before{background:radial-gradient(420px circle at var(--spot-x,50%) var(--spot-y,25%),rgba(120,150,255,.20),rgba(139,107,255,.08) 45%,transparent 70%)}
@@ -1622,6 +1625,18 @@ html[data-mode="light"] .ambient-motion .tech-cube span{border-color:rgba(47,107
 
 @media(pointer:coarse){html:not([data-lg="lite"]):not([data-lg="off"]):not([data-perf="low"]) .ambient-motion .tech-cubes{display:block!important;opacity:.84!important}.ambient-motion .tech-cube{opacity:.17}.ambient-motion .cube-b{opacity:.13}.ambient-motion .cube-c{opacity:.11}}
 
+/* No mobile e tablet, mantenha a atmosfera visível acima do fundo da página e atrás do conteúdo. */
+@media(max-width:899px){.ambient-motion{z-index:0!important}main{position:relative;z-index:auto}}
+
+/* Efeitos de fundo leves para toque: cubos 3D visíveis, vidro estático e sem filtros pesados. */
+@media(pointer:coarse){
+ html:not([data-lg="lite"]):not([data-lg="off"]):not([data-perf="low"]) .ambient-motion .tech-cubes,
+ html:not([data-lg="lite"]):not([data-lg="off"]):not([data-perf="low"]) .ambient-motion .glass-shard{display:block!important}
+ .ambient-motion .tech-cube{opacity:.26!important;filter:none!important}
+ .ambient-motion .cube-b{opacity:.19!important}.ambient-motion .cube-c{opacity:.16!important}
+ .ambient-motion .glass-shard{opacity:calc(var(--lgi)*.20)!important;animation:none!important;transform:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ .ambient-motion .shard-three{opacity:calc(var(--lgi)*.14)!important}
+}
 
 @media(pointer:coarse){
  .ambient-motion:before,.ambient-motion:after,.ambient-motion .wave-filaments{animation:none!important;filter:none!important;transform:none!important;will-change:auto}
@@ -1731,7 +1746,7 @@ function painel(){
  h+='<section class="card dash-shortcuts"><h3>'+ic('plus')+' Atalhos rápidos</h3><div class="dash-shortcut-grid"><button class="chip" onclick="go(\'simulador\')">Simular notas</button><button class="chip" onclick="go(\'notas\')">Bloco de notas</button><button class="chip" onclick="go(\'relatorios\')">Relatórios</button><button class="chip" onclick="go(\'reputacao\')">Reputação</button></div></section></div>';
  h+='<div class="card"><div class="head"><h3>'+ic('bell')+' Alertas</h3>'+(A.length?'<button class="chip" onclick="go(\'alertas\')">Ver todos</button>':'')+'</div>'+(A.length?A.slice(0,3).map(a=>'<div class="al2 '+a.k+'">'+alc(a)+'</div>').join('')+(A.length>3?'<small>+ '+(A.length-3)+' alerta(s)</small>':''):'<small>Tudo em dia.</small>')+'</div>';
   const ts=cls(T);if(ts.length&&!isH(T))h+=dashboardFrequencyCard(T,ts);
- return h+'<div class="card" style="padding:0;overflow:hidden"><button type="button" class="stz-disc-toggle" aria-expanded="'+discManagerOpen+'" onclick="discManagerOpen=!discManagerOpen;discEditId=null;render()"><span><strong>'+ic('book',18)+' Registro de Disciplinas</strong><small>Gerencie suas disciplinas e professores.</small></span><span aria-hidden="true">'+ic(discManagerOpen?'cu':'cd',18)+'</span></button>'+(discManagerOpen?'<div class="stz-disc-panel" style="padding:16px"><div class="f"><button class="btn" type="button" onclick="openManagedDisciplineCreate()">Cadastrar disciplina</button></div><h3 style="margin-top:20px">Disciplinas cadastradas</h3>'+(S.subs.length?'<div class="stz-disc-list">'+S.subs.map(sub=>'<div class="stz-disc-item"><div class="stz-disc-meta"><strong><span class="dot" style="background:'+sub.c+'"></span>'+esc(sub.n)+'</strong><small>'+esc(sub.pr||'Professor não informado')+'</small></div><button class="chip" type="button" onclick="editManagedDiscipline(\''+sub.id+'\')">'+ic('edit',15)+' Editar</button></div>').join('')+'</div>':'<small>Nenhuma disciplina cadastrada ainda.</small>')+'</div>':'')+'</div>';
+ return h+'<div class="card" style="padding:0;overflow:hidden"><button type="button" class="stz-disc-toggle" aria-expanded="'+discManagerOpen+'" onclick="discManagerOpen=!discManagerOpen;discEditId=null;render()"><span><strong>'+ic('book',18)+' Registro de Disciplinas</strong><small>Gerencie suas disciplinas e professores.</small></span><span aria-hidden="true">'+ic(discManagerOpen?'cu':'cd',18)+'</span></button>'+(discManagerOpen?'<div class="stz-disc-panel" style="padding:16px"><div class="f"><button class="btn" type="button" onclick="openManagedDisciplineCreate()">Cadastrar disciplina</button></div><h3 style="margin-top:20px">Disciplinas cadastradas</h3>'+(S.subs.length?'<div class="stz-disc-list">'+S.subs.map(sub=>'<div class="stz-disc-item"><div class="stz-disc-meta"><strong><span class="dot" style="background:'+sub.c+'"></span>'+esc(sub.n)+'</strong><small>'+esc(sub.pr||'Professor não informado')+'</small><small class="stz-disc-scope">'+(sub.nb?'Não incluída no boletim · aparece no horário':'Incluída no boletim e no horário')+'</small></div><div class="stz-disc-actions"><button class="chip" type="button" aria-label="'+(sub.nb?'Incluir '+esc(sub.n)+' no boletim':'Tirar '+esc(sub.n)+' do boletim')+'" onclick="togB(\''+sub.id+'\')">'+(sub.nb?'Incluir no boletim':'Tirar do boletim')+'</button><button class="chip" type="button" aria-label="Editar '+esc(sub.n)+'" onclick="editManagedDiscipline(\''+sub.id+'\')">'+ic('edit',15)+' Editar</button><button class="chip fl" type="button" aria-label="'+(pend===sub.id?'Confirmar exclusão de ':'Apagar ')+esc(sub.n)+'" onclick="delSub(\''+sub.id+'\')">'+(pend===sub.id?'Confirmar exclusão':'Apagar')+'</button></div></div>').join('')+'</div>':'<small>Nenhuma disciplina cadastrada ainda.</small>')+'</div>':'')+'</div>';
 }
 function discEditKey(e){if(e.key==='Escape')closeDiscEdit()}
 function closeDiscEdit(){const o=document.getElementById('stzDiscEditOv');if(o)o.remove();discEditId=null;document.removeEventListener('keydown',discEditKey)}
@@ -2388,18 +2403,19 @@ function renderDesktopProfile(){
 }
 function liquidNavPosition(nav){const style=getComputedStyle(nav,'::before'),transform=style.transform||'',values=(transform.match(/^matrix(?:3d)?\(([^)]+)\)$/)||[])[1]?.split(',').map(Number)||[],x=values.length===16?values[12]:values.length===6?values[4]:0,y=values.length===16?values[13]:values.length===6?values[5]:0,active=nav.querySelector('button.on,button[aria-selected="true"],button[aria-pressed="true"]');return{key:nav.dataset.liquidKey,value:active?(active.dataset.liquidValue||active.textContent.trim()):'',x,y,w:parseFloat(style.width)||0,h:parseFloat(style.height)||0}}
 function captureLiquidNav(){const saved=Object.create(null);document.querySelectorAll('#app .liquid-tabs[data-liquid-key]').forEach(nav=>{const p=liquidNavPosition(nav);if(p.value)saved[p.key]=p});return saved}
-function placeLiquidNav(previous){
+function placeLiquidNav(previous,clicked){
  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  document.querySelectorAll('#app .liquid-tabs[data-liquid-key]').forEach(nav=>{
   const active=nav.querySelector('button.on,button[aria-selected="true"],button[aria-pressed="true"]');if(!active)return;
-  const nr=nav.getBoundingClientRect(),ar=active.getBoundingClientRect(),target={x:ar.left-nr.left-nav.clientLeft,y:ar.top-nr.top-nav.clientTop,w:ar.width,h:ar.height},key=nav.dataset.liquidKey,value=active.dataset.liquidValue||active.textContent.trim(),old=previous&&previous[key],animate=!!(old&&old.value!==value&&!reduced),set=p=>{nav.style.setProperty('--liquid-x',p.x+'px');nav.style.setProperty('--liquid-y',p.y+'px');nav.style.setProperty('--liquid-w',p.w+'px');nav.style.setProperty('--liquid-h',p.h+'px')},token=(liquidNavTokens.get(key)||0)+1;
-  liquidNavTokens.set(key,token);nav.classList.add('liquid-nav-silent');set(animate?old:target);
+  const nr=nav.getBoundingClientRect(),ar=active.getBoundingClientRect(),target={x:ar.left-nr.left-nav.clientLeft,y:ar.top-nr.top-nav.clientTop,w:ar.width,h:ar.height},key=nav.dataset.liquidKey,value=active.dataset.liquidValue||active.textContent.trim(),old=previous&&previous[key],wasClicked=!!(clicked&&clicked.key===key&&clicked.value===value),animate=!!(wasClicked&&old&&old.value!==value&&!reduced),set=p=>{nav.style.setProperty('--liquid-x',p.x+'px');nav.style.setProperty('--liquid-y',p.y+'px');nav.style.setProperty('--liquid-w',p.w+'px');nav.style.setProperty('--liquid-h',p.h+'px')},token=(liquidNavTokens.get(key)||0)+1;
+  liquidNavTokens.set(key,token);nav.classList.add('liquid-nav-silent');set(animate?old:target);void getComputedStyle(nav,'::before').transform;
   if(animate)requestAnimationFrame(()=>{if(liquidNavTokens.get(key)!==token||!nav.isConnected)return;nav.classList.remove('liquid-nav-silent');set(target)});else nav.classList.remove('liquid-nav-silent');
  });
 }
-const liquidNavTokens=new Map();let liquidNavResizeFrame=0;
+const liquidNavTokens=new Map();let liquidNavResizeFrame=0,liquidNavIntent=null,liquidNavIntentSeq=0;
+document.addEventListener('click',e=>{const button=e.target.closest&&e.target.closest('#app .liquid-tabs[data-liquid-key] button');if(!button)return;const nav=button.closest('.liquid-tabs[data-liquid-key]');if(!nav)return;const intent={key:nav.dataset.liquidKey,value:button.dataset.liquidValue||button.textContent.trim(),seq:++liquidNavIntentSeq};liquidNavIntent=intent;setTimeout(()=>{if(liquidNavIntent===intent)liquidNavIntent=null},0)},true);
 addEventListener('resize',()=>{if(liquidNavResizeFrame)return;liquidNavResizeFrame=requestAnimationFrame(()=>{liquidNavResizeFrame=0;placeLiquidNav(null)})},{passive:true});
-function render(){const previousLiquidNav=captureLiquidNav();gr();applyTheme();if(!ses)scheduleClassBoundary();
+function render(){const previousLiquidNav=captureLiquidNav(),clickedLiquidNav=liquidNavIntent;liquidNavIntent=null;gr();applyTheme();if(!ses)scheduleClassBoundary();
  if(!ses){$('#tbar').innerHTML='';$('#tbar').removeAttribute('data-ready');document.body.classList.remove('stz-sidebar-expanded');$('#centralProfile').hidden=true;$('#syncStatus').hidden=true;$('#ttl').textContent='STZBLUE';$('#yl').textContent='';$('#hm').style.display='none';$('#bell').style.display='none';$('#dots').style.display='none';$('#menu').hidden=true;$('#dw').className='dw';$('#dw').innerHTML='';$('#app').innerHTML=auth();return}
  $('#app').dataset.tab=tab;
  if(lastTab!==tab){lastTab=tab;const a=$('#app');a.classList.add('stz-tab-in');clearTimeout(tabInT);tabInT=setTimeout(()=>a.classList.remove('stz-tab-in'),520)}
@@ -2409,7 +2425,7 @@ function render(){const previousLiquidNav=captureLiquidNav();gr();applyTheme();i
  $('#bell').style.display='';$('#dots').style.display='';$('#bell').className=n?'al':'';$('#bell').innerHTML=ic('bell',16)+(n?' '+n:'');
  $('#dw').className='dw'+(dwo?' on':'');$('#dw').innerHTML=drawer();
   $('#app').innerHTML=(dataRecoveryWarning?'<div class="al warn recovery-warning">'+esc(dataRecoveryWarning)+' Os dados originais foram preservados em uma cópia local de recuperação.</div>':'')+({painel,alertas,foco,config,materias,boletim,formativa,desempenho,simulador,relatorios,horario,agenda,planoProvas,notas,perfil,historicoNotas,reputacao:reputation})[tab]()+(clearPrompt?`<div class="ov" role="dialog" aria-modal="true"><div class="mdl" style="max-width:440px"><div class="head"><h3>Limpar ${clearPrompt}º bimestre?</h3><button class="x" aria-label="Fechar" onclick="clearPrompt=null;render()">×</button></div><p class="ty">Esta opção apaga as notas parciais, bimestrais, formativas e os pontos extras deste bimestre em todas as disciplinas. As notas de recuperação e os outros bimestres serão preservados.</p><p class="ty">Essa ação não pode ser desfeita. Deseja continuar?</p><div class="f"><button class="btn" onclick="confirmClearBimestre()">Confirmar limpeza</button><button class="chip" onclick="clearPrompt=null;render()">Cancelar</button></div></div></div>`:'')+(mq&&(tab==='boletim'||tab==='formativa')?modal():'')+(hq&&(tab==='horario'||tab==='painel')?hmodal():'')+(intervalDraft&&tab==='horario'?intervalEditor():'')+(sq&&tab==='materias'?smodal():'')+(ash&&tab==='agenda'?editor():'')+(simScenarioDraft&&tab==='simulador'?simScenarioModal():'')+(xDraft&&(tab==='boletim'||tab==='formativa')?xDraftModal():'')+(repEdit&&tab==='reputacao'?reputationEditor():'');
-  placeLiquidNav(previousLiquidNav);installActivityStatus();syncFreqControls();scheduleClassBoundary();
+  placeLiquidNav(previousLiquidNav,clickedLiquidNav);installActivityStatus();syncFreqControls();scheduleClassBoundary();
  if(mq&&mq.step===2&&$('#mv'))$('#mv').focus();if(hq&&hq.step===2&&$('#hn'))$('#hn').focus();$('#dots').innerHTML=ic('dots',20);$('#menu').innerHTML=`<button onclick="go('perfil')">${ic('user',18)} Perfil e conta</button><button type="button" class="menu-history-notes" aria-label="Histórico de notas" onclick="go('historicoNotas')"><span class="ic menu-history-icon" aria-hidden="true">${ic('history',20)}</span><span class="menu-history-label">Histórico de notas</span></button><button onclick="go('config')">${ic('cfg',18)} Configurações</button>`;$('#dots').setAttribute('aria-expanded','false');if(ses)setTimeout(stzShowReleaseIfNeeded,350)}
 (async()=>{const h=location.hash;
  if(h.includes('type=recovery')){rtk=new URLSearchParams(h.slice(1)).get('access_token');am='new';history.replaceState(null,'',location.pathname)}
