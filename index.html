@@ -1796,6 +1796,84 @@ input[type="number"],input[type="date"],input[type="time"],.big,.big2,.stat-tile
 @media(hover:hover) and (pointer:fine) and (max-width:1099px){.mobile-nav-item:hover{color:#fff}.mobile-nav-menu-item:hover{border-color:color-mix(in srgb,var(--ac2) 32%,var(--br));background:color-mix(in srgb,var(--ac) 13%,var(--card));color:var(--tx)}}
 @media print{.mobile-bottom-nav{display:none!important}}
 </style>
+<style id="stz-mobile-glass-navigation-refinement">
+/* Camada exclusivamente mobile/tablet: Liquid Glass com hierarquia e cores STZBLUE. */
+@media(max-width:1099px){
+  :root{--mobile-nav-transparency:.62}
+  body::before{display:none!important}
+  .ambient-motion{background:radial-gradient(ellipse 80% 60% at 16% 0%,rgba(31,93,203,.32),transparent 66%),radial-gradient(ellipse 68% 60% at 100% 38%,rgba(98,54,180,.26),transparent 68%),radial-gradient(ellipse 54% 46% at 46% 100%,rgba(20,81,151,.22),transparent 70%),linear-gradient(150deg,#050814 0%,#090d1d 48%,#0c1022 100%);box-shadow:inset 0 0 120px rgba(3,5,16,.28)}
+  .ambient-motion:before{inset:0;background:radial-gradient(ellipse at 17% 18%,rgba(43,111,255,.26),transparent 38%),radial-gradient(ellipse at 83% 42%,rgba(136,77,255,.24),transparent 42%),radial-gradient(ellipse at 48% 90%,rgba(20,169,225,.12),transparent 43%);-webkit-mask-image:none;mask-image:none;filter:none;opacity:.9;transform:none;animation:none}
+  .ambient-motion:after{inset:0;background:radial-gradient(ellipse at 72% 20%,rgba(128,98,255,.13),transparent 35%),radial-gradient(ellipse at 16% 76%,rgba(56,120,255,.10),transparent 42%);filter:none;opacity:.85;transform:none;animation:none}
+  .ambient-motion .wave-filaments{display:none!important}
+  .ambient-motion .tech-cubes{opacity:.88!important;transform:none}
+  .ambient-motion .tech-cube{opacity:.30!important;filter:none!important;will-change:transform}
+  .ambient-motion .cube-b{opacity:.22!important}.ambient-motion .cube-c{opacity:.18!important}
+  .ambient-motion .tech-cube span{border-color:rgba(132,174,255,.43);background:linear-gradient(145deg,rgba(82,139,255,.10),rgba(37,48,103,.035) 55%,rgba(144,99,255,.09));box-shadow:inset 0 0 14px rgba(72,128,255,.08)}
+  @media(max-width:700px){.ambient-motion .cube-a{left:7%;top:25%}.ambient-motion .cube-b{right:7%;top:16%}.ambient-motion .cube-c{right:16%;bottom:12%}}
+  html[data-mode="light"] .ambient-motion{background:radial-gradient(ellipse 74% 52% at 8% 0%,rgba(61,117,217,.18),transparent 68%),radial-gradient(ellipse 68% 54% at 100% 45%,rgba(126,89,205,.14),transparent 70%),linear-gradient(150deg,#e9eff9,#edf0f8 52%,#f0eef8)}
+  html[data-mode="light"] .ambient-motion:before{background:radial-gradient(ellipse at 16% 17%,rgba(48,110,215,.14),transparent 38%),radial-gradient(ellipse at 85% 46%,rgba(121,82,204,.13),transparent 42%);opacity:.78}
+  html[data-mode="light"] .ambient-motion:after{background:radial-gradient(ellipse at 72% 20%,rgba(113,94,203,.10),transparent 35%),radial-gradient(ellipse at 16% 76%,rgba(56,120,220,.08),transparent 42%)}
+  html[data-mode="light"] .ambient-motion .tech-cube span{border-color:rgba(64,107,181,.38);background:linear-gradient(145deg,rgba(60,118,214,.09),rgba(107,88,190,.045));box-shadow:inset 0 0 14px rgba(72,128,255,.08)}
+
+  .mobile-bottom-nav{bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(370px,calc(100vw - 26px));overflow:visible!important}
+  .mobile-bottom-nav-shell{--nav-surface-alpha:var(--mobile-nav-surface-alpha,.64);position:relative;isolation:isolate;padding:6px;border:1px solid rgba(197,216,255,.30);border-radius:999px;background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.045) 36%,rgba(79,116,255,.12) 76%,rgba(147,91,255,.10)),rgba(8,14,31,var(--nav-surface-alpha));box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(155,180,255,.10),0 16px 42px rgba(2,6,22,.45);backdrop-filter:blur(var(--mobile-nav-blur,18px)) saturate(165%);-webkit-backdrop-filter:blur(var(--mobile-nav-blur,18px)) saturate(165%);transition:background-color .18s,border-color .18s,box-shadow .22s}
+  .mobile-bottom-nav-shell::before{left:6px;top:6px;bottom:6px;width:calc((100% - 12px)/5);border:0;border-radius:999px;background:linear-gradient(145deg,rgba(255,255,255,.18),color-mix(in srgb,var(--nav-indicator-accent,var(--ac2)) 19%,transparent) 52%,color-mix(in srgb,var(--purple) 12%,transparent));box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 5px 17px color-mix(in srgb,var(--nav-indicator-accent,var(--ac2)) 20%,transparent);transition:transform .52s cubic-bezier(.22,1,.36,1),opacity .22s ease}
+  .mobile-bottom-nav-shell[data-no-active="true"]::before{opacity:0}
+  .mobile-bottom-nav-items{min-height:54px;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px}
+  .mobile-nav-item{min-height:54px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--nav-accent,#a9b9dc);transition:color .2s ease,transform .2s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent}
+  .mobile-nav-item .mobile-nav-icon{width:auto;height:auto;min-width:30px;min-height:30px;border:0;border-radius:0;background:transparent;box-shadow:none;color:var(--nav-accent,#a9b9dc);transition:transform .38s cubic-bezier(.22,1,.36,1),color .2s,filter .2s}
+  .mobile-nav-item .mobile-nav-icon .ic{width:23px;height:23px;stroke-width:1.85}
+  .mobile-nav-item[data-mobile-tab="painel"]{--nav-accent:#83b7ff}
+  .mobile-nav-item[data-mobile-tab="alertas"]{--nav-accent:#ffb27f}
+  .mobile-nav-item[data-mobile-tab="materias"]{--nav-accent:#66dfcb}
+  .mobile-nav-item[data-mobile-tab="boletim"]{--nav-accent:#c0a6ff}
+  #mobileNavMore{--nav-accent:#b2a5ff}
+  .mobile-nav-item[aria-current="page"] .mobile-nav-icon,.mobile-nav-item.has-current .mobile-nav-icon{color:var(--nav-accent);filter:drop-shadow(0 2px 8px color-mix(in srgb,var(--nav-accent) 42%,transparent));animation:stzMobileTabArrive .46s cubic-bezier(.22,1,.36,1) both}
+  .mobile-nav-item:active{transform:scale(.92)}
+  .mobile-nav-item:focus-visible{outline:2px solid color-mix(in srgb,var(--nav-accent,var(--ac2)) 78%,white);outline-offset:2px}
+  .mobile-bottom-nav.menu-open .mobile-bottom-nav-shell{border-color:rgba(205,217,255,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 18px 48px rgba(2,6,22,.52)}
+  .mobile-bottom-nav.menu-open #mobileNavMore .mobile-nav-icon{transform:rotate(90deg)}
+  .mobile-nav-badge{top:7px;right:calc(50% - 19px);border:1px solid rgba(255,255,255,.65)}
+
+  .mobile-bottom-nav-menu{--menu-surface-alpha:var(--mobile-menu-surface-alpha,.64);left:0;right:0;bottom:calc(100% + 13px);padding:14px;border:1px solid rgba(197,216,255,.26);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.035) 40%,rgba(94,105,255,.12) 76%,rgba(158,91,255,.10)),rgba(8,14,31,var(--menu-surface-alpha));box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 26px 60px rgba(2,6,22,.52);backdrop-filter:blur(var(--mobile-menu-blur,19px)) saturate(170%);-webkit-backdrop-filter:blur(var(--mobile-menu-blur,19px)) saturate(170%);transform-origin:bottom center;animation:stzMobileMenuIn .30s cubic-bezier(.16,1,.3,1) both}
+  .mobile-bottom-nav-menu.is-closing{animation:stzMobileMenuOut .15s cubic-bezier(.4,0,1,1) both}
+  .mobile-nav-menu-heading{padding:3px 7px 12px;font-size:12px;letter-spacing:.04em}
+  .mobile-nav-menu-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 8px}
+  .mobile-nav-menu-item{min-height:46px;padding:9px 7px;border:0;border-radius:14px;background:transparent;color:rgba(235,240,255,.88);font-size:12px;line-height:1.35;white-space:normal;word-break:normal;overflow-wrap:normal;hyphens:none;transition:background-color .18s,color .18s,transform .18s}
+  .mobile-nav-menu-item .mobile-nav-icon{flex-basis:28px;width:28px;height:28px;border:0;border-radius:0;background:transparent;color:var(--menu-accent,#8bbaff)}
+  .mobile-nav-menu-item:nth-child(4n+2){--menu-accent:#c0a6ff}.mobile-nav-menu-item:nth-child(4n+3){--menu-accent:#67d8ce}.mobile-nav-menu-item:nth-child(4n){--menu-accent:#f0b879}
+  .mobile-nav-menu-item[aria-current="page"]{background:rgba(142,161,255,.14);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.10)}
+  .mobile-nav-menu-item[aria-current="page"] .mobile-nav-icon{background:transparent;color:#fff}
+  .mobile-nav-menu-item:focus-visible{outline:2px solid var(--ac2);outline-offset:1px}
+  .mobile-nav-menu-item:active{transform:scale(.98)}
+  header .ttl,.central-user-name b,.central-user-name small,.mobile-nav-menu-item span:last-child{word-break:normal;overflow-wrap:normal;hyphens:none}
+  #app .head{min-width:0;flex-wrap:wrap;align-items:flex-start}
+  #app .head>:first-child{min-width:0;flex:1 1 180px}
+  #app .head>.btn,#app .head>.chip{flex:0 1 auto;max-width:100%}
+  #app .f,#app .chips{min-width:0;flex-wrap:wrap}
+  #app .btn,#app .chip{min-height:40px;min-width:44px}
+  .mobile-bottom-nav.menu-open .mobile-nav-menu-item{animation:stzMobileMenuItemIn .3s cubic-bezier(.16,1,.3,1) both}
+  .mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(2){animation-delay:20ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(3){animation-delay:40ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(4){animation-delay:60ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(5){animation-delay:80ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(6){animation-delay:100ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(7){animation-delay:120ms}.mobile-bottom-nav.menu-open .mobile-nav-menu-item:nth-child(8){animation-delay:140ms}
+  .mobile-bottom-nav-menu.is-closing .mobile-nav-menu-item{animation:none}
+  @media(max-width:380px){.mobile-nav-menu-items{grid-template-columns:minmax(0,1fr)}.mobile-nav-menu-item{min-height:42px;padding:7px 9px}.mobile-bottom-nav-items,.mobile-nav-item{min-height:50px}.mobile-nav-item .mobile-nav-icon .ic{width:22px;height:22px}}
+
+  /* Wrap entre palavras; nunca comprime ou corta palavras ao meio em conteúdo mobile. */
+  #app,.card,#app *{word-break:normal;overflow-wrap:normal;hyphens:none}
+  #app .card :is(h1,h2,h3,h4,p,small,li,label,.ty,.ct,.tc,.tt,.perf-sub,.dc-ks,.dc-tt,.dash-empty,.rep-empty),#app .row span,#app .li>span,#app .li>small,#app .dash-upcoming-date,#app .dash-upcoming-copy b,#app .dash-upcoming-copy small,#app .dash-progress-row>span,#app .dc-row .n,#app .dc-mt,#app .subnav>button{word-break:normal;overflow-wrap:normal;hyphens:none}
+  #app .tc{white-space:pre-line}
+  #app :is(button,.chip,.btn,.mobile-nav-menu-item){word-break:normal;overflow-wrap:normal;hyphens:none}
+  #app .chip,#app .btn{max-width:100%;white-space:normal;line-height:1.35}
+  .mobile-nav-glass-setting .lg-ctl{align-items:center;gap:12px}
+  .mobile-nav-glass-setting input[type="range"]{min-width:0;flex:1 1 auto}
+}
+@media(max-width:1099px) and (prefers-reduced-motion:reduce){.mobile-nav-item[aria-current="page"] .mobile-nav-icon,.mobile-nav-item.has-current .mobile-nav-icon,.mobile-bottom-nav-menu,.mobile-bottom-nav.menu-open .mobile-nav-menu-item{animation:none!important}.mobile-nav-item .mobile-nav-icon,.mobile-bottom-nav-shell::before,.mobile-nav-item,.mobile-nav-menu-item{transition:none!important}.ambient-motion .tech-cube{animation:none!important}}
+@media(max-width:1099px) and (prefers-reduced-transparency:reduce){.mobile-bottom-nav-shell,.mobile-bottom-nav-menu{background:var(--stz-solid-surface,#141d35)!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+@media(min-width:900px){.mobile-nav-glass-setting{display:none!important}}
+@keyframes stzMobileTabArrive{0%{transform:translateY(2px) scale(.88)}64%{transform:translateY(-2px) scale(1.12)}100%{transform:translateY(-1px) scale(1)}}
+@keyframes stzMobileMenuIn{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes stzMobileMenuOut{from{opacity:1;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(8px) scale(.975)}}
+@keyframes stzMobileMenuItemIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head><body>
 <div class="ambient-motion" aria-hidden="true"><span class="wave-filaments"></span><span class="glass-shard shard-one"></span><span class="glass-shard shard-two"></span><span class="glass-shard shard-three"></span><div class="tech-cubes"><i class="tech-cube cube-a"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-b"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-c"><span></span><span></span><span></span><span></span><span></span><span></span></i></div></div>
 <div id="tbar" class="stz-tbar"></div>
@@ -1829,7 +1907,7 @@ function load(){dataRecoveryWarning='';
  raw.Y=isObj(raw.Y)?raw.Y:{};raw.yr=Number(raw.yr)||new Date().getFullYear();Object.keys(raw.Y).forEach(y=>raw.Y[y]=yearRecord(raw.Y[y]));
  if(!raw.Y[raw.yr]){raw.Y[raw.yr]=yearRecord({});migrated=true}
  S=Object.assign({np:4,avg:6,fq:75,me:{}},raw);bind();
- S.cfg=Object.assign({cn:1,cf:1,tema:'auto',lg:100,am:1,af:1,ap:1,mg:.5,dias:2,pend:5,ud:1,udt:7,concl:1,ini:1,fo:25,pa:5,annualTarget:24,calcAll:1,calcMin:3},isObj(S.cfg)?S.cfg:{});
+ S.cfg=Object.assign({cn:1,cf:1,tema:'auto',lg:100,am:1,af:1,ap:1,mg:.5,dias:2,pend:5,ud:1,udt:7,concl:1,ini:1,fo:25,pa:5,annualTarget:24,calcAll:1,calcMin:3,mobileNavTransparency:62},isObj(S.cfg)?S.cfg:{});
  if(!S.fz){Object.values(S.Y).forEach(y=>{y.att=isObj(y.att)?y.att:{};(y.subs||[]).forEach(s=>{s.at=isObj(s.at)?s.at:{}})});S.fz=1;migrated=true}
  S.dis=Array.isArray(S.dis)?S.dis:[];S.vacationMonths=Array.isArray(S.vacationMonths)?S.vacationMonths.filter(x=>/^\d{4}-\d{2}$/.test(String(x))):[];S.proofPlans=isObj(S.proofPlans)?S.proofPlans:{};S.gradeHistory=Array.isArray(S.gradeHistory)?S.gradeHistory.filter(isObj):[];
  Object.values(S.Y).forEach(y=>{(y.items||[]).forEach(i=>{if(i.k==='Tarefa')i.k='Atividade'});y.att=isObj(y.att)?y.att:{};(y.subs||[]).forEach(s=>{s.g=isObj(s.g)?s.g:{};s.at=isObj(s.at)?s.at:{};if(s.P||s.F){const m=td().slice(0,7),z=s.at[m]=s.at[m]||{P:0,F:0};z.P+=(Number(s.P)||0);z.F+=(Number(s.F)||0);migrated=true}delete s.P;delete s.F})});
@@ -2264,7 +2342,7 @@ const fl=d=>{const o=new Date(d+'T00:00');return `${WD[o.getDay()]}, ${o.getDate
 const di=d=>(new Date(d+'T00:00').getDay()+6)%7;
 const cls=d=>{const i=di(d);return i>4?[]:(S.sched[i]||[]).map((id,t)=>id?t:-1).filter(t=>t>=0)};
 function applyLg(){const e=document.documentElement;if(!e||!e.style)return;const v=S&&S.cfg&&S.cfg.lg!=null?Number(S.cfg.lg):100,n=isNaN(v)?100:Math.max(0,Math.min(150,v));e.style.setProperty('--lgi',(n/100).toFixed(2));e.setAttribute('data-lg',n===0?'off':n<=60?'lite':'full')}
-function applyTheme(){const t=(S&&S.cfg&&S.cfg.tema)||'auto',e=document.documentElement;if(!e||!e.setAttribute)return;if(t==='auto')e.removeAttribute('data-theme');else e.setAttribute('data-theme',t==='escuro'?'dark':'light');let m=t==='claro'?'light':'dark';if(t==='auto'){try{m=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}catch(x){}}e.setAttribute('data-mode',m);applyLg()}
+function applyMobileNavTransparency(){const e=document.documentElement;if(!e||!e.style)return;const raw=S&&S.cfg&&S.cfg.mobileNavTransparency,v=Number(raw==null?62:raw),n=Number.isFinite(v)?Math.max(0,Math.min(100,Math.round(v))):62,t=n/100,props={'--mobile-nav-transparency':t.toFixed(2),'--mobile-nav-surface-alpha':(.96-.52*t).toFixed(2),'--mobile-menu-surface-alpha':(.96-.52*t).toFixed(2),'--mobile-nav-blur':Math.round(9+14*t)+'px','--mobile-menu-blur':Math.round(10+14*t)+'px'};Object.entries(props).forEach(([k,value])=>{if(e.style.getPropertyValue(k)!==value)e.style.setProperty(k,value)});const o=document.getElementById('mobileNavTransparencyValue');if(o)o.textContent=n+'%'}function setMobileNavTransparency(v){const n=Number(v);if(!Number.isFinite(n))return;S.cfg.mobileNavTransparency=Math.max(0,Math.min(100,Math.round(n)));applyMobileNavTransparency()}function saveMobileNavTransparency(){save()}function applyTheme(){const t=(S&&S.cfg&&S.cfg.tema)||'auto',e=document.documentElement;if(!e||!e.setAttribute)return;if(t==='auto')e.removeAttribute('data-theme');else e.setAttribute('data-theme',t==='escuro'?'dark':'light');let m=t==='claro'?'light':'dark';if(t==='auto'){try{m=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}catch(x){}}e.setAttribute('data-mode',m);applyLg()}
 try{window.matchMedia('(prefers-color-scheme: light)').addEventListener('change',()=>applyTheme())}catch(x){}
 function setLg(v,live){v=Math.max(0,Math.min(150,Math.round(Number(v))));if(isNaN(v))return;S.cfg.lg=v;applyLg();const o=document.getElementById('lgv');if(o)o.textContent=v+'%';if(!live){save();render()}}
 function saveLg(){save()}
@@ -2273,11 +2351,11 @@ function tgc(k){S.cfg[k]=S.cfg[k]?0:1;save('a alteração nas configurações');
 function cfn(k,v){v=num(v);if(isNaN(v)||v<0||((k==='fo'||k==='pa')&&v<1))return;S.cfg[k]=v;if((k==='fo'||k==='pa')&&!fc.run)fc.left=0;save('a alteração nas configurações');render()}
 function setTema(t){S.cfg.tema=t;save('a mudança de tema');render()}
 function togB(id){const s=S.subs.find(x=>x.id===id);if(s.nb)delete s.nb;else s.nb=1;save('a mudança no boletim');render()}
-function config(){const C=S.cfg,lgv=Math.max(0,Math.min(150,Math.round(Number(C.lg==null?100:C.lg))||0)),row=(l,k)=>`<div class="li"><span>${l}</span>${sw(k)}</div>`,ni=(l,k,mn,mx,st)=>`<label><small>${l}</small><input type="number" min="${mn}" max="${mx}" step="${st}" value="${C[k]}" onchange="cfn('${k}',this.value)"></label>`,nd=(S.dis||[]).length;
+function config(){const C=S.cfg,navv=Math.max(0,Math.min(100,Math.round(Number(C.mobileNavTransparency==null?62:C.mobileNavTransparency))||0)),lgv=Math.max(0,Math.min(150,Math.round(Number(C.lg==null?100:C.lg))||0)),row=(l,k)=>`<div class="li"><span>${l}</span>${sw(k)}</div>`,ni=(l,k,mn,mx,st)=>`<label><small>${l}</small><input type="number" min="${mn}" max="${mx}" step="${st}" value="${C[k]}" onchange="cfn('${k}',this.value)"></label>`,nd=(S.dis||[]).length;
  return `<div class="card"><h3>Confirmações</h3>${row('Confirmar antes de alterar nota','cn')}${row('Confirmar antes de alterar nota da formativa','cf')}${row('Aviso para desfazer alterações','ud')}${ni('Tempo do aviso de desfazer (segundos)','udt',3,30,1)}</div>
 <div class="card"><h3>Tema</h3><div class="f">${[['auto','Automático'],['claro','Claro'],['escuro','Escuro']].map(([v,l])=>`<button class="chip${C.tema===v?' on':''}" onclick="setTema('${v}')">${l}</button>`).join('')}</div></div>
 <div class="card"><h3>Liquid Glass</h3><p class="ty">Ajuste a intensidade do efeito de vidro: transparência, desfoque, brilho e reflexos. Valores baixos deixam o visual mais sólido, leve e rápido; valores altos aumentam a profundidade.</p><div class="lg-ctl"><small>Suave</small><input type="range" min="0" max="150" step="5" value="${lgv}" aria-label="Intensidade do Liquid Glass" oninput="setLg(this.value,true)" onchange="saveLg()"><small>Intenso</small></div><div class="f"><b id="lgv" class="lg-val">${lgv}%</b>${[[0,'Sólido'],[50,'Suave'],[100,'Padrão'],[140,'Intenso']].map(([v,l])=>`<button class="chip${lgv===v?' on':''}" onclick="setLg(${v})">${l}</button>`).join('')}</div></div>
-<div class="card"><h3>Planejamento</h3>${row('Mostrar concluídas na linha do tempo','concl')}<small>Início da semana</small><div class="f">${[[1,'Segunda'],[0,'Domingo']].map(([v,l])=>`<button class="chip${C.ini===v?' on':''}" onclick="setIni(${v})">${l}</button>`).join('')}</div></div>
+<div class="card mobile-nav-glass-setting"><h3>Liquid Glass da barra mobile</h3><p class="ty">Ajuste a transparência da navegação inferior no celular. Este controle é independente da intensidade global do Liquid Glass.</p><div class="lg-ctl"><small>Opaca</small><input id="mobileNavTransparency" type="range" min="0" max="100" step="5" value="${navv}" aria-label="Transparência da barra mobile" oninput="setMobileNavTransparency(this.value)" onchange="saveMobileNavTransparency()"><small>Translúcida</small></div><div class="f"><b id="mobileNavTransparencyValue" class="lg-val">${navv}%</b></div></div>\n<div class="card"><h3>Planejamento</h3>${row('Mostrar concluídas na linha do tempo','concl')}<small>Início da semana</small><div class="f">${[[1,'Segunda'],[0,'Domingo']].map(([v,l])=>`<button class="chip${C.ini===v?' on':''}" onclick="setIni(${v})">${l}</button>`).join('')}</div></div>
 <div class="card"><h3>Foco</h3>${ni('Duração do foco (minutos)','fo',1,120,1)}${ni('Duração da pausa (minutos)','pa',1,60,1)}</div>
 <div class="card"><h3>Regras da escola</h3><div class="li"><span>Calcular média somente após preencher as três notas principais</span><button class="sw${C.calcAll!==0?' on':''}" role="switch" aria-checked="${C.calcAll!==0}" onclick="tgc('calcAll')"><i></i></button></div><small class="ty">Ativado: a média só aparece quando parcial, bimestral e formativa estiverem preenchidas. Notas extras não substituem nenhuma dessas três notas. Desativado: a média começa a ser calculada conforme as notas principais forem preenchidas.</small><label><small>Pontuação anual para passar (soma dos 4 bimestres)</small><input type="number" step="0.5" min="0" max="40" value="${C.annualTarget??24}" onchange="cfn('annualTarget',this.value)"></label><small class="ty">Exemplo: 24 significa que a soma das quatro médias bimestrais deve chegar a 24 pontos.</small><label><small>Média mínima por avaliação</small><input type="number" step="0.5" min="0" max="10" value="${S.avg}" onchange="cf('avg',this.value)"></label><label><small>Frequência mínima (%)</small><input type="number" min="0" max="100" value="${S.fq}" onchange="cf('fq',this.value)"></label></div>
 <div class="card"><h3>Alertas</h3>${row('Alertas de média','am')}${row('Alertas de frequência','af')}${row('Alertas de prazos','ap')}${ni('Média no limite: até quantos pontos acima do mínimo','mg',0,5,.5)}${ni('Avisar prazos com antecedência de (dias)','dias',0,14,1)}${ni('Avisar a partir de quantas pendências','pend',1,50,1)}${nd?`<div class="f"><button class="chip" onclick="rest()">Restaurar ${nd} alerta${nd>1?'s':''} ignorado${nd>1?'s':''}</button></div>`:''}</div><div class="card update-history"><h3>Histórico de atualizações</h3><details open><summary>Versão 1.2.1 · Atual</summary><ul><li>Painel central reorganizado e navegação desktop recolhível.</li><li>Nova aba Reputação, status separados e atalhos integrados.</li><li>Gráficos de frequência recolhíveis; subabas de Relatórios e Planejamento.</li><li>Correções no Liquid Glass mobile e na impressão sem trocar o tema da interface.</li><li>Indicador e tentativas de sincronização aprimorados; proteção local para dados inválidos.</li><li>Aba Reputação organiza registros em cinco categorias documentadas, preservando a origem de cada informação.</li><li>Criação de anotações, disciplinas, cenários e avaliações por modais centralizados.</li><li>Frequência do Painel ocupa a largura disponível no desktop; cubos 3D sutis e animados voltaram ao fundo.</li></ul></details><details><summary>Versão 1.2</summary><ul><li>Reorganização da navegação e Desempenho Curricular com evolução, prioridades e projeções.</li><li>Otimizações do Liquid Glass para mais fluidez em celulares, tablets e computadores.</li><li>Controles de intensidade para reduzir efeitos visuais e melhorar o desempenho.</li></ul></details></div><p class="cfg-ver">STZBLUE 1.2.1</p>`}
@@ -2543,7 +2621,7 @@ const WR=(()=>{
 function closeMenu(){const m=$('#menu'),d=$('#dots');if(m)m.hidden=true;if(d)d.setAttribute('aria-expanded','false')}
 let mobileNavMenuOpen=false,mobileNavCloseTimer=0;
 function renderMobileNav(alertCount=0){
- const nav=$('#mobileBottomNav');if(!nav)return;
+ applyMobileNavTransparency();const nav=$('#mobileBottomNav');if(!nav)return;
  if(!ses){nav.hidden=true;delete nav.dataset.activeKey;closeMobileNavMenu();return}
  nav.hidden=false;
  if(nav.dataset.built!=='1'){
