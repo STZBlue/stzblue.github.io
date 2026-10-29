@@ -2,7 +2,7 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="theme-color" content="#0b1020">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>STZBLUE 1.3.4</title>
+<title>STZBLUE 1.3.3</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef4ff;--glow:rgba(37,99,235,.12);--card:#fff;--tx:#0f1f3d;--mut:#5a6b8c;--br:#d6e2fa;--ac:#1d4ed8;--hd:#0b3a9e;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--tr:#e3ecff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -2515,77 +2515,6 @@ html,body{touch-action:manipulation}
 .dash-metrics .dash-pend.is-alert b{color:var(--warn)}
 .dash-pend .dash-pend-flag{display:flex;align-items:center;gap:5px;margin-top:4px;font-size:11px;font-weight:700;color:var(--warn)}
 </style>
-<style id="stz-v134">
-/* ===== STZBLUE 1.3.4 ===== */
-/* ITEM 01 · Próximos compromissos: hierarquia, legibilidade e urgência discreta */
-.dash-upcoming-item{display:grid;grid-template-columns:minmax(72px,88px) minmax(0,1fr) auto;align-items:center;gap:12px;min-height:56px;padding:10px 12px;text-align:left}
-.dash-upcoming-date{display:grid;gap:2px;font-weight:800;font-size:13px;line-height:1.15;color:var(--ac)}
-.dash-upcoming-date em{font-style:normal;font-weight:600;font-size:11px;color:var(--mut)}
-.dash-upcoming-copy{min-width:0;display:grid;gap:2px}
-.dash-upcoming-copy b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
-.dash-upcoming-copy small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--mut)}
-.dash-upcoming-item:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
-.dash-upcoming-item.is-soon .dash-upcoming-date{color:var(--urg)}
-@media(max-width:420px){.dash-upcoming-item{grid-template-columns:68px minmax(0,1fr) auto;gap:8px;padding:9px 10px}}
-/* ITEM 02 · seletor de períodos */
-.ppd-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;margin:4px 0 8px;border:1px solid var(--br);border-radius:16px;background:color-mix(in srgb,var(--ac) 6%,transparent)}
-.ppd-row label{display:grid;gap:2px;min-width:0}.ppd-row small{color:var(--mut);font-size:12px;line-height:1.35}
-.ppd-row select{flex:0 0 auto;min-width:130px;height:44px;border-radius:12px}
-@media(max-width:560px){.ppd-row{flex-direction:column;align-items:stretch}.ppd-row select{width:100%}}
-/* overlays/caixas 1.3.4 (tutorial, confirmações, administração) */
-.v134-ov{position:fixed;inset:0;z-index:100200;display:grid;place-items:center;padding:14px;background:rgba(3,6,20,.66);animation:v134f .25s ease both;overflow:hidden}
-.v134-ov.out{opacity:0;transition:opacity .2s}
-.v134-box{width:min(520px,100%);max-height:calc(100dvh - 28px);overflow-y:auto;overscroll-behavior:contain;padding:22px;border-radius:26px;background:linear-gradient(160deg,rgba(26,38,92,.96),rgba(13,17,50,.98));border:1px solid rgba(150,180,255,.26);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(91,110,255,.18);color:#eef3ff;animation:v134p .4s cubic-bezier(.23,1,.32,1) both}
-.v134-box h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em;color:#fff}.v134-box p{margin:0 0 12px;line-height:1.5;color:#c3d0f2}
-.v134-box .f{display:flex;gap:10px;margin-top:14px}.v134-box .f>*{flex:1 1 0;min-width:0}
-.v134-list{list-style:none;margin:8px 0;padding:0;display:grid;gap:6px;max-height:36dvh;overflow:auto}.v134-list li{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.05);font-size:13px;line-height:1.4;color:#d7e2ff}
-@keyframes v134f{from{opacity:0}}@keyframes v134p{from{opacity:0;transform:translate3d(0,18px,0) scale(.97)}}
-.tut-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.tut-step{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8fb4ff}
-.tut-skip{all:unset;cursor:pointer;font-size:13px;color:#a9b9e0;padding:6px 8px;border-radius:8px}.tut-skip:hover{color:#fff}.tut-skip:focus-visible{outline:2px solid #7cc4ff}
-.tut-dots{display:flex;gap:6px;margin-bottom:14px}.tut-dots i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);transition:background-color .3s}.tut-dots i.on{background:linear-gradient(90deg,#5b8cff,#8b5cf6)}.tut-dots i.done{background:#5b8cff}
-.tut-opt{margin:6px 0 4px}.tut-opt .btn{width:100%}
-.tut-confirm{margin-top:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}.tut-confirm[hidden]{display:none}
-@media(prefers-reduced-motion:reduce){.v134-ov,.v134-box,.dash-upcoming-item::after{animation:none!important}}
-/* ITEM 04/07 · Perfil e Conta: largura equilibrada no desktop + instituições */
-.perfil134{display:grid;gap:14px;width:100%}
-.perfil-nav{justify-self:start;max-width:100%}
-.perfil-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
-#app .perfil-grid>.card{max-width:none;width:auto;margin:0;min-width:0}
-@media(min-width:1000px){.perfil-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.perfil-grid>.card:first-child:nth-last-child(n+4){grid-column:auto}}
-@media(min-width:1500px){.perfil-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.escola-hint{display:block;margin-top:4px;color:var(--mut)}
-.a13-f2{display:grid;gap:6px;margin:8px 0}.a13-f2 small{color:var(--mut);font-weight:700}
-.a13-f2 :is(input,textarea){width:100%;min-width:0}
-.inst-card{display:grid;gap:10px}.inst-card h4{margin:0}
-.inst-steps{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ac)}
-.inst-cur{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.inst-cur .pill{flex:0 0 auto}
-.inst-res{list-style:none;margin:6px 0;padding:0;display:grid;gap:8px}
-.inst-res button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:12px 14px;border:1px solid var(--br);border-radius:14px;cursor:pointer;transition:border-color .2s,background-color .2s}
-.inst-res button:hover,.inst-res button:focus-visible{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 8%,transparent)}
-.inst-res small{display:block;color:var(--mut)}
-.inst-form{display:grid;gap:2px}.inst-card .f{display:flex;gap:10px;flex-wrap:wrap}.inst-card .f>*{flex:1 1 160px}
-.inst-risk{display:grid;gap:8px}.inst-risk ul{margin:0;padding-left:18px;display:grid;gap:4px}.inst-ack{display:flex;gap:10px;align-items:flex-start;font-weight:700;cursor:pointer}.inst-ack input{width:20px;height:20px;margin-top:2px;flex:0 0 20px}
-.inst-preset{padding:12px;border:1px solid var(--br);border-radius:16px;display:grid;gap:8px}.inst-preset-h{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.inst-preset summary{cursor:pointer;font-weight:700}
-.inst-cat{border:1px solid var(--br);border-radius:14px;padding:10px 12px;margin:0}.inst-cat ul{margin:6px 0 0;padding-left:20px;color:var(--mut)}
-.a13-google{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:10px;height:50px;border-radius:999px;cursor:pointer;color:#eef3ff;font:700 15px 'Plus Jakarta Sans',system-ui,sans-serif;border:1px solid rgba(160,190,255,.3);background:rgba(255,255,255,.06);transition:background-color .2s,transform .2s cubic-bezier(.23,1,.32,1)}
-.a13-google:hover{background:rgba(255,255,255,.1)}.a13-google:active{transform:scale(.98)}.a13-google:focus-visible{outline:2px solid #7cc4ff;outline-offset:2px}
-.a13-or{display:flex;align-items:center;gap:10px;color:#8fa0c8;font-size:12px}.a13-or::before,.a13-or::after{content:"";flex:1;height:1px;background:rgba(160,190,255,.2)}
-/* ITEM 08 · painel administrativo */
-.adm-ov .v134-box.adm{width:min(980px,100%);min-height:min(520px,70dvh)}
-.adm-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}.adm-head h3{margin:0}
-.adm-list{display:grid;gap:12px;margin:12px 0}.adm-card{padding:14px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(160,190,255,.16);display:grid;gap:4px}
-.adm-card header{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.adm-card p{margin:0}.adm-card textarea{width:100%;min-height:60px;resize:vertical}
-.adm .a13-f2 input,.adm .a13-f2 textarea{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(160,190,255,.25);border-radius:12px;padding:10px}
-/* ITEM 05 · modal de criação/edição do Planejamento */
-#app .activity-editor{--aw:min(920px,94vw)}
-@media(min-width:900px){
-  #app .activity-editor>*{max-width:var(--aw);margin-inline:auto}
-  #app .activity-editor .content-preview{min-height:110px;padding:12px 14px;border:1px dashed color-mix(in srgb,var(--ac) 45%,var(--br));border-radius:14px;background:color-mix(in srgb,var(--ac) 5%,transparent)}
-}
-#app .activity-editor .card{padding:clamp(14px,2.2vw,22px)}
-#app .activity-editor .content-preview{overflow-wrap:anywhere}
-@media(max-width:700px){#app .activity-editor>*{max-width:100%}}
-</style>
 </head><body>
 <div class="ambient-motion" aria-hidden="true"><span class="wave-filaments"></span><span class="glass-shard shard-one"></span><span class="glass-shard shard-two"></span><span class="glass-shard shard-three"></span><div class="tech-cubes"><i class="tech-cube cube-a"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-b"><span></span><span></span><span></span><span></span><span></span><span></span></i><i class="tech-cube cube-c"><span></span><span></span><span></span><span></span><span></span><span></span></i></div></div>
 <div id="tbar" class="stz-tbar"></div>
@@ -2953,6 +2882,250 @@ html,body{touch-action:manipulation}
 })();
 
 </script>
+<script id="stz-v13-engine">
+/* ===== STZBLUE 1.3 · Engine (motion, splash, boas-vindas, login, username, novidades) ===== */
+(() => {
+  const $1 = (s, r = document) => r.querySelector(s);
+  const LS = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch (e) { return null; } };
+  const cfg = () => { try { return (S && S.cfg) || null; } catch (e) { return null; } };
+  const sfx = n => { try { window.stzSfx && stzSfx(n); } catch (e) {} };
+  const osReduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fullMotion = () => { const c = cfg(); return !osReduce() && (!c || c.motionFull !== 0) && document.documentElement.dataset.motion !== 'reduced'; };
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  /* ---------- Chaves independentes: animações globais × animações do mascote ---------- */
+  window.stzApplyMotion = function () {
+    const c = cfg(), e = document.documentElement, full = !c || c.motionFull !== 0;
+    e.dataset.motion = full ? 'full' : 'reduced';
+    if (!full) { if (!e.hasAttribute('data-perf')) { e.setAttribute('data-perf', 'low'); e.dataset.v13Perf = '1'; } }
+    else if (e.dataset.v13Perf) { e.removeAttribute('data-perf'); delete e.dataset.v13Perf; }
+    if (window.stzMascotSync) stzMascotSync();
+    if (window.stzApplyRing) stzApplyRing();
+  };
+  window.stzCfgChanged = function (key) {
+    const c = cfg(); if (!c) return;
+    if (key === 'sfx') LS('stzblue.sfx', c.sfx === 0 ? '0' : '1');
+    stzApplyMotion();
+  };
+
+  /* ---------- Fundo vivo (ondas Liquid Glass em parallax + névoas) ---------- */
+  const wave = (amp, k, ph, y) => { let d = 'M0 ' + y; for (let x = 0; x <= 2400; x += 40) d += ' L' + x + ' ' + (y + amp * Math.sin(x / 2400 * Math.PI * 2 * k + ph)).toFixed(1); return d + ' L2400 700 L0 700 Z'; };
+  const bgHTML = () => `<div class="v13-mist m1"></div><div class="v13-mist m2"></div><div class="v13-mist m3"></div>
+    <svg class="v13-waves" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+      <g class="wv w1"><path d="${wave(34, 4, 0, 470)}" fill="url(#v13wg1)"/></g>
+      <g class="wv w2"><path d="${wave(26, 6, 1.7, 520)}" fill="url(#v13wg2)"/></g>
+      <g class="wv w3"><path d="${wave(20, 4, 3.1, 575)}" fill="url(#v13wg3)"/></g>
+      <defs><linearGradient id="v13wg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity=".30"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient>
+      <linearGradient id="v13wg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".30"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></linearGradient>
+      <linearGradient id="v13wg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8" stop-opacity=".26"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+    </svg>`;
+
+  /* ---------- Abertura animada (≈6 s) ---------- */
+  let splashPromise = null;
+  window.stzSplashActive = () => !!document.getElementById('stzSplash');
+  window.stzSplashShow = function () {
+    if (splashPromise || document.getElementById('stzSplash')) return splashPromise;
+    const reduce = osReduce() || !fullMotion(), total = reduce ? 1800 : 6000;
+    const el = document.createElement('div'); el.id = 'stzSplash'; el.className = 'stz13-splash' + (reduce ? ' is-calm' : '');
+    el.setAttribute('role', 'status'); el.setAttribute('aria-label', 'Abrindo o STZBLUE');
+    const parts = Array.from({ length: 10 }, (_, i) => `<i style="--a:${i * 36}deg;--d:${(7 + (i % 4) * 1.3).toFixed(1)}s;--r:${200 + (i % 3) * 46}px;--s:${4 + (i % 3)}px"></i>`).join('');
+    el.innerHTML = bgHTML() + `<div class="sp-stage"><div class="sp-orbit" aria-hidden="true">${parts}</div>
+      <svg class="sp-logo" viewBox="0 0 620 150" role="img" aria-label="STZBLUE">
+        <defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7cc4ff"/><stop offset=".5" stop-color="#5b8cff"/><stop offset="1" stop-color="#b08cff"/></linearGradient>
+        <clipPath id="spc"><rect class="sp-clip" x="0" y="0" width="620" height="150"/></clipPath></defs>
+        <text class="sp-halo" x="310" y="108" text-anchor="middle">STZBLUE</text>
+        <text class="sp-stroke" x="310" y="108" text-anchor="middle" stroke="url(#spg)">STZBLUE</text>
+        <text class="sp-fill" x="310" y="108" text-anchor="middle" fill="url(#spg)" clip-path="url(#spc)">STZBLUE</text>
+      </svg><p class="sp-tag">Seu ano escolar, em um só lugar</p></div>
+      <button type="button" class="sp-skip" aria-label="Pular abertura">Toque para pular</button>`;
+    document.body.appendChild(el);
+    sfx('splash'); const chime = setTimeout(() => sfx('splash-chime'), reduce ? 300 : 2300);
+    splashPromise = new Promise(res => {
+      let done = false;
+      const end = () => {
+        if (done) return; done = true; clearTimeout(chime); clearTimeout(tm); clearTimeout(skipT);
+        el.classList.add('is-out'); setTimeout(() => { el.remove(); splashPromise = null; res(); document.dispatchEvent(new Event('stz-splash-done')); }, reduce ? 160 : 650);
+      };
+      const tm = setTimeout(end, total - (reduce ? 160 : 650));
+      const skipT = setTimeout(() => el.classList.add('can-skip'), 1800);
+      el.addEventListener('click', () => { if (el.classList.contains('can-skip')) { sfx('whoosh'); end(); } });
+    });
+    return splashPromise;
+  };
+
+  /* ---------- Tela de boas-vindas (primeiro acesso) ---------- */
+  window.stzWelcomeIfNeeded = function () {
+    if (LS('stzblue.welcome.1.3') === '1' || LS('stzblue.sb') || document.getElementById('stzWelcome')) return;
+    const el = document.createElement('div'); el.id = 'stzWelcome'; el.className = 'stz13-welcome';
+    el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-label', 'Bem-vindo ao STZBLUE. Toque ou pressione Enter para continuar.');
+    const sparks = Array.from({ length: 14 }, (_, i) => `<i style="--x:${(i * 37) % 100}%;--y:${(i * 53) % 100}%;--d:${(5 + (i % 5)).toFixed(1)}s;--dl:${(i % 7) * .6}s;--s:${2 + (i % 3)}px"></i>`).join('');
+    el.innerHTML = bgHTML() + `<div class="wl-sparks" aria-hidden="true">${sparks}</div><div class="wl-stage">
+      <div class="wl-face"><stz-face state="mais-feliz" style="--stz-face-width:100%"></stz-face></div>
+      <div class="wl-kicker">STZBLUE · v1.3</div><h1 class="wl-title">Bem-vindo ao <span>STZBLUE</span></h1>
+      <p class="wl-sub">Notas, frequência e rotina escolar com um assistente que acompanha o seu momento.</p>
+      <div class="wl-hint"><i></i>Toque em qualquer lugar para continuar</div></div>`;
+    document.body.appendChild(el); document.body.classList.add('stz13-welcoming');
+    const face = el.querySelector('stz-face'); let leaving = false;
+    const go = () => {
+      if (leaving) return; leaving = true; LS('stzblue.welcome.1.3', '1'); sfx('open');
+      try { face.state = 'super-feliz'; face.react && face.react('joy'); } catch (e) {}
+      el.classList.add('is-out'); setTimeout(() => { el.remove(); document.body.classList.remove('stz13-welcoming'); const i = document.getElementById('ae'); if (i && innerWidth > 700) try { i.focus({ preventScroll: true }); } catch (e) {} }, 760);
+    };
+    el.addEventListener('click', go); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      };
+
+  /* ---------- Login / Cadastro (split-screen no desktop, cartão no mobile) ---------- */
+  const AUTH_COPY = {
+    in: ['Bem-vindo de volta', 'Entre para ver o seu momento acadêmico.', 'mais-feliz'],
+    up: ['Crie sua conta', 'Comece a organizar notas, frequência e rotina.', 'super-feliz'],
+    rec: ['Recuperar senha', 'Enviaremos um link para o seu e-mail.', 'neutro'],
+    nw: ['Nova senha', 'Escolha uma senha nova para entrar.', 'neutro']
+  };
+  const eye = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  const pwField = (id, label, auto) => `<label class="a13-f"><span>${label}</span><div class="a13-pw"><input id="${id}" type="password" autocomplete="${auto}" onkeydown="if(event.key==='Enter')doAuth()"><button type="button" class="a13-eye" aria-label="Mostrar ou ocultar a senha" onclick="stzTogglePw('${id}',this)">${eye}</button></div></label>`;
+  window.stzTogglePw = (id, b) => { const i = document.getElementById(id); if (!i) return; const show = i.type === 'password'; i.type = show ? 'text' : 'password'; b.setAttribute('aria-pressed', String(show)); sfx('tap'); };
+  function authForm() {
+    const up = am === 'up', rc = am === 'rec', nw = am === 'new', mode = nw ? 'nw' : am;
+    const idField = nw ? '' : `<label class="a13-f"><span>${am === 'in' ? 'E-mail ou Nome de Usuário' : 'E-mail'}</span><input id="ae" type="${am === 'in' ? 'text' : 'email'}" inputmode="${am === 'in' ? 'text' : 'email'}" autocomplete="${am === 'in' ? 'username' : 'email'}" autocapitalize="none" spellcheck="false" onkeydown="if(event.key==='Enter')doAuth()"></label>`;
+    return `${idField}${rc ? '' : pwField('ap', nw ? 'Nova senha' : 'Senha', up || nw ? 'new-password' : 'current-password')}${up || nw ? pwField('ac', 'Confirmar senha', 'new-password') : ''}`
+      + (ainfo ? `<div class="al ok a13-msg" role="status">${esc(ainfo)}</div>` : '') + (aerr ? `<div class="al bad a13-msg" role="alert">${esc(aerr)}</div>` : '')
+      + `<button type="button" class="a13-go" onclick="doAuth()"><span>${up ? 'Criar conta' : rc ? 'Enviar link' : nw ? 'Salvar nova senha' : 'Entrar'}</span></button>`
+      + (nw ? '' : `<div class="a13-alt">${am === 'in' ? `<button type="button" class="a13-link" onclick="stzAuthSwitch('rec')">Esqueci minha senha</button>` : ''}<div class="a13-sw"><span>${up ? 'Já tem conta?' : rc ? 'Lembrou a senha?' : 'Ainda não tem conta?'}</span><button type="button" class="a13-link strong" onclick="stzAuthSwitch('${up || rc ? 'in' : 'up'}')">${up || rc ? 'Entrar' : 'Criar conta'}</button></div></div>`);
+  }
+  window.auth = function () {
+    const mode = am === 'new' ? 'nw' : am, c = AUTH_COPY[mode], side = am === 'up' ? 'right' : 'left';
+    return `<div class="a13" data-mode="${am}" data-side="${side}"><div class="a13-shell">
+      <aside class="a13-brand"><div class="a13-brand-bg" aria-hidden="true">${bgHTML()}</div>
+        <div class="a13-wordmark">STZ<span>BLUE</span></div>
+        <div class="a13-face"><stz-face state="${aerr ? 'triste' : c[2]}" style="--stz-face-width:100%"></stz-face></div>
+        <h2 class="a13-h" id="a13h">${c[0]}</h2><p class="a13-p" id="a13p">${c[1]}</p></aside>
+      <section class="a13-panel" aria-labelledby="a13t"><div class="a13-curve" aria-hidden="true"></div>
+        <h1 class="a13-title" id="a13t">${am === 'up' ? 'Criar conta' : am === 'rec' ? 'Recuperar senha' : am === 'new' ? 'Nova senha' : 'Entrar'}</h1>
+        <div class="a13-form" id="a13form">${authForm()}</div></section></div></div>`;
+  };
+  window.stzAuthSwitch = function (mode) {
+    const shell = $1('.a13'); aerr = ''; ainfo = '';
+    if (!shell) { am = mode; render(); return; }
+    am = mode; sfx('whoosh');
+    const form = $1('#a13form'), c = AUTH_COPY[mode === 'new' ? 'nw' : mode];
+    shell.dataset.mode = mode; shell.dataset.side = mode === 'up' ? 'right' : 'left'; shell.classList.add('is-switching');
+    form.classList.add('is-out');
+    setTimeout(() => {
+      form.innerHTML = authForm(); form.classList.remove('is-out'); form.classList.add('is-in');
+      $1('#a13t').textContent = mode === 'up' ? 'Criar conta' : mode === 'rec' ? 'Recuperar senha' : mode === 'new' ? 'Nova senha' : 'Entrar';
+      $1('#a13h').textContent = c[0]; $1('#a13p').textContent = c[1];
+      const f = $1('.a13-face stz-face'); if (f) { f.state = c[2]; f.react && f.react(mode === 'up' ? 'joy' : 'blink'); }
+      setTimeout(() => { form.classList.remove('is-in'); shell.classList.remove('is-switching'); }, 420);
+    }, 200);
+  };
+  window.stzAuthMount = function () {
+    document.body.classList.add('stz13-unauth'); stzApplyMotion();
+    if (aerr) { sfx('error'); const f = $1('.a13-face stz-face'); if (f && f.react) setTimeout(() => f.react('sigh'), 700); const sh = $1('.a13-panel'); if (sh) { sh.classList.add('a13-shake'); setTimeout(() => sh.classList.remove('a13-shake'), 520); } }
+    stzWelcomeIfNeeded();
+  };
+
+  /* ---------- Login por Nome de Usuário (Supabase) ---------- */
+  const UNAME = /^[a-z0-9_.]{3,20}$/, RESERVED = ['admin', 'root', 'suporte', 'support', 'stzblue', 'stz', 'null', 'undefined'];
+  window.stzResolveLogin = async function (u) {
+    try {
+      const r = await api('/rest/v1/rpc/stz_resolve_login', { method: 'POST', body: JSON.stringify({ p_username: u }) });
+      const email = typeof r === 'string' ? r : (r && r.email) || null;
+      if (!email) throw new Error('Invalid login credentials');
+      return String(email).toLowerCase();
+    } catch (x) {
+      if (/could not find|not find the function|404|PGRST202/i.test(String(x.message))) throw new Error('Login por nome de usuário ainda não está ativo neste servidor. Entre com o e-mail.');
+      throw x;
+    }
+  };
+  window.doAuth = async function () {
+    const idRaw = g('#ae').trim().toLowerCase(), p = g('#ap'), c = g('#ac'); let e = idRaw; aerr = ''; ainfo = '';
+    try {
+      if (am === 'in' && !e.includes('@')) { if (!UNAME.test(e)) throw new Error('Digite um e-mail ou nome de usuário válido.'); }
+      else if (am !== 'new' && !/^\S+@\S+\.\S+$/.test(e)) throw new Error('Digite um e-mail válido.');
+      if (am === 'rec') { await api('/auth/v1/recover?redirect_to=' + encodeURIComponent(location.origin + location.pathname), { method: 'POST', body: JSON.stringify({ email: e }) }); ainfo = 'Se esse e-mail tiver conta, enviamos um link para redefinir a senha. Veja também o spam.'; am = 'in'; }
+      else {
+        if (p.length < 6) throw new Error('A senha precisa ter pelo menos 6 caracteres.');
+        if ((am === 'up' || am === 'new') && p !== c) throw new Error('As senhas não são iguais.');
+        if (am === 'in') { if (!e.includes('@')) e = await stzResolveLogin(e); sfx('tap'); return await start(tokens(await api('/auth/v1/token?grant_type=password', { method: 'POST', body: JSON.stringify({ email: e, password: p }) }))); }
+        if (am === 'up') { const j = await api('/auth/v1/signup', { method: 'POST', body: JSON.stringify({ email: e, password: p }) }); if (j.access_token) return await start(tokens(j)); ainfo = 'Enviamos um link de confirmação para ' + e + '. Confirme o e-mail e depois entre.'; am = 'in'; }
+        else { await api('/auth/v1/user', { method: 'PUT', t: rtk, body: JSON.stringify({ password: p }) }); ainfo = 'Senha alterada! Entre com a nova senha.'; am = 'in'; }
+      }
+    } catch (x) { aerr = pt(x.message); }
+    render(); if ($1('#ae')) $1('#ae').value = idRaw;
+  };
+
+  /* ---------- Nome de usuário na aba Perfil e Conta ---------- */
+  const UN = { value: '', loaded: false, timer: 0, seq: 0, ok: false };
+  window.stzUnameCard = () => `<div class="card stz13-uname"><h3>Nome de usuário</h3><small>Use no login no lugar do e-mail. De 3 a 20 caracteres: letras minúsculas, números, ponto e sublinhado.</small>
+    <div class="f u13-row"><div class="u13-field"><span aria-hidden="true">@</span><input id="unameInput" type="text" maxlength="20" autocapitalize="none" autocomplete="off" spellcheck="false" inputmode="text" placeholder="seu.usuario" aria-label="Nome de usuário" oninput="stzUnameInput(this)" ${UN.loaded ? '' : 'disabled'}></div>
+    <button class="btn" id="unameSave" type="button" onclick="stzUnameSave()" disabled>Salvar</button></div><div id="unameMsg" class="u13-msg" role="status" aria-live="polite"></div></div>`;
+  const msg = (t, k) => { const m = $1('#unameMsg'); if (m) { m.textContent = t || ''; m.dataset.k = k || ''; } };
+  window.stzUnameLoad = async function () {
+    const i = $1('#unameInput'); if (!i || !U) return;
+    try {
+      const t = await fresh(), r = await api('/rest/v1/stz_profiles?select=username&user_id=eq.' + U.uid, { t });
+      UN.value = (r && r[0] && r[0].username) || ''; UN.loaded = true;
+    } catch (x) { UN.loaded = false; msg(/relation|PGRST205|404|Could not find/i.test(String(x.message)) ? 'Recurso ainda não ativado no servidor (execute o SQL de nome de usuário no Supabase).' : 'Não foi possível carregar o nome de usuário agora.', 'bad'); return; }
+    const inp = $1('#unameInput'); if (inp) { inp.disabled = false; inp.value = UN.value; }
+    msg(UN.value ? 'Nome de usuário atual: @' + UN.value : 'Você ainda não definiu um nome de usuário.', 'mut');
+  };
+  window.stzUnameInput = function (inp) {
+    const v = inp.value.toLowerCase().replace(/[^a-z0-9_.]/g, ''); if (v !== inp.value) inp.value = v;
+    const btn = $1('#unameSave'); btn.disabled = true; UN.ok = false; clearTimeout(UN.timer);
+    if (!v) return msg('', '');
+    if (v === UN.value) return msg('Este já é o seu nome de usuário.', 'mut');
+    if (!UNAME.test(v)) return msg('Use de 3 a 20 caracteres: letras, números, ponto ou sublinhado.', 'bad');
+    if (RESERVED.includes(v)) return msg('Este nome não está disponível.', 'bad');
+    msg('Verificando disponibilidade…', 'mut'); const my = ++UN.seq;
+    UN.timer = setTimeout(async () => {
+      try {
+        const ok = await api('/rest/v1/rpc/stz_username_available', { method: 'POST', body: JSON.stringify({ p_username: v }) });
+        if (my !== UN.seq) return;
+        if (ok === true) { UN.ok = true; btn.disabled = false; msg('@' + v + ' está disponível.', 'ok'); } else msg('@' + v + ' já está em uso. Escolha outro.', 'bad');
+      } catch (x) { if (my === UN.seq) msg('Não foi possível verificar agora. Tente novamente.', 'bad'); }
+    }, 380);
+  };
+  window.stzUnameSave = async function () {
+    const inp = $1('#unameInput'), btn = $1('#unameSave'); if (!inp || !UN.ok) return;
+    const v = inp.value.trim().toLowerCase(); btn.disabled = true; msg('Salvando…', 'mut');
+    try {
+      const t = await fresh();
+      await api('/rest/v1/stz_profiles?on_conflict=user_id', { method: 'POST', t, h: { Prefer: 'resolution=merge-duplicates,return=minimal' }, body: JSON.stringify({ user_id: U.uid, username: v, updated_at: new Date().toISOString() }) });
+      UN.value = v; UN.ok = false; msg('Pronto! Agora você pode entrar com @' + v + '.', 'ok'); sfx('success');
+    } catch (x) { btn.disabled = false; msg(/duplicate|unique|23505/i.test(String(x.message)) ? '@' + v + ' acabou de ser escolhido por outra pessoa. Tente outro.' : 'Não foi possível salvar: ' + pt(x.message), 'bad'); sfx('error'); }
+  };
+
+  /* ---------- Janela de Novidades v1.3.1 (entrada sequencial, estilo The Sims 4) ---------- */
+  const NEWS = [
+    ['🛠️', 'Correções e estabilidade', ['Esta atualização traz diversas correções de bugs e ajustes de estabilidade para melhorar a experiência de uso no site.']]
+  ];
+  const relKey = () => 'stzblue.release.seen.1.3.3.' + String(ses || '').trim().toLowerCase();
+  window.stzShowReleaseIfNeeded = function () {
+    if (!ses || !document.body || document.getElementById('stzReleaseOverlay')) return;
+    if (window.stzSplashActive()) { document.addEventListener('stz-splash-done', () => setTimeout(stzShowReleaseIfNeeded, 350), { once: true }); return; }
+    try { if (localStorage.getItem(relKey()) === '1') return; } catch (e) {}
+    const ov = document.createElement('div'); ov.id = 'stzReleaseOverlay'; ov.className = 'stz13-rel-ov'; ov.setAttribute('role', 'presentation');
+    ov.innerHTML = `<section class="stz13-rel" role="dialog" aria-modal="true" aria-labelledby="stzReleaseTitle"><span class="rel-glow" aria-hidden="true"></span>
+      <button class="rel-x" type="button" aria-label="Fechar novidades" onclick="stzConfirmRelease()">×</button>
+      <div class="rel-top"><span class="rel-badge">STZBLUE v1.3.3</span><h2 id="stzReleaseTitle">O que há de novo</h2></div>
+      <ul class="rel-list rel-seq">${NEWS.map((n, i) => `<li style="--i:${i}"><span class="rel-ic rel-emoji" aria-hidden="true">${n[0]}</span><div><b>${n[1]}</b><ul class="rel-sub">${n[2].map(x => `<li>${x}</li>`).join('')}</ul></div></li>`).join('')}</ul>
+      <button class="rel-ok" type="button" onclick="stzConfirmRelease()">Entendi</button></section>`;
+    ov.addEventListener('click', e => { if (e.target === ov) stzConfirmRelease(); });
+    document.addEventListener('keydown', stzReleaseEscape); document.body.appendChild(ov);
+    sfx('open');
+    NEWS.forEach((_, i) => setTimeout(() => { if (document.getElementById('stzReleaseOverlay')) sfx('reveal-' + i); }, 560 + i * 380));   // um "tick" por item revelado
+    setTimeout(() => { const b = ov.querySelector('.rel-ok'); try { b && b.focus({ preventScroll: true }); } catch (e) {} }, 700 + NEWS.length * 380);
+  };
+  window.stzConfirmRelease = function () { try { localStorage.setItem(relKey(), '1'); } catch (e) {} document.removeEventListener('keydown', stzReleaseEscape); sfx('close'); stzCloseRelease(); };
+
+  /* ---------- pós-render ---------- */
+  window.stzV13AfterRender = function () {
+    document.body.classList.remove('stz13-unauth'); stzApplyMotion(); if (window.stzV132AfterRender) stzV132AfterRender();
+    if (typeof tab !== 'undefined' && tab === 'perfil' && $1('#unameInput')) stzUnameLoad();
+  };
+})();
+
+</script>
 <script id="stz-v132-editor">
 /* ===== STZBLUE 1.3.2 · Editor estilo Apple Notes (rich text, checklists, tabela, anexos, rascunho) ===== */
 (() => {
@@ -3209,588 +3382,6 @@ html,body{touch-action:manipulation}
 })();
 
 </script>
-<script id="stz-v13-engine">
-/* ===== STZBLUE 1.3 · Engine (motion, splash, boas-vindas, login, username, novidades) ===== */
-(() => {
-  const $1 = (s, r = document) => r.querySelector(s);
-  const LS = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch (e) { return null; } };
-  const cfg = () => { try { return (S && S.cfg) || null; } catch (e) { return null; } };
-  const sfx = n => { try { window.stzSfx && stzSfx(n); } catch (e) {} };
-  const osReduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const fullMotion = () => { const c = cfg(); return !osReduce() && (!c || c.motionFull !== 0) && document.documentElement.dataset.motion !== 'reduced'; };
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-  /* ---------- Chaves independentes: animações globais × animações do mascote ---------- */
-  window.stzApplyMotion = function () {
-    const c = cfg(), e = document.documentElement, full = !c || c.motionFull !== 0;
-    e.dataset.motion = full ? 'full' : 'reduced';
-    if (!full) { if (!e.hasAttribute('data-perf')) { e.setAttribute('data-perf', 'low'); e.dataset.v13Perf = '1'; } }
-    else if (e.dataset.v13Perf) { e.removeAttribute('data-perf'); delete e.dataset.v13Perf; }
-    if (window.stzMascotSync) stzMascotSync();
-    if (window.stzApplyRing) stzApplyRing();
-  };
-  window.stzCfgChanged = function (key) {
-    const c = cfg(); if (!c) return;
-    if (key === 'sfx') LS('stzblue.sfx', c.sfx === 0 ? '0' : '1');
-    stzApplyMotion();
-  };
-
-  /* ---------- Fundo vivo (ondas Liquid Glass em parallax + névoas) ---------- */
-  const wave = (amp, k, ph, y) => { let d = 'M0 ' + y; for (let x = 0; x <= 2400; x += 40) d += ' L' + x + ' ' + (y + amp * Math.sin(x / 2400 * Math.PI * 2 * k + ph)).toFixed(1); return d + ' L2400 700 L0 700 Z'; };
-  const bgHTML = () => `<div class="v13-mist m1"></div><div class="v13-mist m2"></div><div class="v13-mist m3"></div>
-    <svg class="v13-waves" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
-      <g class="wv w1"><path d="${wave(34, 4, 0, 470)}" fill="url(#v13wg1)"/></g>
-      <g class="wv w2"><path d="${wave(26, 6, 1.7, 520)}" fill="url(#v13wg2)"/></g>
-      <g class="wv w3"><path d="${wave(20, 4, 3.1, 575)}" fill="url(#v13wg3)"/></g>
-      <defs><linearGradient id="v13wg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity=".30"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient>
-      <linearGradient id="v13wg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".30"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></linearGradient>
-      <linearGradient id="v13wg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8" stop-opacity=".26"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
-    </svg>`;
-
-  /* ---------- Abertura animada (≈6 s) ---------- */
-  let splashPromise = null;
-  window.stzSplashActive = () => !!document.getElementById('stzSplash');
-  window.stzSplashShow = function () {
-    if (splashPromise || document.getElementById('stzSplash')) return splashPromise;
-    const reduce = osReduce() || !fullMotion(), total = reduce ? 1800 : 6000;
-    const el = document.createElement('div'); el.id = 'stzSplash'; el.className = 'stz13-splash' + (reduce ? ' is-calm' : '');
-    el.setAttribute('role', 'status'); el.setAttribute('aria-label', 'Abrindo o STZBLUE');
-    const parts = Array.from({ length: 10 }, (_, i) => `<i style="--a:${i * 36}deg;--d:${(7 + (i % 4) * 1.3).toFixed(1)}s;--r:${200 + (i % 3) * 46}px;--s:${4 + (i % 3)}px"></i>`).join('');
-    el.innerHTML = bgHTML() + `<div class="sp-stage"><div class="sp-orbit" aria-hidden="true">${parts}</div>
-      <svg class="sp-logo" viewBox="0 0 620 150" role="img" aria-label="STZBLUE">
-        <defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7cc4ff"/><stop offset=".5" stop-color="#5b8cff"/><stop offset="1" stop-color="#b08cff"/></linearGradient>
-        <clipPath id="spc"><rect class="sp-clip" x="0" y="0" width="620" height="150"/></clipPath></defs>
-        <text class="sp-halo" x="310" y="108" text-anchor="middle">STZBLUE</text>
-        <text class="sp-stroke" x="310" y="108" text-anchor="middle" stroke="url(#spg)">STZBLUE</text>
-        <text class="sp-fill" x="310" y="108" text-anchor="middle" fill="url(#spg)" clip-path="url(#spc)">STZBLUE</text>
-      </svg><p class="sp-tag">Seu ano escolar, em um só lugar</p></div>
-      <button type="button" class="sp-skip" aria-label="Pular abertura">Toque para pular</button>`;
-    document.body.appendChild(el);
-    sfx('splash'); const chime = setTimeout(() => sfx('splash-chime'), reduce ? 300 : 2300);
-    splashPromise = new Promise(res => {
-      let done = false;
-      const end = () => {
-        if (done) return; done = true; clearTimeout(chime); clearTimeout(tm); clearTimeout(skipT);
-        el.classList.add('is-out'); setTimeout(() => { el.remove(); splashPromise = null; res(); document.dispatchEvent(new Event('stz-splash-done')); }, reduce ? 160 : 650);
-      };
-      const tm = setTimeout(end, total - (reduce ? 160 : 650));
-      const skipT = setTimeout(() => el.classList.add('can-skip'), 1800);
-      el.addEventListener('click', () => { if (el.classList.contains('can-skip')) { sfx('whoosh'); end(); } });
-    });
-    return splashPromise;
-  };
-
-  /* ---------- Tela de boas-vindas (primeiro acesso) ---------- */
-  window.stzWelcomeIfNeeded = function () {
-    if (LS('stzblue.welcome.1.3') === '1' || LS('stzblue.sb') || document.getElementById('stzWelcome')) return;
-    const el = document.createElement('div'); el.id = 'stzWelcome'; el.className = 'stz13-welcome';
-    el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-label', 'Bem-vindo ao STZBLUE. Toque ou pressione Enter para continuar.');
-    const sparks = Array.from({ length: 14 }, (_, i) => `<i style="--x:${(i * 37) % 100}%;--y:${(i * 53) % 100}%;--d:${(5 + (i % 5)).toFixed(1)}s;--dl:${(i % 7) * .6}s;--s:${2 + (i % 3)}px"></i>`).join('');
-    el.innerHTML = bgHTML() + `<div class="wl-sparks" aria-hidden="true">${sparks}</div><div class="wl-stage">
-      <div class="wl-face"><stz-face state="mais-feliz" style="--stz-face-width:100%"></stz-face></div>
-      <div class="wl-kicker">STZBLUE · v1.3</div><h1 class="wl-title">Bem-vindo ao <span>STZBLUE</span></h1>
-      <p class="wl-sub">Notas, frequência e rotina escolar com um assistente que acompanha o seu momento.</p>
-      <div class="wl-hint"><i></i>Toque em qualquer lugar para continuar</div></div>`;
-    document.body.appendChild(el); document.body.classList.add('stz13-welcoming');
-    const face = el.querySelector('stz-face'); let leaving = false;
-    const go = () => {
-      if (leaving) return; leaving = true; LS('stzblue.welcome.1.3', '1'); sfx('open');
-      try { face.state = 'super-feliz'; face.react && face.react('joy'); } catch (e) {}
-      el.classList.add('is-out'); setTimeout(() => { el.remove(); document.body.classList.remove('stz13-welcoming'); const i = document.getElementById('ae'); if (i && innerWidth > 700) try { i.focus({ preventScroll: true }); } catch (e) {} }, 760);
-    };
-    el.addEventListener('click', go); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-      };
-
-  /* ---------- Login / Cadastro (split-screen no desktop, cartão no mobile) ---------- */
-  const AUTH_COPY = {
-    in: ['Bem-vindo de volta', 'Entre para ver o seu momento acadêmico.', 'mais-feliz'],
-    up: ['Crie sua conta', 'Comece a organizar notas, frequência e rotina.', 'super-feliz'],
-    rec: ['Recuperar senha', 'Enviaremos um link para o seu e-mail.', 'neutro'],
-    nw: ['Nova senha', 'Escolha uma senha nova para entrar.', 'neutro']
-  };
-  const eye = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
-  const pwField = (id, label, auto) => `<label class="a13-f"><span>${label}</span><div class="a13-pw"><input id="${id}" type="password" autocomplete="${auto}" onkeydown="if(event.key==='Enter')doAuth()"><button type="button" class="a13-eye" aria-label="Mostrar ou ocultar a senha" onclick="stzTogglePw('${id}',this)">${eye}</button></div></label>`;
-  window.stzTogglePw = (id, b) => { const i = document.getElementById(id); if (!i) return; const show = i.type === 'password'; i.type = show ? 'text' : 'password'; b.setAttribute('aria-pressed', String(show)); sfx('tap'); };
-  function authForm() {
-    const up = am === 'up', rc = am === 'rec', nw = am === 'new', mode = nw ? 'nw' : am;
-    const idField = nw ? '' : `<label class="a13-f"><span>${am === 'in' ? 'E-mail ou Nome de Usuário' : 'E-mail'}</span><input id="ae" type="${am === 'in' ? 'text' : 'email'}" inputmode="${am === 'in' ? 'text' : 'email'}" autocomplete="${am === 'in' ? 'username' : 'email'}" autocapitalize="none" spellcheck="false" onkeydown="if(event.key==='Enter')doAuth()"></label>`;
-    return `${idField}${rc ? '' : pwField('ap', nw ? 'Nova senha' : 'Senha', up || nw ? 'new-password' : 'current-password')}${up || nw ? pwField('ac', 'Confirmar senha', 'new-password') : ''}`
-      + (ainfo ? `<div class="al ok a13-msg" role="status">${esc(ainfo)}</div>` : '') + (aerr ? `<div class="al bad a13-msg" role="alert">${esc(aerr)}</div>` : '')
-      + `<button type="button" class="a13-go" onclick="doAuth()"><span>${up ? 'Criar conta' : rc ? 'Enviar link' : nw ? 'Salvar nova senha' : 'Entrar'}</span></button>`
-      + (up || am === 'in' ? `<div class="a13-or" aria-hidden="true">ou</div><button type="button" class="a13-google" onclick="stzGoogle()"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.5-.2-2.2H12v4.2h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.4z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3A12 12 0 0 0 1.8 7.1l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Continuar com Google</button>` : '')
-      + (nw ? '' : `<div class="a13-alt">${am === 'in' ? `<button type="button" class="a13-link" onclick="stzAuthSwitch('rec')">Esqueci minha senha</button>` : ''}<div class="a13-sw"><span>${up ? 'Já tem conta?' : rc ? 'Lembrou a senha?' : 'Ainda não tem conta?'}</span><button type="button" class="a13-link strong" onclick="stzAuthSwitch('${up || rc ? 'in' : 'up'}')">${up || rc ? 'Entrar' : 'Criar conta'}</button></div></div>`);
-  }
-  window.auth = function () {
-    const mode = am === 'new' ? 'nw' : am, c = AUTH_COPY[mode], side = am === 'up' ? 'right' : 'left';
-    return `<div class="a13" data-mode="${am}" data-side="${side}"><div class="a13-shell">
-      <aside class="a13-brand"><div class="a13-brand-bg" aria-hidden="true">${bgHTML()}</div>
-        <div class="a13-wordmark">STZ<span>BLUE</span></div>
-        <div class="a13-face"><stz-face state="${aerr ? 'triste' : c[2]}" style="--stz-face-width:100%"></stz-face></div>
-        <h2 class="a13-h" id="a13h">${c[0]}</h2><p class="a13-p" id="a13p">${c[1]}</p></aside>
-      <section class="a13-panel" aria-labelledby="a13t"><div class="a13-curve" aria-hidden="true"></div>
-        <h1 class="a13-title" id="a13t">${am === 'up' ? 'Criar conta' : am === 'rec' ? 'Recuperar senha' : am === 'new' ? 'Nova senha' : 'Entrar'}</h1>
-        <div class="a13-form" id="a13form">${authForm()}</div></section></div></div>`;
-  };
-  window.stzAuthSwitch = function (mode) {
-    const shell = $1('.a13'); aerr = ''; ainfo = '';
-    if (!shell) { am = mode; render(); return; }
-    am = mode; sfx('whoosh');
-    const form = $1('#a13form'), c = AUTH_COPY[mode === 'new' ? 'nw' : mode];
-    shell.dataset.mode = mode; shell.dataset.side = mode === 'up' ? 'right' : 'left'; shell.classList.add('is-switching');
-    form.classList.add('is-out');
-    setTimeout(() => {
-      form.innerHTML = authForm(); form.classList.remove('is-out'); form.classList.add('is-in');
-      $1('#a13t').textContent = mode === 'up' ? 'Criar conta' : mode === 'rec' ? 'Recuperar senha' : mode === 'new' ? 'Nova senha' : 'Entrar';
-      $1('#a13h').textContent = c[0]; $1('#a13p').textContent = c[1];
-      const f = $1('.a13-face stz-face'); if (f) { f.state = c[2]; f.react && f.react(mode === 'up' ? 'joy' : 'blink'); }
-      setTimeout(() => { form.classList.remove('is-in'); shell.classList.remove('is-switching'); }, 420);
-    }, 200);
-  };
-  window.stzAuthMount = function () {
-    document.body.classList.add('stz13-unauth'); stzApplyMotion();
-    if (aerr) { sfx('error'); const f = $1('.a13-face stz-face'); if (f && f.react) setTimeout(() => f.react('sigh'), 700); const sh = $1('.a13-panel'); if (sh) { sh.classList.add('a13-shake'); setTimeout(() => sh.classList.remove('a13-shake'), 520); } }
-    stzWelcomeIfNeeded();
-  };
-
-  /* ---------- Login por Nome de Usuário (Supabase) ---------- */
-  const UNAME = /^[a-z0-9_.]{3,20}$/, RESERVED = ['admin', 'root', 'suporte', 'support', 'stzblue', 'stz', 'null', 'undefined'];
-  window.stzResolveLogin = async function (u) {
-    try {
-      const r = await api('/rest/v1/rpc/stz_resolve_login', { method: 'POST', body: JSON.stringify({ p_username: u }) });
-      const email = typeof r === 'string' ? r : (r && r.email) || null;
-      if (!email) throw new Error('Invalid login credentials');
-      return String(email).toLowerCase();
-    } catch (x) {
-      if (/could not find|not find the function|404|PGRST202/i.test(String(x.message))) throw new Error('Login por nome de usuário ainda não está ativo neste servidor. Entre com o e-mail.');
-      throw x;
-    }
-  };
-  window.doAuth = async function () {
-    const idRaw = g('#ae').trim().toLowerCase(), p = g('#ap'), c = g('#ac'); let e = idRaw; aerr = ''; ainfo = '';
-    try {
-      if (am === 'in' && !e.includes('@')) { if (!UNAME.test(e)) throw new Error('Digite um e-mail ou nome de usuário válido.'); }
-      else if (am !== 'new' && !/^\S+@\S+\.\S+$/.test(e)) throw new Error('Digite um e-mail válido.');
-      if (am === 'rec') { await api('/auth/v1/recover?redirect_to=' + encodeURIComponent(location.origin + location.pathname), { method: 'POST', body: JSON.stringify({ email: e }) }); ainfo = 'Se esse e-mail tiver conta, enviamos um link para redefinir a senha. Veja também o spam.'; am = 'in'; }
-      else {
-        if (p.length < 6) throw new Error('A senha precisa ter pelo menos 6 caracteres.');
-        if ((am === 'up' || am === 'new') && p !== c) throw new Error('As senhas não são iguais.');
-        if (am === 'in') { if (!e.includes('@')) e = await stzResolveLogin(e); sfx('tap'); return await start(tokens(await api('/auth/v1/token?grant_type=password', { method: 'POST', body: JSON.stringify({ email: e, password: p }) }))); }
-        if (am === 'up') { const j = await api('/auth/v1/signup', { method: 'POST', body: JSON.stringify({ email: e, password: p }) }); if (j.access_token) return await start(tokens(j)); ainfo = 'Enviamos um link de confirmação para ' + e + '. Confirme o e-mail e depois entre.'; am = 'in'; }
-        else { await api('/auth/v1/user', { method: 'PUT', t: rtk, body: JSON.stringify({ password: p }) }); ainfo = 'Senha alterada! Entre com a nova senha.'; am = 'in'; }
-      }
-    } catch (x) { aerr = pt(x.message); }
-    render(); if ($1('#ae')) $1('#ae').value = idRaw;
-  };
-
-  /* ---------- Nome de usuário na aba Perfil e Conta ---------- */
-  const UN = { value: '', loaded: false, timer: 0, seq: 0, ok: false };
-  window.stzUnameCard = () => `<div class="card stz13-uname"><h3>Nome de usuário</h3><small>Use no login no lugar do e-mail. De 3 a 20 caracteres: letras minúsculas, números, ponto e sublinhado.</small>
-    <div class="f u13-row"><div class="u13-field"><span aria-hidden="true">@</span><input id="unameInput" type="text" maxlength="20" autocapitalize="none" autocomplete="off" spellcheck="false" inputmode="text" placeholder="seu.usuario" aria-label="Nome de usuário" oninput="stzUnameInput(this)" ${UN.loaded ? '' : 'disabled'}></div>
-    <button class="btn" id="unameSave" type="button" onclick="stzUnameSave()" disabled>Salvar</button></div><div id="unameMsg" class="u13-msg" role="status" aria-live="polite"></div></div>`;
-  const msg = (t, k) => { const m = $1('#unameMsg'); if (m) { m.textContent = t || ''; m.dataset.k = k || ''; } };
-  window.stzUnameLoad = async function () {
-    const i = $1('#unameInput'); if (!i || !U) return;
-    try {
-      const t = await fresh(), r = await api('/rest/v1/stz_profiles?select=username&user_id=eq.' + U.uid, { t });
-      UN.value = (r && r[0] && r[0].username) || ''; UN.loaded = true;
-    } catch (x) { UN.loaded = false; msg(/relation|PGRST205|404|Could not find/i.test(String(x.message)) ? 'Recurso ainda não ativado no servidor (execute o SQL de nome de usuário no Supabase).' : 'Não foi possível carregar o nome de usuário agora.', 'bad'); return; }
-    const inp = $1('#unameInput'); if (inp) { inp.disabled = false; inp.value = UN.value; }
-    msg(UN.value ? 'Nome de usuário atual: @' + UN.value : 'Você ainda não definiu um nome de usuário.', 'mut');
-  };
-  window.stzUnameInput = function (inp) {
-    const v = inp.value.toLowerCase().replace(/[^a-z0-9_.]/g, ''); if (v !== inp.value) inp.value = v;
-    const btn = $1('#unameSave'); btn.disabled = true; UN.ok = false; clearTimeout(UN.timer);
-    if (!v) return msg('', '');
-    if (v === UN.value) return msg('Este já é o seu nome de usuário.', 'mut');
-    if (!UNAME.test(v)) return msg('Use de 3 a 20 caracteres: letras, números, ponto ou sublinhado.', 'bad');
-    if (RESERVED.includes(v)) return msg('Este nome não está disponível.', 'bad');
-    msg('Verificando disponibilidade…', 'mut'); const my = ++UN.seq;
-    UN.timer = setTimeout(async () => {
-      try {
-        const ok = await api('/rest/v1/rpc/stz_username_available', { method: 'POST', body: JSON.stringify({ p_username: v }) });
-        if (my !== UN.seq) return;
-        if (ok === true) { UN.ok = true; btn.disabled = false; msg('@' + v + ' está disponível.', 'ok'); } else msg('@' + v + ' já está em uso. Escolha outro.', 'bad');
-      } catch (x) { if (my === UN.seq) msg('Não foi possível verificar agora. Tente novamente.', 'bad'); }
-    }, 380);
-  };
-  window.stzUnameSave = async function () {
-    const inp = $1('#unameInput'), btn = $1('#unameSave'); if (!inp || !UN.ok) return;
-    const v = inp.value.trim().toLowerCase(); btn.disabled = true; msg('Salvando…', 'mut');
-    try {
-      const t = await fresh();
-      await api('/rest/v1/stz_profiles?on_conflict=user_id', { method: 'POST', t, h: { Prefer: 'resolution=merge-duplicates,return=minimal' }, body: JSON.stringify({ user_id: U.uid, username: v, updated_at: new Date().toISOString() }) });
-      UN.value = v; UN.ok = false; msg('Pronto! Agora você pode entrar com @' + v + '.', 'ok'); sfx('success');
-    } catch (x) { btn.disabled = false; msg(/duplicate|unique|23505/i.test(String(x.message)) ? '@' + v + ' acabou de ser escolhido por outra pessoa. Tente outro.' : 'Não foi possível salvar: ' + pt(x.message), 'bad'); sfx('error'); }
-  };
-
-  /* ---------- Janela de Novidades v1.3.1 (entrada sequencial, estilo The Sims 4) ---------- */
-  const NEWS = [
-    ['🗓️', 'Próximos compromissos mais claros', ['Organização e legibilidade renovadas, com identificação “Hoje”, “Amanhã” e “Em N dias”.']],
-    ['⏰', 'Horário de aulas', ['Escolha de 1 a 9 períodos por dia e layout revisado para celular e computador.']],
-    ['🧭', 'Tutorial inicial', ['Contas novas ganham um guia rápido, que pode ser pulado, no primeiro acesso.']],
-    ['📝', 'Planejamento', ['Modal de criação e edição de atividades reorganizado, com melhor distribuição dos campos.']]
-  ];
-  const relKey = () => 'stzblue.release.seen.1.3.4.' + String(ses || '').trim().toLowerCase();
-  window.stzShowReleaseIfNeeded = function () {
-    if (!ses || !document.body || document.getElementById('stzReleaseOverlay')) return;
-    if (window.stzSplashActive()) { document.addEventListener('stz-splash-done', () => setTimeout(stzShowReleaseIfNeeded, 350), { once: true }); return; }
-    try { if (localStorage.getItem(relKey()) === '1') return; } catch (e) {}
-    const ov = document.createElement('div'); ov.id = 'stzReleaseOverlay'; ov.className = 'stz13-rel-ov'; ov.setAttribute('role', 'presentation');
-    ov.innerHTML = `<section class="stz13-rel" role="dialog" aria-modal="true" aria-labelledby="stzReleaseTitle"><span class="rel-glow" aria-hidden="true"></span>
-      <button class="rel-x" type="button" aria-label="Fechar novidades" onclick="stzConfirmRelease()">×</button>
-      <div class="rel-top"><span class="rel-badge">STZBLUE v1.3.4</span><h2 id="stzReleaseTitle">O que há de novo</h2></div>
-      <ul class="rel-list rel-seq">${NEWS.map((n, i) => `<li style="--i:${i}"><span class="rel-ic rel-emoji" aria-hidden="true">${n[0]}</span><div><b>${n[1]}</b><ul class="rel-sub">${n[2].map(x => `<li>${x}</li>`).join('')}</ul></div></li>`).join('')}</ul>
-      <button class="rel-ok" type="button" onclick="stzConfirmRelease()">Entendi</button></section>`;
-    ov.addEventListener('click', e => { if (e.target === ov) stzConfirmRelease(); });
-    document.addEventListener('keydown', stzReleaseEscape); document.body.appendChild(ov);
-    sfx('open');
-    NEWS.forEach((_, i) => setTimeout(() => { if (document.getElementById('stzReleaseOverlay')) sfx('reveal-' + i); }, 560 + i * 380));   // um "tick" por item revelado
-    setTimeout(() => { const b = ov.querySelector('.rel-ok'); try { b && b.focus({ preventScroll: true }); } catch (e) {} }, 700 + NEWS.length * 380);
-  };
-  window.stzConfirmRelease = function () { try { localStorage.setItem(relKey(), '1'); } catch (e) {} document.removeEventListener('keydown', stzReleaseEscape); sfx('close'); stzCloseRelease(); };
-
-  /* ---------- pós-render ---------- */
-  window.stzV13AfterRender = function () {
-    document.body.classList.remove('stz13-unauth'); stzApplyMotion(); if (window.stzV132AfterRender) stzV132AfterRender(); if (window.stzV134AfterRender) stzV134AfterRender();
-    if (typeof tab !== 'undefined' && tab === 'perfil' && $1('#unameInput')) stzUnameLoad();
-  };
-})();
-
-</script>
-<script id="stz-v134-engine">
-/* ===== STZBLUE 1.3.4 · períodos, tutorial, nome de usuário (servidor), instituições, administração, Google ===== */
-(() => {
-  const $1 = (s, r = document) => r.querySelector(s);
-  const sfx = n => { try { window.stzSfx && stzSfx(n); } catch (e) {} };
-  const fmtDT = iso => { try { return new Date(iso).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }); } catch (e) { return String(iso); } };
-  /* RPC do Supabase com o token do usuário; devolve erros com .code (mensagem do servidor) e .detail */
-  async function rpc(name, body) {
-    const t = await fresh();
-    const r = await fetch(SB + '/rest/v1/rpc/' + name, { method: 'POST', headers: { apikey: KEY, Authorization: 'Bearer ' + t, 'Content-Type': 'application/json' }, body: JSON.stringify(body || {}) });
-    let j = null; try { j = await r.json(); } catch (e) {}
-    if (!r.ok) { const er = new Error((j && (j.message || j.msg)) || 'Erro ' + r.status); er.code = (j && j.message) || ''; er.detail = (j && j.details) || ''; er.status = r.status; throw er; }
-    return j;
-  }
-  const netErr = e => /failed to fetch|network/i.test(String(e && e.message)) ? 'Sem conexão com o servidor.' : null;
-  const missingBackend = e => e && (e.status === 404 || /could not find the function|PGRST202|relation .* does not exist/i.test(String(e.message)));
-  const BACKEND_MSG = 'Este recurso depende da migração 1.3.4 no Supabase, que ainda não foi aplicada neste projeto.';
-
-  /* ============ ITEM 02 · períodos por dia (global, seg–sex) ============ */
-  window.stzPPD = () => { const n = Number((S.cfg || {}).periodsPerDay); return Number.isInteger(n) && n >= 1 && n <= 9 ? n : 9; };
-  window.stzPeriodsControl = () => `<div class="ppd-row"><label for="ppdSel"><b>Períodos por dia</b><small>Vale para segunda a sexta. Intervalos não contam como período.</small></label><select id="ppdSel" onchange="stzSetPeriods(this.value)" aria-label="Quantidade de períodos por dia">${Array.from({ length: 9 }, (_, i) => `<option value="${i + 1}"${stzPPD() === i + 1 ? ' selected' : ''}>${i + 1} período${i ? 's' : ''}</option>`).join('')}</select></div>`;
-  const DN = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'];
-  function periodImpact(n) {
-    const out = [], cur = Math.max(stzPPD(), 9);
-    for (let d = 0; d < 5; d++) for (let i = n; i < cur; i++) {
-      const id = (S.sched[d] || [])[i], tm = ((S.classTimes || {})[d] || [])[i] || {};
-      if (id || tm.start || tm.end) out.push({ d, i, sub: (S.subs.find(s => s.id === id) || {}).n || null, tm: tm.start && tm.end ? tm.start + '–' + tm.end : tm.start || tm.end || '' });
-    }
-    return out;
-  }
-  function applyPeriods(n) {
-    const cur = stzPPD(); S.sched.__hid = S.sched.__hid || {};   // guarda, sem apagar, o que ficar fora da estrutura visível
-    for (let d = 0; d < 5; d++) {
-      const L = Array.isArray(S.sched[d]) ? S.sched[d] : (S.sched[d] = []), T = (S.classTimes = S.classTimes || {}), TL = Array.isArray(T[d]) ? T[d] : (T[d] = []), H = (S.sched.__hid[d] = S.sched.__hid[d] || {});
-      for (let i = n; i < Math.max(L.length, TL.length, cur); i++) { const id = L[i], tm = TL[i]; if (id || (tm && (tm.start || tm.end))) H[i] = { id: id || null, tm: tm || null }; }
-      L.length = Math.min(L.length, n); TL.length = Math.min(TL.length, n);
-      if (n > cur) for (let i = cur; i < n; i++) if (H[i]) { if (!L[i] && H[i].id && S.subs.some(s => s.id === H[i].id)) L[i] = H[i].id; if ((!TL[i] || (!TL[i].start && !TL[i].end)) && H[i].tm) TL[i] = H[i].tm; delete H[i]; }   // restaura sem duplicar
-      while (L.length < n) L.push(null);
-    }
-    S.cfg.periodsPerDay = n; save('a quantidade de períodos'); render();
-  }
-  window.stzSetPeriods = function (v, force) {
-    const n = Number(v); if (!Number.isInteger(n) || n < 1 || n > 9) return render();
-    const imp = n < stzPPD() ? periodImpact(n) : [];
-    if (imp.length && !force) {
-      const ov = document.createElement('div'); ov.className = 'v134-ov'; ov.setAttribute('role', 'alertdialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-labelledby', 'ppdT');
-      ov.innerHTML = `<div class="v134-box"><h3 id="ppdT">Reduzir para ${n} período${n > 1 ? 's' : ''}?</h3><p>Estes horários e disciplinas deixarão de aparecer. Nada será apagado: eles ficam guardados e voltam se você aumentar de novo.</p><ul class="v134-list">${imp.map(x => `<li><b>${DN[x.d]} · ${x.i + 1}º tempo</b>${x.sub ? ' — ' + esc(x.sub) : ''}${x.tm ? ' (' + esc(x.tm) + ')' : ''}</li>`).join('')}</ul><div class="f"><button type="button" class="btn" data-ok>Reduzir períodos</button><button type="button" class="chip" data-cancel>Cancelar</button></div></div>`;
-      document.body.appendChild(ov); sfx('open'); $1('[data-cancel]', ov).focus();
-      ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('[data-cancel]')) { ov.remove(); render(); } else if (e.target.closest('[data-ok]')) { ov.remove(); applyPeriods(n); } });
-      ov.addEventListener('keydown', e => { if (e.key === 'Escape') { ov.remove(); render(); } });
-      return;
-    }
-    applyPeriods(n);
-  };
-
-  /* ============ ITEM 03 · tutorial inicial ============ */
-  const STEPS = [
-    ['Sua escola (opcional)', 'Você pode associar uma instituição de ensino ao seu perfil. É totalmente opcional: sem escola, o STZBLUE continua com as configurações neutras e você ajusta tudo manualmente.', 'school'],
-    ['Painel', 'No Painel você vê o humor acadêmico do bimestre, os próximos compromissos, as pendências e a frequência de hoje.'],
-    ['Boletim e Frequência', 'Lance notas e acompanhe médias no Boletim. Em Frequência, registre presenças e faltas e veja o gráfico por disciplina.'],
-    ['Planejamento e Bloco de Notas', 'Organize provas, trabalhos e atividades no Planejamento e escreva anotações com anexos no Bloco de Notas.'],
-    ['Horário e Configurações', 'Monte o Horário de aulas (você escolhe de 1 a 9 períodos por dia) e ajuste as regras e preferências em Configurações.']
-  ];
-  const T = { i: 0, el: null };
-  function tutDone(how) { S.cfg.tutorialDone = { at: Date.now(), how }; save('o fim do tutorial'); }
-  function tutRender() {
-    const s = STEPS[T.i], last = T.i === STEPS.length - 1;
-    T.el.innerHTML = `<div class="v134-box tut" role="document"><div class="tut-top"><span class="tut-step">Etapa ${T.i + 1} de ${STEPS.length}</span><button type="button" class="tut-skip" data-a="skip">Pular tutorial</button></div>
-      <div class="tut-dots" aria-hidden="true">${STEPS.map((_, i) => `<i class="${i === T.i ? 'on' : i < T.i ? 'done' : ''}"></i>`).join('')}</div>
-      <h3 id="tutT">${esc(s[0])}</h3><p>${esc(s[1])}</p>${s[2] === 'school' ? '<div class="tut-opt"><button type="button" class="btn" data-a="school">Escolher minha escola agora</button></div>' : ''}
-      <div class="f tut-nav"><button type="button" class="chip" data-a="back"${T.i ? '' : ' disabled'}>Voltar</button><button type="button" class="btn" data-a="next">${last ? 'Concluir' : 'Avançar'}</button></div>
-      <div class="tut-confirm" hidden role="alert"><p>Pular o tutorial? Ele não será exibido novamente.</p><div class="f"><button type="button" class="btn" data-a="skipyes">Pular</button><button type="button" class="chip" data-a="skipno">Continuar</button></div></div></div>`;
-    const b = $1('[data-a=next]', T.el); b && b.focus({ preventScroll: true });
-  }
-  function tutClose(how) { if (!T.el) return; tutDone(how); T.el.classList.add('out'); const e = T.el; T.el = null; setTimeout(() => e.remove(), 220); sfx('close'); }
-  function tutShow() {
-    if (T.el || !ses || !U) return; T.i = 0;
-    T.el = document.createElement('div'); T.el.className = 'v134-ov tut-ov'; T.el.setAttribute('role', 'dialog'); T.el.setAttribute('aria-modal', 'true'); T.el.setAttribute('aria-labelledby', 'tutT');
-    T.el.addEventListener('click', e => {
-      const a = e.target.closest('[data-a]'); if (!a) return; const k = a.dataset.a;
-      if (k === 'next') { if (T.i === STEPS.length - 1) tutClose('completed'); else { T.i++; tutRender(); sfx('nav'); } }
-      else if (k === 'back') { if (T.i) { T.i--; tutRender(); sfx('nav'); } }
-      else if (k === 'skip') { $1('.tut-confirm', T.el).hidden = false; $1('[data-a=skipno]', T.el).focus(); }
-      else if (k === 'skipno') $1('.tut-confirm', T.el).hidden = true;
-      else if (k === 'skipyes') tutClose('skipped');
-      else if (k === 'school') { tutClose('school_step'); INST.stage = 'search'; perfilView = 'inst'; tab = 'perfil'; render(); }
-    });
-    T.el.addEventListener('keydown', e => { if (e.key === 'Escape') { const c = $1('.tut-confirm', T.el); c.hidden = !c.hidden; } });
-    document.body.appendChild(T.el); tutRender(); sfx('open');
-  }
-  window.stzTutorialMaybe = function () {
-    try {
-      if (!ses || !U || !okS || !S || T.el || (S.cfg && S.cfg.tutorialDone)) return;
-      if (window.stzSplashActive && stzSplashActive()) { document.addEventListener('stz-splash-done', () => setTimeout(stzTutorialMaybe, 500), { once: true }); return; }
-      const fresh = !(S.subs || []).length && !(S.items || []).length && !(S.notes || []).length && !(S.reputation || []).length;
-      if (!fresh) { S.cfg.tutorialDone = { at: Date.now(), how: 'existing_account' }; save(); return; }   // contas que já têm dados não recebem o tutorial
-      if (document.getElementById('stzReleaseOverlay')) { document.addEventListener('click', () => setTimeout(stzTutorialMaybe, 700), { once: true }); return; }
-      setTimeout(tutShow, 700);
-    } catch (e) {}
-  };
-
-  /* ============ ITEM 04 · nome de usuário (regras no servidor) + Google ============ */
-  window.stzGoogle = function () { location.href = SB + '/auth/v1/authorize?provider=google&redirect_to=' + encodeURIComponent(location.origin + location.pathname); };
-  window.stzOAuthReturn = async function (hash) {
-    const p = new URLSearchParams(hash.replace(/^#/, '')), at = p.get('access_token'), rt = p.get('refresh_token');
-    if (!at || !rt) throw new Error('Não foi possível concluir o login com Google.');
-    const user = await api('/auth/v1/user', { t: at });
-    await start(tokens({ access_token: at, refresh_token: rt, expires_in: +p.get('expires_in') || 3600, user }));
-  };
-  const UN = { timer: 0, seq: 0, ok: false, st: null };
-  const umsg = (t, k) => { const m = $1('#unameMsg'); if (m) { m.textContent = t || ''; m.dataset.k = k || ''; } };
-  const UERR = { username_taken: 'Este nome já está em uso. Escolha outro.', invalid_username: 'Use de 3 a 20 caracteres: letras minúsculas, números, ponto ou sublinhado.', reserved_username: 'Este nome não está disponível.', not_authenticated: 'Sua sessão expirou. Entre novamente.' };
-  window.stzUnameLoad = async function () {
-    const i = $1('#unameInput'); if (!i || !U) return;
-    try { UN.st = await rpc('stz_username_status'); }
-    catch (x) { umsg(missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível carregar o nome de usuário agora.'), 'bad'); return; }
-    i.disabled = false; i.value = UN.st.username || '';
-    let m = UN.st.username ? 'Nome de usuário atual: @' + UN.st.username + '.' : 'Você ainda não definiu um nome de usuário.';
-    if (UN.st.free_until && new Date(UN.st.free_until) > new Date()) m += ' Você pode corrigi-lo livremente até ' + fmtDT(UN.st.free_until) + '.';
-    else if (UN.st.can_change === false && UN.st.next_change_at) m += ' Você poderá alterar novamente em ' + fmtDT(UN.st.next_change_at) + '.';
-    umsg(m, 'mut');
-  };
-  window.stzUnameInput = function (inp) {
-    const v = inp.value.toLowerCase().replace(/[^a-z0-9_.]/g, ''); if (v !== inp.value) inp.value = v;
-    const btn = $1('#unameSave'); btn.disabled = true; UN.ok = false; clearTimeout(UN.timer);
-    if (!v) return umsg('', '');
-    if (UN.st && v === (UN.st.username || '')) return umsg('Este já é o seu nome de usuário.', 'mut');
-    if (!/^[a-z0-9_.]{3,20}$/.test(v)) return umsg(UERR.invalid_username, 'bad');
-    if (UN.st && UN.st.can_change === false) return umsg('Você só poderá alterar o nome de usuário em ' + fmtDT(UN.st.next_change_at) + '.', 'bad');
-    umsg('Verificando disponibilidade…', 'mut'); const my = ++UN.seq;
-    UN.timer = setTimeout(async () => {
-      try { const ok = await rpc('stz_username_available', { p_username: v }); if (my !== UN.seq) return; if (ok === true) { UN.ok = true; btn.disabled = false; umsg('@' + v + ' está disponível.', 'ok'); } else umsg('@' + v + ' já está em uso. Escolha outro.', 'bad'); }
-      catch (x) { if (my === UN.seq) umsg(netErr(x) || 'Não foi possível verificar agora. Tente novamente.', 'bad'); }
-    }, 380);
-  };
-  window.stzUnameSave = async function () {
-    const inp = $1('#unameInput'), btn = $1('#unameSave'); if (!inp || !UN.ok) return;
-    const v = inp.value.trim().toLowerCase(); btn.disabled = true; umsg('Salvando…', 'mut');
-    try { await rpc('stz_set_username', { p_username: v }); umsg('Pronto! Agora você pode entrar com @' + v + '.', 'ok'); sfx('success'); UN.ok = false; await stzUnameLoad(); }   // a disponibilidade é revalidada no servidor ao salvar
-    catch (x) {
-      btn.disabled = false; sfx('error');
-      if (x.code === 'cooldown') return umsg('Você só poderá alterar o nome de usuário em ' + fmtDT(x.detail) + '.', 'bad');
-      umsg(UERR[x.code] || (missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível salvar. Nada foi alterado.')), 'bad');
-    }
-  };
-
-  /* ============ ITEM 07 · instituições ============ */
-  window.perfilView = window.perfilView || 'conta';
-  const INST = window.INST = { loaded: false, loading: false, my: null, stage: 'home', q: '', results: null, sel: null, form: {}, presets: null, apply: null, err: '', busy: false, timer: 0, seq: 0 };
-  const STATUS = { verified: ['Verificada', 'ok'], pending: ['Pendente de verificação', 'warn'], rejected: ['Não confirmada', 'bad'] };
-  const badge = s => { const b = STATUS[s] || STATUS.pending; return `<span class="pill ${b[1]}">${b[0]}</span>`; };
-  const CATS = [
-    { k: 'avaliacao', label: 'Regras de avaliação', keys: [['avg', 'Média mínima', () => S.avg, v => { S.avg = v; }], ['annualTarget', 'Meta anual (pontos)', () => S.cfg.annualTarget, v => { S.cfg.annualTarget = v; }], ['calcAll', 'Calcular só com todas as notas', () => S.cfg.calcAll, v => { S.cfg.calcAll = v; }], ['calcMin', 'Mínimo de notas para calcular', () => S.cfg.calcMin, v => { S.cfg.calcMin = v; }]] },
-    { k: 'frequencia', label: 'Frequência', keys: [['fq', 'Frequência mínima (%)', () => S.fq, v => { S.fq = v; }]] },
-    { k: 'horario', label: 'Horário de aulas', keys: [['periodsPerDay', 'Períodos por dia', () => stzPPD(), v => { S.cfg.periodsPerDay = v; }]] }
-  ];
-  const mySettings = () => { const o = {}; CATS.forEach(c => c.keys.forEach(([k, , get]) => { const v = Number(get()); if (Number.isFinite(v)) o[k] = v; })); return o; };
-  window.stzSchoolName = () => (INST.my && INST.my.school && INST.my.school.name) || '';
-  async function instLoad(force) {
-    if (INST.loading || (INST.loaded && !force)) return; INST.loading = true;
-    try { INST.my = await rpc('stz_school_my'); INST.loaded = true; INST.err = ''; const n = stzSchoolName(); if (S.me.escola !== n && (n || INST.my)) { S.me.escola = n; save(); } }
-    catch (x) { INST.err = missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível carregar as informações da instituição agora.'); INST.loaded = true; }
-    INST.loading = false; if (tab === 'perfil') render();
-  }
-  const dstr = iso => iso ? new Date(iso).toLocaleDateString('pt-BR') : '';
-  function summarySettings(s) { const parts = []; CATS.forEach(c => c.keys.forEach(([k, l]) => { if (s && s[k] != null) parts.push(`${l}: <b>${esc(String(s[k]))}</b>`); })); return parts.join(' · ') || '—'; }
-  window.stzInstView = function () {
-    if (!INST.loaded) { instLoad(); return '<div class="card"><p class="ty">Carregando…</p></div>'; }
-    if (INST.err && !INST.my) return `<div class="card inst-card"><h3>Instituição de ensino</h3><div class="al warn" role="alert">${esc(INST.err)}</div><div class="f"><button class="btn" onclick="INST.loaded=false;render()">Tentar de novo</button></div></div>`;
-    const st = INST.stage, my = INST.my || {}, sc = my.school;
-    const head = `<div class="card inst-card"><h3>Instituição de ensino</h3><p class="ty">Opcional. O STZBLUE funciona normalmente sem escola associada, com as configurações neutras.</p></div>`;
-    if (st === 'search') return head + `<div class="card inst-card"><div class="inst-steps">Etapa 1 de 3 · Pesquisar</div><label class="a13-f2"><small>Nome, cidade ou estado</small><input id="instQ" type="search" autocomplete="off" value="${esc(INST.q)}" oninput="stzInstSearch(this.value)" placeholder="Ex.: Colégio Exemplo Fortaleza"></label><div id="instRes" aria-live="polite">${instResults()}</div><div class="f"><button class="chip" onclick="stzInstGo('home')">Voltar</button><button class="btn" onclick="stzInstGo('register')">Não encontrei minha escola</button></div></div>`;
-    if (st === 'register') return head + `<div class="card inst-card"><div class="inst-steps">Cadastrar instituição</div><p class="ty">Ela entra como <b>pendente de verificação</b> e será analisada. Você pode cadastrar 1 nova instituição por semana.</p>${INST.err ? `<div class="al bad" role="alert">${esc(INST.err)}</div>` : ''}<div class="inst-form">${[['name', 'Nome da instituição', 1], ['address', 'Endereço', 1], ['neighborhood', 'Bairro (opcional)', 0], ['city', 'Cidade', 1], ['state', 'Estado', 1], ['country', 'País', 1]].map(([k, l, req]) => `<label class="a13-f2"><small>${l}${req ? ' *' : ''}</small><input id="ir_${k}" value="${esc(INST.form[k] ?? (k === 'country' ? 'Brasil' : ''))}" maxlength="140" oninput="INST.form['${k}']=this.value"></label>`).join('')}</div><div class="f"><button class="chip" onclick="stzInstGo('search')">Voltar</button><button class="btn" onclick="stzInstRegister()"${INST.busy ? ' disabled' : ''}>Cadastrar</button></div></div>`;
-    if (st === 'confirm' && INST.sel) { const s = INST.sel, pend = s.status === 'pending', sw = sc && sc.id !== s.id;
-      const nxt = my.next_switch_at && new Date(my.next_switch_at) > new Date() ? my.next_switch_at : null;
-      return head + `<div class="card inst-card"><div class="inst-steps">Etapa 2 de 3 · Confirmar</div><h4>${esc(s.name)}</h4><p class="ty">${esc([s.neighborhood, s.city, s.state].filter(Boolean).join(' · '))}</p><p>${badge(s.status)}</p>
-        ${s.status === 'rejected' ? '<div class="al bad">Esta instituição não foi confirmada pela análise do STZBLUE e não pode ser associada.</div>' : ''}
-        ${pend ? `<div class="al warn inst-risk" role="note"><b>Instituição ainda não verificada.</b><ul><li>O STZBLUE ainda não confirmou a existência nem a oficialidade desta instituição.</li><li>As informações associadas a ela podem não ser confiáveis.</li><li>Enquanto estiver pendente, não há predefinições escolares: você segue com as configurações neutras e manuais.</li><li>Você pode continuar usando-a por sua conta e ciência desse estado.</li></ul><label class="inst-ack"><input type="checkbox" id="instAck" onchange="INST.ack=this.checked;stzInstSync()"><span>Entendi que esta instituição ainda não foi verificada.</span></label></div>` : ''}
-        ${sw && nxt ? `<div class="al warn">Você poderá trocar de instituição em ${fmtDT(nxt)}.</div>` : ''}${INST.err ? `<div class="al bad" role="alert">${esc(INST.err)}</div>` : ''}
-        <div class="f"><button class="chip" onclick="stzInstGo('search')">Voltar</button><button class="btn" id="instConfirm" onclick="stzInstAssociate()"${(s.status === 'rejected' || (sw && nxt) || INST.busy || (pend && !INST.ack)) ? ' disabled' : ''}>Confirmar associação</button></div></div>`; }
-    if (st === 'presets') return head + stzInstPresets();
-    if (st === 'apply' && INST.apply) return head + stzInstApply();
-    /* home */
-    const hist = (my.history || []).map(h => `<li><b>${esc(h.school_name)}</b> <small>${dstr(h.started_at)} – ${dstr(h.ended_at)}</small></li>`).join('');
-    const nxt = my.next_switch_at && new Date(my.next_switch_at) > new Date() ? my.next_switch_at : null;
-    return head + `<div class="card inst-card">${sc ? `<div class="inst-cur"><div><h4>${esc(sc.name)}</h4><p class="ty">${esc([sc.neighborhood, sc.city, sc.state].filter(Boolean).join(' · '))}</p></div>${badge(sc.status)}</div>
-      ${sc.status === 'pending' ? '<div class="al warn">Ainda não verificada pelo STZBLUE. Sem predefinições escolares ou da comunidade enquanto estiver pendente.</div>' : ''}
-      ${sc.status === 'rejected' ? `<div class="al bad">A análise não confirmou esta instituição.${sc.status_reason ? ' Motivo registrado: ' + esc(sc.status_reason) : ''}</div>` : ''}
-      <p class="ty">Associada desde ${dstr(my.associated_at)}.${nxt ? ' Troca liberada em ' + fmtDT(nxt) + '.' : ''}</p>
-      <div class="f">${sc.status === 'verified' ? '<button class="btn" onclick="stzInstOpenPresets()">Predefinições da escola</button>' : ''}<button class="chip" onclick="stzInstGo(\'search\')"${nxt ? ' disabled title="Disponível em ' + fmtDT(nxt) + '"' : ''}>Trocar de escola</button></div>`
-      : `<p>Nenhuma escola associada.</p><div class="f"><button class="btn" onclick="stzInstGo('search')">Pesquisar escola</button></div>`}</div>
-      ${sc && sc.status === 'verified' ? `<div class="card inst-card"><h4>Compartilhar configurações (opcional)</h4><p class="ty">Se você ativar, o STZBLUE usa apenas estas configurações — sem seu nome, e-mail ou identificador — para formar estatísticas agregadas da sua escola: <b>${esc(summarySettings(mySettings()))}</b>. Notas, faltas, compromissos, anexos e dados pessoais <b>nunca</b> são compartilhados. Você pode desativar quando quiser.</p><div class="cfg-switch-row"><span class="cfg-copy"><b>Contribuir com as configurações da minha escola</b></span><button type="button" class="sw${my.share_config ? ' on' : ''}" role="switch" aria-checked="${!!my.share_config}" aria-label="Contribuir com as configurações da minha escola" onclick="stzInstShare(${!my.share_config})"><i></i></button></div></div>` : ''}
-      ${hist ? `<div class="card inst-card"><h4>Histórico de associações</h4><ul class="v134-list">${hist}</ul></div>` : ''}`;
-  };
-  const instResults = () => { if (INST.results === null) return '<p class="ty">Digite ao menos 2 letras.</p>'; if (!INST.results.length) return '<p class="ty">Nenhuma instituição encontrada.</p>'; return `<ul class="inst-res">${INST.results.map(r => `<li><button type="button" onclick="stzInstPick('${r.id}')"><span><b>${esc(r.name)}</b><small>${esc([r.neighborhood, r.city, r.state].filter(Boolean).join(' · '))}</small></span>${badge(r.status)}</button></li>`).join('')}</ul>`; };
-  window.stzInstGo = s => { INST.stage = s; INST.err = ''; INST.ack = false; render(); };
-  window.stzInstSync = () => { const b = $1('#instConfirm'), s = INST.sel; if (b && s) { const my = INST.my || {}, nxt = my.next_switch_at && new Date(my.next_switch_at) > new Date(), sw = my.school && my.school.id !== s.id; b.disabled = s.status === 'rejected' || (sw && nxt) || INST.busy || (s.status === 'pending' && !INST.ack); } };
-  window.stzInstSearch = q => { INST.q = q; clearTimeout(INST.timer); const my = ++INST.seq; if (q.trim().length < 2) { INST.results = null; const r = $1('#instRes'); if (r) r.innerHTML = instResults(); return; }
-    INST.timer = setTimeout(async () => { try { const r = await rpc('stz_school_search', { p_q: q.trim() }); if (my !== INST.seq) return; INST.results = r || []; } catch (x) { if (my !== INST.seq) return; INST.results = []; INST.err = missingBackend(x) ? BACKEND_MSG : ''; } const el = $1('#instRes'); if (el) el.innerHTML = instResults() + (INST.err ? `<div class="al warn">${esc(INST.err)}</div>` : ''); }, 320); };
-  window.stzInstPick = id => { const r = (INST.results || []).find(x => x.id === id); if (!r) return; INST.sel = r; INST.stage = 'confirm'; INST.err = ''; INST.ack = false; render(); };
-  window.stzInstRegister = async function () {
-    const f = INST.form, need = ['name', 'address', 'city', 'state']; if (need.some(k => !(f[k] || '').trim())) { INST.err = 'Preencha nome, endereço, cidade e estado.'; return render(); }
-    INST.busy = true; INST.err = ''; render();
-    try { const r = await rpc('stz_school_register', { p_name: f.name.trim(), p_address: f.address.trim(), p_neighborhood: (f.neighborhood || '').trim(), p_city: f.city.trim(), p_state: f.state.trim(), p_country: (f.country || 'Brasil').trim() });
-      INST.sel = { id: r.id, name: f.name.trim(), city: f.city.trim(), state: f.state.trim(), neighborhood: (f.neighborhood || '').trim(), status: r.status }; INST.stage = 'confirm'; INST.ack = false; if (r.existed) INST.err = 'Esta instituição já estava cadastrada; usamos o registro existente.'; INST.form = {}; }
-    catch (x) { INST.err = x.code === 'weekly_limit' ? 'Você já cadastrou uma instituição nesta semana. Novo cadastro disponível em ' + fmtDT(x.detail) + '.' : (missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível cadastrar agora. Nada foi salvo.')); }
-    INST.busy = false; render();
-  };
-  window.stzInstAssociate = async function () {
-    const s = INST.sel; if (!s) return; INST.busy = true; INST.err = ''; render();
-    try { await rpc('stz_school_associate', { p_school_id: s.id, p_ack: s.status === 'pending' ? !!INST.ack : false }); INST.loaded = false; INST.stage = 'home'; INST.sel = null; sfx('success'); await instLoad(true); }
-    catch (x) { INST.err = x.code === 'switch_cooldown' ? 'A troca de instituição só é permitida a cada 30 dias. Disponível em ' + fmtDT(x.detail) + '.' : x.code === 'ack_required' ? 'Confirme que entendeu o aviso para continuar.' : x.code === 'school_rejected' ? 'Esta instituição não pode ser associada.' : (missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível associar agora. Nada foi alterado.')); sfx('error'); }
-    INST.busy = false; render();
-  };
-  window.stzInstShare = async function (on) {
-    try { await rpc('stz_school_share_set', { p_enabled: !!on, p_settings: on ? mySettings() : {} }); INST.my.share_config = !!on; sfx(on ? 'toggleOn' : 'toggleOff'); }
-    catch (x) { INST.err = missingBackend(x) ? BACKEND_MSG : (x.code === 'school_not_verified' ? 'Só é possível contribuir com uma instituição verificada.' : (netErr(x) || 'Não foi possível alterar agora.')); }
-    render();
-  };
-  window.stzInstOpenPresets = async function () {
-    INST.stage = 'presets'; INST.presets = null; INST.err = ''; render();
-    try { INST.presets = await rpc('stz_school_presets_get', { p_school_id: INST.my.school.id }); } catch (x) { INST.err = missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível carregar as predefinições.'); INST.presets = { eligible: false, error: true }; }
-    render();
-  };
-  function presetCard(p, kind, i) {
-    const lab = kind === 'initial' ? esc(p.label || 'Definições iniciais') : `Usada por ${esc(String(p.share))}% dos participantes (${p.users} de ${INST.presets.participants})`;
-    const org = kind === 'initial' ? (p.origin === 'official_source' ? '<span class="pill ok">Fonte oficial confirmada</span>' : '<span class="pill">Informada manualmente</span>') : '<span class="pill">Comunidade</span>';
-    return `<div class="inst-preset"><div class="inst-preset-h"><b>${lab}</b>${org}</div><details><summary>Ver regras</summary><p class="ty">${summarySettings(p.settings)}</p>${p.source_note ? `<p class="ty">Origem: ${esc(p.source_note)}</p>` : ''}</details><div class="f"><button class="btn" onclick="stzInstStartApply('${kind}',${i})">Usar esta predefinição</button></div></div>`;
-  }
-  window.stzInstPresets = function () {
-    const P = INST.presets; let h = `<div class="card inst-card"><div class="inst-steps">Etapa 3 de 3 · Predefinições</div><button class="chip" onclick="stzInstGo('home')">Voltar</button>`;
-    if (!P) return h + '<p class="ty">Carregando…</p></div>';
-    if (INST.err) h += `<div class="al warn" role="alert">${esc(INST.err)}</div>`;
-    if (!P.eligible) return h + '<p class="ty">As predefinições só ficam disponíveis para instituições verificadas.</p></div>';
-    h += '<p class="ty">Nada é aplicado automaticamente. Você escolhe uma predefinição e depois quais categorias aplicar.</p>';
-    h += `<h4>Definições iniciais da escola</h4>${(P.initial || []).length ? P.initial.map((p, i) => presetCard(p, 'initial', i)).join('') : '<p class="ty">Esta escola ainda não tem definições iniciais cadastradas.</p>'}`;
-    h += `<h4>Mais utilizadas pela comunidade</h4>`;
-    if ((P.community || []).length) { h += (P.participants < 5 ? `<div class="al warn">Poucas contribuições (${P.participants} participantes). Estes números podem não representar a maioria da escola.</div>` : '') + P.community.map((p, i) => presetCard(p, 'community', i)).join('') + '<p class="ty">Popularidade não é regra oficial da escola.</p>'; }
-    else h += `<p class="ty">${P.participants >= 0 && P.participants < 2 ? 'Ainda não há contribuições suficientes para mostrar uma predefinição da comunidade (mínimo de 2 participantes, por privacidade).' : 'Sem predefinições da comunidade no momento.'}</p>`;
-    return h + '</div>';
-  };
-  window.stzInstStartApply = function (kind, i) {
-    const p = (kind === 'initial' ? INST.presets.initial : INST.presets.community)[i]; if (!p) return;
-    INST.apply = { settings: p.settings || {}, sel: {} }; CATS.forEach(c => { if (c.keys.some(([k]) => p.settings && p.settings[k] != null)) INST.apply.sel[c.k] = true; }); INST.stage = 'apply'; render();
-  };
-  window.stzInstApply = function () {
-    const A = INST.apply, cats = CATS.filter(c => c.keys.some(([k]) => A.settings[k] != null));
-    return `<div class="card inst-card"><div class="inst-steps">Aplicar predefinição</div><p class="ty">Marque as categorias que deseja aplicar. Notas, frequência registrada, planejamentos, anexos e dados pessoais não são alterados.</p>
-      ${cats.length ? cats.map(c => `<fieldset class="inst-cat"><label><input type="checkbox" ${A.sel[c.k] ? 'checked' : ''} onchange="INST.apply.sel['${c.k}']=this.checked"> <b>${c.label}</b></label><ul>${c.keys.filter(([k]) => A.settings[k] != null).map(([k, l, get]) => `<li>${l}: ${esc(String(get()))} <span aria-hidden="true">→</span> <b>${esc(String(A.settings[k]))}</b></li>`).join('')}</ul></fieldset>`).join('') : '<p class="ty">Esta predefinição não traz categorias aplicáveis.</p>'}
-      <div class="f"><button class="chip" onclick="stzInstGo('presets')">Voltar</button><button class="btn" onclick="stzInstDoApply()">Aplicar categorias selecionadas</button></div></div>`;
-  };
-  window.stzInstDoApply = function () {
-    const A = INST.apply; let periods = null, any = false;
-    CATS.forEach(c => { if (!A.sel[c.k]) return; c.keys.forEach(([k, , , set]) => { if (A.settings[k] == null) return; const v = Number(A.settings[k]); if (!Number.isFinite(v)) return; if (k === 'periodsPerDay') { periods = v; return; } set(v); any = true; }); });
-    if (any) save('as predefinições escolhidas');
-    INST.apply = null; INST.stage = 'home';
-    if (periods != null && periods !== stzPPD()) { stzSetPeriods(periods); } else render();   // períodos: mesmo fluxo com confirmação e sem apagar dados
-  };
-
-  /* wrapper de Perfil e Conta: sub-abas + Escola somente leitura */
-  window.stzPerfilWrap = function () {
-    const nav = `<div class="subnav liquid-tabs perfil-nav" role="tablist" aria-label="Perfil e Conta"><button type="button" role="tab" aria-selected="${perfilView === 'conta'}" class="${perfilView === 'conta' ? 'on' : ''}" onclick="perfilView='conta';render()">Conta</button><button type="button" role="tab" aria-selected="${perfilView === 'inst'}" class="${perfilView === 'inst' ? 'on' : ''}" onclick="perfilView='inst';INST.stage='home';render()">Instituição</button></div>`;
-    let body = perfilView === 'inst' ? stzInstView() : perfil_orig().replace(/<label><small>Escola<\/small><input([^>]*)>/, (m) => `<label><small>Escola</small><input readonly aria-readonly="true" value="${esc(stzSchoolName() || S.me.escola || '')}" placeholder="Sem escola (opcional)" title="Definida pela instituição associada">`) .replace(/(<label><small>Escola<\/small>[^]*?<\/label>)/, '$1<small class="escola-hint">Definida pela instituição associada, na aba Instituição. É opcional.</small>');
-    return `<div class="perfil134">${nav}<div class="perfil-grid">${body}</div></div>`;
-  };
-  window.perfil = window.stzPerfilWrap;
-
-  /* ============ ITEM 08 · painel administrativo ============ */
-  const ADM = { is: null, token: null, exp: 0, view: 'loading', msg: '', ok: '', tab: 'pending', list: [], audit: [], el: null, checking: false, rec: 0, mail: '' };   // token só em memória
-  window.stzAdminGroup = () => ADM.is === true ? `<section class="cfg-section"><h3 class="cfg-section-title">Administrador</h3><div class="cfg-list-group"><button type="button" class="cfg-row" onclick="stzAdminOpen()"><span class="cfg-icon" data-tone="violet">${ic('cfg', 19)}</span><span class="cfg-copy"><b>Painel administrativo</b><small>Verificação de instituições</small></span><span class="cfg-trail">${ic('cr', 16)}</span></button></div></section>` : '';
-  async function admCheck() { if (ADM.checking || ADM.is !== null || !U) return; ADM.checking = true; try { const s = await rpc('stz_admin_status'); ADM.is = !!(s && s.is_admin); ADM.hasPw = !!(s && s.has_password); } catch (e) { ADM.is = false; } ADM.checking = false; if (ADM.is && tab === 'config') render(); }
-  const AERR = { bad_password: 'Senha incorreta.', no_password: 'Nenhuma senha administrativa cadastrada.', weak_password: 'A senha precisa ter ao menos 12 caracteres e combinar 3 destes tipos: minúsculas, maiúsculas, números, símbolos.', already_set: 'A senha administrativa já foi cadastrada.', forbidden: 'Sem autorização.', recent_email_code_required: 'Confirme o código enviado por e-mail antes de redefinir a senha.', note_required: 'Informe a justificativa (mínimo de 5 caracteres).' };
-  const aerrMsg = x => x.code === 'locked' ? 'Muitas tentativas. Tente novamente após ' + fmtDT(x.detail) + '.' : (AERR[x.code] || (missingBackend(x) ? BACKEND_MSG : (netErr(x) || 'Não foi possível concluir. Nada foi alterado.')));
-  window.stzAdminOpen = async function () {
-    if (ADM.el) return; ADM.el = document.createElement('div'); ADM.el.className = 'v134-ov adm-ov'; ADM.el.setAttribute('role', 'dialog'); ADM.el.setAttribute('aria-modal', 'true'); ADM.el.setAttribute('aria-label', 'Painel administrativo');
-    document.body.appendChild(ADM.el); document.documentElement.classList.add('stz-lock'); ADM.view = 'loading'; ADM.msg = ''; admPaint(); sfx('open');
-    try { const s = await rpc('stz_admin_status'); if (!s.is_admin) return admClose(); ADM.hasPw = !!s.has_password; ADM.view = !s.has_password ? 'create' : 'login'; if (s.locked_until) ADM.msg = 'Acesso bloqueado temporariamente até ' + fmtDT(s.locked_until) + '.'; }
-    catch (x) { ADM.msg = aerrMsg(x); ADM.view = 'login'; ADM.hasPw = true; }
-    admPaint();
-  };
-  function admClose() { if (ADM.token) { rpc('stz_admin_logout', { p_token: ADM.token }).catch(() => {}); } ADM.token = null; ADM.exp = 0; if (ADM.el) { ADM.el.remove(); ADM.el = null; } document.documentElement.classList.remove('stz-lock'); sfx('close'); }
-  const pw = id => (document.getElementById(id) || {}).value || '';
-  window.stzAdminAct = async function (a, arg) {
-    ADM.msg = ''; ADM.ok = '';
-    try {
-      if (a === 'close') return admClose();
-      if (a === 'create') { if (pw('apw1') !== pw('apw2')) { ADM.msg = 'As senhas não coincidem.'; return admPaint(); } await rpc('stz_admin_set_password', { p_new: pw('apw1') }); ADM.view = 'login'; ADM.ok = 'Senha administrativa criada. Entre com ela.'; }
-      else if (a === 'login') { const r = await rpc('stz_admin_login', { p_password: pw('apw') }); ADM.token = r.token; ADM.exp = new Date(r.expires_at).getTime(); ADM.view = 'panel'; ADM.tab = 'pending'; await admLoad(); sfx('success'); }
-      else if (a === 'recover') { ADM.view = 'rec1'; }
-      else if (a === 'sendcode') { const u = await api('/auth/v1/user', { t: await fresh() }); ADM.mail = u.email; await api('/auth/v1/otp', { method: 'POST', body: JSON.stringify({ email: u.email, create_user: false }) }); ADM.view = 'rec2'; ADM.ok = 'Enviamos um código para ' + u.email.replace(/^(.).*(@.*)$/, '$1•••$2') + '. Ele expira em pouco tempo e só vale uma vez.'; }
-      else if (a === 'verify') { const j = await api('/auth/v1/verify', { method: 'POST', body: JSON.stringify({ type: 'email', email: ADM.mail, token: pw('acode').trim() }) }); putS(tokens(j)); ADM.view = 'rec3'; }
-      else if (a === 'reset') { if (pw('apw1') !== pw('apw2')) { ADM.msg = 'As senhas não coincidem.'; return admPaint(); } await rpc('stz_admin_reset_password', { p_new: pw('apw1') }); ADM.view = 'login'; ADM.ok = 'Nova senha administrativa definida. Entre com ela.'; }
-      else if (a === 'tab') { ADM.tab = arg; await admLoad(); }
-      else if (a === 'decide') { const id = arg.id, note = pw('anote_' + id).trim(); await rpc('stz_admin_decide', { p_token: ADM.token, p_school_id: id, p_decision: arg.d, p_note: note }); ADM.ok = arg.d === 'verified' ? 'Instituição aprovada e registrada no histórico.' : 'Instituição rejeitada e registrada no histórico.'; await admLoad(); sfx('success'); }
-    } catch (x) {
-      if (x.code === 'forbidden' && ADM.view === 'panel') { ADM.token = null; ADM.view = 'login'; ADM.msg = 'Sessão administrativa expirada. Entre novamente.'; }
-      else ADM.msg = /invalid|otp|token|expired|code/i.test(String(x.message)) && (a === 'verify' || a === 'sendcode') ? (a === 'verify' ? 'Código inválido ou expirado.' : 'Não foi possível enviar o código agora.') : aerrMsg(x);
-      sfx('error');
-    }
-    admPaint();
-  };
-  async function admLoad() { if (ADM.tab === 'audit') ADM.audit = await rpc('stz_admin_audit_list', { p_token: ADM.token, p_limit: 80 }) || []; else ADM.list = await rpc('stz_admin_schools', { p_token: ADM.token, p_status: ADM.tab === 'pending' ? 'pending' : null }) || []; }
-  const pwFields = (two) => `<label class="a13-f2"><small>${two ? 'Nova senha administrativa' : 'Senha administrativa'}</small><input id="${two ? 'apw1' : 'apw'}" type="password" autocomplete="${two ? 'new-password' : 'current-password'}" onkeydown="if(event.key==='Enter')stzAdminAct('${two ? 'noop' : 'login'}')"></label>${two ? '<label class="a13-f2"><small>Confirmar senha</small><input id="apw2" type="password" autocomplete="new-password"></label><p class="ty">Mínimo de 12 caracteres, combinando ao menos 3 tipos (minúsculas, maiúsculas, números, símbolos). Diferente da senha da sua conta.</p>' : ''}`;
-  function admPaint() {
-    const el = ADM.el; if (!el) return; const v = ADM.view; let body = '';
-    const msg = (ADM.msg ? `<div class="al bad" role="alert">${esc(ADM.msg)}</div>` : '') + (ADM.ok ? `<div class="al ok" role="status">${esc(ADM.ok)}</div>` : '');
-    if (v === 'loading') body = '<p class="ty">Verificando acesso…</p>';
-    else if (v === 'create') body = `<h3>Criar senha administrativa</h3><p class="ty">Primeiro acesso ao painel. Esta senha é separada da senha da sua conta e é validada no servidor.</p>${msg}${pwFields(true)}<div class="f"><button class="btn" onclick="stzAdminAct('create')">Criar senha</button><button class="chip" onclick="stzAdminAct('close')">Cancelar</button></div>`;
-    else if (v === 'login') body = `<h3>Painel administrativo</h3><p class="ty">Informe a senha administrativa para entrar.</p>${msg}${pwFields(false)}<div class="f"><button class="btn" onclick="stzAdminAct('login')">Entrar</button><button class="chip" onclick="stzAdminAct('close')">Cancelar</button></div><button type="button" class="a13-link" onclick="stzAdminAct('recover')">Esqueci minha senha administrativa</button>`;
-    else if (v === 'rec1') body = `<h3>Recuperar senha administrativa</h3><p class="ty">Enviaremos um código ao e-mail da sua conta do STZBLUE. Depois de confirmá-lo, você define uma nova senha administrativa. A senha da conta não é alterada.</p>${msg}<div class="f"><button class="btn" onclick="stzAdminAct('sendcode')">Enviar código</button><button class="chip" onclick="stzAdminAct('login')">Voltar</button></div>`;
-    else if (v === 'rec2') body = `<h3>Informe o código</h3>${msg}<label class="a13-f2"><small>Código recebido por e-mail</small><input id="acode" inputmode="numeric" autocomplete="one-time-code" maxlength="10" onkeydown="if(event.key==='Enter')stzAdminAct('verify')"></label><div class="f"><button class="btn" onclick="stzAdminAct('verify')">Confirmar código</button><button class="chip" onclick="stzAdminAct('login')">Cancelar</button></div>`;
-    else if (v === 'rec3') body = `<h3>Nova senha administrativa</h3>${msg}${pwFields(true)}<div class="f"><button class="btn" onclick="stzAdminAct('reset')">Definir senha</button><button class="chip" onclick="stzAdminAct('close')">Cancelar</button></div>`;
-    else if (v === 'panel') {
-      const tabs = [['pending', 'Pendentes'], ['all', 'Todas'], ['audit', 'Histórico']].map(([k, l]) => `<button type="button" role="tab" class="${ADM.tab === k ? 'on' : ''}" aria-selected="${ADM.tab === k}" onclick="stzAdminAct('tab','${k}')">${l}</button>`).join('');
-      let list = '';
-      if (ADM.tab === 'audit') list = (ADM.audit || []).length ? `<ul class="v134-list">${ADM.audit.map(a => `<li><b>${esc(a.action)}</b>${a.school_name ? ' · ' + esc(a.school_name) : ''} <small>${fmtDT(a.at)}</small>${a.note ? `<br><small>${esc(a.note)}</small>` : ''}</li>`).join('')}</ul>` : '<p class="ty">Nenhuma decisão registrada ainda.</p>';
-      else list = (ADM.list || []).length ? ADM.list.map(s => `<article class="adm-card"><header><b>${esc(s.name)}</b>${badge(s.status)}</header><p class="ty">${esc(s.address)}${s.neighborhood ? ' · ' + esc(s.neighborhood) : ''} · ${esc(s.city)}/${esc(s.state)} · ${esc(s.country)}</p><p class="ty">Solicitada em ${fmtDT(s.created_at)} · ${s.members} usuário(s) associado(s)</p><p class="ty"><b>Verificação automática:</b> ${s.auto_check_note ? esc(s.auto_check_note) : 'não disponível nesta versão — análise manual.'}</p>${(s.evidence || []).length ? `<ul class="v134-list">${s.evidence.map(e => `<li><small>${esc(e.type || 'evidência')}: ${esc(e.note || '')}</small></li>`).join('')}</ul>` : '<p class="ty">Nenhuma evidência registrada.</p>'}${s.status_reason ? `<p class="ty">Motivo registrado: ${esc(s.status_reason)}</p>` : ''}
-          <label class="a13-f2"><small>Fonte consultada / justificativa (obrigatória para decidir)</small><textarea id="anote_${s.id}" rows="2" maxlength="500"></textarea></label><div class="f"><button class="btn" onclick="stzAdminAct('decide',{id:'${s.id}',d:'verified'})">Aprovar</button><button class="chip" data-cancel onclick="stzAdminAct('decide',{id:'${s.id}',d:'rejected'})">Rejeitar</button></div></article>`).join('') : '<p class="ty">Nenhuma instituição nesta lista.</p>';
-      body = `<div class="adm-head"><h3>Painel administrativo</h3><span class="pill">${ADM.tab === 'pending' ? (ADM.list || []).length + ' pendente(s)' : 'Verificação de instituições'}</span></div>${msg}<div class="subnav liquid-tabs" role="tablist">${tabs}</div><div class="adm-list">${list}</div><div class="f"><button class="chip" onclick="stzAdminAct('close')">Sair do painel</button></div>`;
-    }
-    el.innerHTML = `<div class="v134-box adm">${body}</div>`;
-  }
-
-  /* ============ pós-render ============ */
-  window.stzV134AfterRender = function () {
-    if (tab === 'perfil' && !INST.loaded && !INST.loading && perfilView === 'inst') instLoad();
-    if (tab === 'perfil' && !INST.loaded && !INST.loading && perfilView === 'conta') instLoad();
-    if (tab === 'config') admCheck();
-    if (ADM.exp && Date.now() > ADM.exp && ADM.view === 'panel') { ADM.token = null; ADM.view = 'login'; ADM.msg = 'Sessão administrativa expirada. Entre novamente.'; admPaint(); }
-  };
-  window.stzOnLogout = () => { ADM.is = null; ADM.token = null; INST.loaded = false; INST.my = null; };
-})();
-
-</script>
 <script id="stz-v131-engine">
 /* ===== STZBLUE 1.3.1 · correções e novas rotinas (Reputação, Frequência por disciplina, Anel Cromático) ===== */
 (() => {
@@ -4009,7 +3600,7 @@ function dashboardFrequencyCard(day,lessons){
 function painel(){
   const A=alerts(),av=BS().map(yA),fs=S.subs.map(fr).filter(x=>x!==null),T=td(),hj=(new Date().getDay()+6)%7,up=S.items.filter(i=>!i.x&&i.k!=='Feriado'&&dd(i.d,T)>=0&&dd(i.d,T)<=14).sort((a,b)=>a.d.localeCompare(b.d)||(a.tm||'').localeCompare(b.tm||'')).slice(0,8);
  const overall=mean(av.filter(x=>x!==null)),freq=fs.length?Math.round(mean(fs))+'%':'–',tests=up.filter(i=>['Prova','Trabalho'].includes(i.k)),weak=BS().map(sub=>[sub,yA(sub)]).filter(x=>x[1]!==null&&x[1]<S.avg).length;
- const upcoming=up.length?up.map(i=>{const n=dd(i.d,T),sub=S.subs.find(x=>x.id===i.sid),date=n===0?'Hoje':n===1?'Amanhã':n<=14?'Em '+n+' dias':fd(i.d);return '<button class="dash-upcoming-item'+stzUrg(i,n)+'" type="button" onclick="openEd(\''+i.id+'\')"><span class="dash-upcoming-date">'+date+(n>1?'<em>'+fd(i.d)+'</em>':'')+'</span><span class="dash-upcoming-copy"><b>'+esc(i.t)+'</b><small>'+esc(i.k)+(sub?' · '+esc(sub.n):'')+(i.tm?' · '+esc(i.tm):'')+'</small></span><span class="dash-upcoming-mark">'+stzUrgMark(i,n,ic(KIC[i.k]||'cal',16))+'</span></button>'}).join(''):'<div class="dash-empty">Nada marcado para os próximos 14 dias.</div>';
+ const upcoming=up.length?up.map(i=>{const n=dd(i.d,T),sub=S.subs.find(x=>x.id===i.sid),date=n===0?'Hoje':n===1?'Amanhã':fd(i.d);return '<button class="dash-upcoming-item'+stzUrg(i,n)+'" type="button" onclick="openEd(\''+i.id+'\')"><span class="dash-upcoming-date">'+date+'</span><span class="dash-upcoming-copy"><b>'+esc(i.t)+'</b><small>'+esc(i.k)+(sub?' · '+esc(sub.n):'')+(i.tm?' · '+esc(i.tm):'')+'</small></span><span class="dash-upcoming-mark">'+stzUrgMark(i,n,ic(KIC[i.k]||'cal',16))+'</span></button>'}).join(''):'<div class="dash-empty">Nada marcado para os próximos 14 dias.</div>';
  const progress=BS().length?BS().map(sub=>{const v=yA(sub),pct=v===null?0:Math.max(0,Math.min(100,v*10));return '<div class="dash-progress-row"><span><i class="dot" style="background:'+sub.c+'"></i>'+esc(sub.n)+'</span><div class="bar"><i style="width:'+pct+'%;background:'+sub.c+'"></i><u style="left:'+S.avg*10+'%"></u></div><b>'+f1(v)+'</b></div>'}).join(''):'<small>Cadastre disciplinas e notas para ver o progresso.</small>';
  let h='<div class="dash-layout">'+(typeof stzMascotCard==='function'?stzMascotCard():'')+'<section class="card dash-overview"><div class="dash-kicker">VISÃO GERAL · '+S.yr+'</div><h2>Seu ano escolar em um só lugar</h2><div class="dash-metrics">'+stzPendMetric(pdg().length)+'<div><small>Matérias em atenção</small><b>'+weak+'</b></div></div><p class="ty">'+(BS().length?BS().length+' disciplina(s) com boletim'+(tests.length?' · '+tests.length+' prova(s) ou trabalho(s) próximos':''):'Cadastre suas disciplinas para começar.')+'</p></section>';
  h+='<section class="card dash-upcoming"><div class="head"><div><h3>'+ic('cal')+' Próximos compromissos</h3><small>Tarefas, provas e eventos · até 14 dias</small></div><button class="chip" onclick="go(\'agenda\')">Planejamento</button></div><div class="dash-upcoming-list">'+upcoming+'</div></section>';
@@ -4259,7 +3850,7 @@ function clearCurrentGrade(){if(!mq)return;const m={...mq},old=cv(),s=S.subs.fin
 function clrM(){if(!mq)return;const s=S.subs.find(x=>x.id===mq.id),p=mq.p;if(s){const o=s.g[p]||{},old=o.m;if(old!=null){delete o.m;logGradeChange(s,p,'m',old,null)}}mq=null;save('a média automática');render()}
 const hmodal=()=>`<div class="ov" onclick="hq=null;render()"><div class="mdl" onclick="event.stopPropagation()">${hq.step===1?`<h3>Deseja adicionar uma disciplina?</h3><div class="f"><button class="btn" onclick="hq.step=2;render()">Confirmar</button><button class="chip" onclick="hq=null;render()">Cancelar</button></div>`:hq.step===2?`<h3>Nova disciplina</h3><label><small>Disciplina</small><input id="hn" maxlength="40" value="${esc(hq.n||'')}"></label><label><small>Professor(a)</small><input id="hp" maxlength="40" value="${esc(hq.pr||'')}"></label><div class="f"><button class="btn" onclick="hNext()">Confirmar</button><button class="chip" onclick="hq=null;render()">Cancelar</button></div>`:`<h3>Adicionar ${esc(hq.n)} ao boletim?</h3><div class="f"><button class="btn" onclick="hAdd(1)">Sim</button><button class="chip" onclick="hAdd(0)">Não</button></div>`}</div></div>`;
 function hNext(){const n=V('#hn').trim();if(!n){$('#hn').focus();return}hq.n=n;hq.pr=V('#hp').trim();hq.step=3;render()}
-function hAdd(b){const s={id:uid(),n:hq.n,pr:hq.pr,c:COL[S.subs.length%COL.length],g:{},at:{}};if(!b)s.nb=1;S.subs.push(s);if(hq.d!==null){const L=S.sched[hq.d]=S.sched[hq.d]||[];while(L.length<stzPPD())L.push(null);L[hq.t]=s.id}save('a nova disciplina “'+s.n+'”');hq=null;render()}
+function hAdd(b){const s={id:uid(),n:hq.n,pr:hq.pr,c:COL[S.subs.length%COL.length],g:{},at:{}};if(!b)s.nb=1;S.subs.push(s);if(hq.d!==null){const L=S.sched[hq.d]=S.sched[hq.d]||[];while(L.length<9)L.push(null);L[hq.t]=s.id}save('a nova disciplina “'+s.n+'”');hq=null;render()}
 function setCalcMode(id){const s=S.subs.find(x=>x.id===id);if(!s)return;const o=(s.g||{})[bim]||{};modePrompt={id,choice:(o.m!=null?'manual':'aritmetica')};render()}
 function chooseCalcMode(choice){if(modePrompt){modePrompt.choice=choice;render()}}
 function confirmCalcMode(){if(!modePrompt)return;const s=S.subs.find(x=>x.id===modePrompt.id),choice=modePrompt.choice,p=bim;if(s){s.g=s.g||{};s.g[p]=s.g[p]||{};const o=s.g[p];if(choice==='manual'){if(o.m==null){const current=pA(s,p);o.m=current===null?0:current}}else delete o.m;save('a mudança do tipo de cálculo');}modePrompt=null;render()}
@@ -4276,7 +3867,7 @@ function boletim(){
 function horario(){
   const hj=(new Date().getDay()+6)%7,d=hdi===null?(hj<5?hj:0):hdi,L=S.sched[d]||[],times=(S.classTimes||{})[d]||[],view=scheduleView==='intervals'?'intervals':'lessons',nav=`<div class="subnav liquid-tabs schedule-view-nav" data-liquid-key="schedule-view" role="tablist" aria-label="Seção do horário"><button type="button" role="tab" class="${view==='lessons'?'on':''}" data-liquid-value="lessons" aria-selected="${view==='lessons'}" onclick="scheduleView='lessons';render()">Aulas</button><button type="button" role="tab" class="${view==='intervals'?'on':''}" data-liquid-value="intervals" aria-selected="${view==='intervals'}" onclick="scheduleView='intervals';render()">Intervalos</button></div>`;
   if(view==='intervals'){const intervals=Array.isArray(S.intervals)?S.intervals:[];return nav+`<div class="card schedule-interval-card"><div class="head"><div><h3>Intervalos da semana</h3><small class="ty">Cadastre cada intervalo uma vez. Ele será considerado em todos os dias de aula, de segunda a sexta.</small></div><button class="btn" type="button" onclick="openIntervalEditor()">+ Novo intervalo</button></div>${intervals.length?`<div class="schedule-interval-list">${intervals.map(item=>`<div class="schedule-interval-row"><div><b>${esc(item.title)}</b><small>${esc(item.start)}–${esc(item.end)} · segunda a sexta</small></div><div class="schedule-interval-actions"><button class="chip" type="button" aria-label="Editar ${esc(item.title)}" onclick="openIntervalEditor('${item.id}')">Editar</button><button class="chip" type="button" aria-label="Excluir ${esc(item.title)}" onclick="removeInterval('${item.id}')">Excluir</button></div></div>`).join('')}</div>`:'<div class="empty">Nenhum intervalo cadastrado. Adicione, por exemplo, o recreio com seu horário.</div>'}</div>`}
-  return nav+`<div class="chips secondary-tabs liquid-tabs schedule-weekdays" data-liquid-key="schedule-weekday" role="group" aria-label="Selecionar dia da semana">${DAYS.slice(0,5).map((n,i)=>'<button type="button" class="schedule-weekday'+(i===d?' on':'')+'" data-liquid-value="'+i+'" aria-pressed="'+(i===d)+'" aria-label="'+n+(i===hj?' · Hoje':'')+'" onclick="hdi='+i+';render()"><span>'+n.slice(0,3)+'</span>'+(i===hj?'<i class="schedule-today-dot" aria-hidden="true"></i>':'')+'</button>').join('')}</div><div class="card schedule-day-card"><h3>${DAYS[d]}</h3><p class="ty">Defina as disciplinas e os horários das aulas. Cadastre os intervalos na sub-aba Intervalos; eles valem para todos os dias da semana letiva.</p>${!S.subs.length?'<p class="ty">Cadastre matérias no Painel para associá-las aos tempos de aula.</p>':''}${stzPeriodsControl()}${R(stzPPD()).map(t=>{const tm=times[t-1]||{};return `<div class="schedule-slot"><label class="tp"><span>${t}º tempo</span><select aria-label="Disciplina do ${t}º tempo" onchange="setT(${d},${t-1},this.value)"><option value="">— sem aula —</option>${S.subs.map(s=>`<option value="${s.id}"${L[t-1]===s.id?' selected':''}>${esc(s.n)}</option>`).join('')}<option value="__n">Outro</option></select></label><div class="class-time-fields" role="group" aria-label="Horário do ${t}º tempo"><label><small>Das</small><input type="time" aria-label="Início do ${t}º tempo" value="${esc(tm.start||'')}" onchange="setClassTime(${d},${t-1},'start',this.value,this)"></label><label><small>Até</small><input type="time" aria-label="Fim do ${t}º tempo" value="${esc(tm.end||'')}" onchange="setClassTime(${d},${t-1},'end',this.value,this)"></label></div></div>`}).join('')}</div>`}
+  return nav+`<div class="chips secondary-tabs liquid-tabs schedule-weekdays" data-liquid-key="schedule-weekday" role="group" aria-label="Selecionar dia da semana">${DAYS.slice(0,5).map((n,i)=>'<button type="button" class="schedule-weekday'+(i===d?' on':'')+'" data-liquid-value="'+i+'" aria-pressed="'+(i===d)+'" aria-label="'+n+(i===hj?' · Hoje':'')+'" onclick="hdi='+i+';render()"><span>'+n.slice(0,3)+'</span>'+(i===hj?'<i class="schedule-today-dot" aria-hidden="true"></i>':'')+'</button>').join('')}</div><div class="card schedule-day-card"><h3>${DAYS[d]}</h3><p class="ty">Defina as disciplinas e os horários das aulas. Cadastre os intervalos na sub-aba Intervalos; eles valem para todos os dias da semana letiva.</p>${!S.subs.length?'<p class="ty">Cadastre matérias no Painel para associá-las aos tempos de aula.</p>':''}${R(9).map(t=>{const tm=times[t-1]||{};return `<div class="schedule-slot"><label class="tp"><span>${t}º tempo</span><select aria-label="Disciplina do ${t}º tempo" onchange="setT(${d},${t-1},this.value)"><option value="">— sem aula —</option>${S.subs.map(s=>`<option value="${s.id}"${L[t-1]===s.id?' selected':''}>${esc(s.n)}</option>`).join('')}<option value="__n">Outro</option></select></label><div class="class-time-fields" role="group" aria-label="Horário do ${t}º tempo"><label><small>Das</small><input type="time" aria-label="Início do ${t}º tempo" value="${esc(tm.start||'')}" onchange="setClassTime(${d},${t-1},'start',this.value,this)"></label><label><small>Até</small><input type="time" aria-label="Fim do ${t}º tempo" value="${esc(tm.end||'')}" onchange="setClassTime(${d},${t-1},'end',this.value,this)"></label></div></div>`}).join('')}</div>`}
 const KC={Prova:'#e11d48',Trabalho:'#7c3aed',Atividade:'#0891b2',Evento:'#f59e0b',Feriado:'#f59e0b'},KIC={Prova:'doc',Trabalho:'folder',Atividade:'task',Evento:'star',Feriado:'star'},PLU={Prova:'Provas',Trabalho:'Trabalhos',Atividade:'Atividades',Evento:'Eventos'},PRN=['Nenhuma','Baixa','Média','Alta'],PRC=['','#3b82f6','#f59e0b','#ef4444'];
 const addD=(d,n)=>{const o=new Date(d+'T00:00');o.setDate(o.getDate()+n);return `${o.getFullYear()}-${p2(o.getMonth()+1)}-${p2(o.getDate())}`};
 const inY=d=>d.startsWith(String(S.yr));
@@ -4351,7 +3942,7 @@ function foco(){if(!fc.run&&!fc.left)fc.left=fdur(fc.m);const t=fdur(fc.m),p=1-f
 function toast(lab){const e=$('#ud');e.innerHTML=`<span>Deseja desfazer ${esc(lab)}?</span><button onclick="undo()">Desfazer</button>`;e.hidden=false;clearTimeout(utm);utm=setTimeout(()=>{e.hidden=true;UD=null},(S.cfg.udt||7)*1000)}
 function msg(t){const e=$('#ud');e.innerHTML=`<span>${esc(t)}</span>`;e.hidden=false;clearTimeout(utm);utm=setTimeout(()=>{e.hidden=true},4000)}
 function undo(){if(!UD)return;const j=UD.j;UD=null;clearTimeout(utm);$('#ud').hidden=true;try{localStorage.setItem(K,j)}catch(e){}load();save();render()}
-function perfil_orig(){const F=[['nome','Nome'],['escola','Escola'],['serie','Série / turma'],['mat','Matrícula'],['emailInstitucional','E-mail institucional'],['ano','Ano letivo']];
+function perfil(){const F=[['nome','Nome'],['escola','Escola'],['serie','Série / turma'],['mat','Matrícula'],['emailInstitucional','E-mail institucional'],['ano','Ano letivo']];
  return `<div class="card"><h3>Conta</h3><small>${esc(ses)} · ${SY()}</small><div class="f"><button class="btn" onclick="logout()">Sair</button></div></div>${typeof stzUnameCard==='function'?stzUnameCard():''}<div class="card"><h3>Foto de perfil</h3><div class="f" style="align-items:center"><div class="avt" style="width:64px;height:64px;flex:0 0 64px;cursor:default;margin:10px">${WR()}${S.me.foto?`<img src="${S.me.foto}" alt="Foto de perfil">`:`<span class="avt-ph">${ini()}</span>`}</div><label class="btn" style="flex:1 1 160px;text-align:center;margin:0;cursor:pointer">Alterar foto de perfil<input type="file" accept="image/*" hidden onchange="setPhoto(this)"></label></div></div><div class="card"><h3>Dados pessoais</h3>${F.map(([k,l])=>`<label><small>${l}</small><input ${k==='emailInstitucional'?'type="email" inputmode="email" autocomplete="email"':''} value="${esc(S.me[k]||'')}" oninput="S.me['${k}']=this.value;save();gr()"></label>`).join('')}</div>
 <div class="card"><h3>Backup</h3><div class="f"><button class="btn" onclick="expo()">Exportar</button><label class="btn" style="flex:1 1 100px;text-align:center;margin:0">Restaurar<input type="file" accept=".json,application/json" hidden onchange="impo(this)"></label></div>${bk?`<div class="al ok">${bk}</div>`:''}</div>`}
 const cf=(k,v)=>{v=num(v);if(!isNaN(v)&&v>=0){S[k]=v;save('a alteração das regras da escola');render()}};
@@ -4370,7 +3961,7 @@ function setN(id,p,k,v){const s=S.subs.find(x=>x.id===id);if(!s)return;v=num(v);
 function clearBimestre(p){clearPrompt=p;render()}
 function confirmClearBimestre(){const p=clearPrompt;if(!p)return;clearPrompt=null;S.subs.forEach(s=>{const o=s.g[p]||{};['a','b','m'].forEach(k=>{if(o[k]!=null&&o[k]!==false)logGradeChange(s,p,k,o[k],null)});(o.x||[]).forEach(x=>{if(x.v!=null)logGradeChange(s,p,'e',x.v,null)});delete s.g[p]});if(S.fm[p]!=null)logGradeChange({n:'Formativa geral',id:''},p,'Formativa',S.fm[p],null);delete S.fm[p];save('a limpeza do '+p+'º bimestre');render()}
 
-function setT(d,t,v){if(v==='__n'){hq={d,t,step:1};render();return}const L=S.sched[d]=S.sched[d]||[];while(L.length<stzPPD())L.push(null);L[t]=v||null;save('a alteração do horário');render()}
+function setT(d,t,v){if(v==='__n'){hq={d,t,step:1};render();return}const L=S.sched[d]=S.sched[d]||[];while(L.length<9)L.push(null);L[t]=v||null;save('a alteração do horário');render()}
 function setClassTime(d,t,part,value,input){const day=Number(d),slot=Number(t);if(!Number.isInteger(day)||day<0||day>4||!Number.isInteger(slot)||slot<0||slot>8||!['start','end'].includes(part))return;const valid=v=>/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(String(v||''));if(value&&!valid(value))return;const all=S.classTimes=S.classTimes||{},list=all[day]=Array.isArray(all[day])?all[day]:[];while(list.length<=slot)list.push({start:'',end:''});const entry=list[slot]=isObj(list[slot])?list[slot]:{start:'',end:''},previous=entry[part]||'';entry[part]=value||'';if(entry.start&&entry.end&&entry.end<=entry.start){entry[part]=previous;if(input)input.value=previous;msg('O horário final precisa ser posterior ao horário inicial.');return}save('a alteração do horário da aula')}
 function openIntervalEditor(id=''){const list=Array.isArray(S.intervals)?S.intervals:[],item=list.find(x=>x.id===id);intervalDraft={id:item?.id||'',title:item?.title||'',start:item?.start||'',end:item?.end||''};render();setTimeout(()=>document.getElementById('intervalTitle')?.focus(),30)}
 function closeIntervalEditor(){intervalDraft=null;render()}
@@ -4438,7 +4029,7 @@ function configDetail(C,nd,themeLabel,lgv,navv){
   case 'weekStart': title='Início da semana';description='Escolha o primeiro dia usado na organização semanal do planejamento.';content=`<div class="cfg-choices cfg-choices-compact">${[[1,'Segunda-feira'],[0,'Domingo']].map(([v,label])=>`<button type="button" id="cfg-week-${v}" class="cfg-choice${Number(C.ini)===v?' is-selected':''}" aria-pressed="${Number(C.ini)===v}" onclick="configSetWeek(${v},'cfg-week-${v}')"><span class="cfg-choice-copy"><b>${label}</b></span><span class="cfg-choice-mark">${Number(C.ini)===v?ic('check',16):''}</span></button>`).join('')}</div>`;break;
   case 'schoolRules': title='Regras da escola';description='Ajuste os critérios usados nos cálculos do boletim e da frequência.';content=`${switchControl('calcAll','Exigir as três notas principais antes de calcular',C.calcAll!==0)}<p class="cfg-detail-note">Ativado: a média só aparece quando parcial, bimestral e formativa estiverem preenchidas. Notas extras não substituem essas notas. Desativado: a média começa a ser calculada conforme as notas principais forem preenchidas.</p><div class="cfg-field-stack">${field('Pontuação anual para aprovação (soma dos quatro bimestres)','annualTarget',C.annualTarget??24,0,40,.5)}<p class="cfg-detail-note">Exemplo: 24 significa que a soma das quatro médias bimestrais deve chegar a 24 pontos.</p>${field('Média mínima por avaliação','avg',S.avg,0,10,.5,true)}${field('Frequência mínima (%)','fq',S.fq,0,100,1,true)}${field('Destacar pendências no painel a partir de','dashPend',C.dashPend??5,1,99,1)}</div>`;break;
   case 'alertDetails': title='Ajustes de alertas';description='Configure os limites que determinam quando os avisos são apresentados.';content=`<div class="cfg-field-stack">${field('Média até quantos pontos acima do mínimo','mg',C.mg,0,5,.5)}${field('Antecedência para avisos de prazos (dias)','dias',C.dias,0,14,1)}${field('Avisar a partir de quantas pendências','pend',C.pend,1,50,1)}</div>${nd?`<div class="cfg-restore"><p>${nd} alerta${nd===1?'':'s'} ignorado${nd===1?'':'s'} pode${nd===1?'':'m'} voltar a aparecer.</p><button type="button" id="cfg-alert-restore" class="chip" onclick="configRestoreAlerts('cfg-alert-restore')">Restaurar alertas ignorados</button></div>`:''}`;break;
-  case 'updates': title='Histórico de atualizações';description='Recursos e melhorias incluídos nas versões do STZBLUE.';content=`<div class="cfg-update-list"><details open><summary>Versão 1.3.4 <span>Atual</span></summary><ul><li>Próximos compromissos reorganizados, com "Hoje", "Amanhã" e "Em N dias".</li><li>Horário de aulas com 1 a 9 períodos por dia e layout revisado.</li><li>Tutorial inicial para contas novas.</li><li>Modal do Planejamento reorganizado.</li></ul></details><details><summary>Versão 1.3.3</summary><ul><li>Correções de bugs e ajustes de estabilidade.</li></ul></details><details><summary>Versão 1.3.2</summary><ul><li>Bloco de Notas com editor estilo Apple Notes (formatação, checklists, tabela, anexos e rascunho).</li><li>Planejamento: o campo Conteúdo abre o editor em pop-up, com anexos.</li><li>Gráficos vibrantes com animação única; botões padronizados (100% / 50-50); Cancelar com alerta vermelho.</li><li>Mobile: zoom bloqueado e modais fixos. Correções no Horário/Intervalos, Reputação, sidebar e status.</li><li>Mascote: frequência ≥ mínima é avaliada como normal.</li></ul></details><details><summary>Versão 1.3.1</summary><ul><li>Mascote analisa exclusivamente o bimestre atual (sem notas, prioriza a frequência).</li><li>Biblioteca de sons ampliada e novo modal de novidades em cascata.</li><li>Correção da persistência da categoria na Reputação, modal sem “piscadas” e checkboxes corrigidas.</li><li>Horário de Aulas (mobile), Anel Cromático no desktop, Boletim, sidebar recolhida e Frequência por disciplina.</li></ul></details><details><summary>Versão 1.3</summary><ul><li>Mascote interativo e Humor Acadêmico no Painel Central.</li><li>Novo visual global, abertura animada, tela de boas-vindas e login redesenhado.</li><li>Login com e-mail ou nome de usuário; efeitos sonoros e chaves de animação independentes.</li><li>Desempenho Curricular com novo ícone e barra lateral renovada.</li></ul></details><details><summary>Versão 1.2.1</summary><ul><li>Painel central reorganizado e navegação desktop recolhível.</li><li>Nova aba Reputação, status separados e atalhos integrados.</li><li>Gráficos de frequência recolhíveis; subabas de Relatórios e Planejamento.</li><li>Correções no Liquid Glass mobile e na impressão sem trocar o tema da interface.</li><li>Indicador e tentativas de sincronização aprimorados; proteção local para dados inválidos.</li><li>Aba Reputação organiza registros em cinco categorias documentadas, preservando a origem de cada informação.</li><li>Criação de anotações, disciplinas, cenários e avaliações por modais centralizados.</li><li>Frequência do Painel ocupa a largura disponível no desktop; cubos 3D sutis e animados voltaram ao fundo.</li></ul></details><details><summary>Versão 1.2</summary><ul><li>Reorganização da navegação e Desempenho Curricular com evolução, prioridades e projeções.</li><li>Otimizações do Liquid Glass para mais fluidez em celulares, tablets e computadores.</li><li>Controles de intensidade para reduzir efeitos visuais e melhorar o desempenho.</li></ul></details></div>`;break;
+  case 'updates': title='Histórico de atualizações';description='Recursos e melhorias incluídos nas versões do STZBLUE.';content=`<div class="cfg-update-list"><details open><summary>Versão 1.3.3 <span>Atual</span></summary><ul><li>Correções de bugs e ajustes de estabilidade.</li></ul></details><details><summary>Versão 1.3.2</summary><ul><li>Bloco de Notas com editor estilo Apple Notes (formatação, checklists, tabela, anexos e rascunho).</li><li>Planejamento: o campo Conteúdo abre o editor em pop-up, com anexos.</li><li>Gráficos vibrantes com animação única; botões padronizados (100% / 50-50); Cancelar com alerta vermelho.</li><li>Mobile: zoom bloqueado e modais fixos. Correções no Horário/Intervalos, Reputação, sidebar e status.</li><li>Mascote: frequência ≥ mínima é avaliada como normal.</li></ul></details><details><summary>Versão 1.3.1</summary><ul><li>Mascote analisa exclusivamente o bimestre atual (sem notas, prioriza a frequência).</li><li>Biblioteca de sons ampliada e novo modal de novidades em cascata.</li><li>Correção da persistência da categoria na Reputação, modal sem “piscadas” e checkboxes corrigidas.</li><li>Horário de Aulas (mobile), Anel Cromático no desktop, Boletim, sidebar recolhida e Frequência por disciplina.</li></ul></details><details><summary>Versão 1.3</summary><ul><li>Mascote interativo e Humor Acadêmico no Painel Central.</li><li>Novo visual global, abertura animada, tela de boas-vindas e login redesenhado.</li><li>Login com e-mail ou nome de usuário; efeitos sonoros e chaves de animação independentes.</li><li>Desempenho Curricular com novo ícone e barra lateral renovada.</li></ul></details><details><summary>Versão 1.2.1</summary><ul><li>Painel central reorganizado e navegação desktop recolhível.</li><li>Nova aba Reputação, status separados e atalhos integrados.</li><li>Gráficos de frequência recolhíveis; subabas de Relatórios e Planejamento.</li><li>Correções no Liquid Glass mobile e na impressão sem trocar o tema da interface.</li><li>Indicador e tentativas de sincronização aprimorados; proteção local para dados inválidos.</li><li>Aba Reputação organiza registros em cinco categorias documentadas, preservando a origem de cada informação.</li><li>Criação de anotações, disciplinas, cenários e avaliações por modais centralizados.</li><li>Frequência do Painel ocupa a largura disponível no desktop; cubos 3D sutis e animados voltaram ao fundo.</li></ul></details><details><summary>Versão 1.2</summary><ul><li>Reorganização da navegação e Desempenho Curricular com evolução, prioridades e projeções.</li><li>Otimizações do Liquid Glass para mais fluidez em celulares, tablets e computadores.</li><li>Controles de intensidade para reduzir efeitos visuais e melhorar o desempenho.</li></ul></details></div>`;break;
   default:return '';
  }
  return `<div class="ov cfg-overlay" onclick="if(event.target===this)closeConfigDetail()"><section class="cfg-dialog${dialogIntroClass}" role="dialog" aria-modal="true" aria-labelledby="cfg-dialog-title" tabindex="-1" onkeydown="configDialogKey(event)"><div class="cfg-dialog-head"><div><h2 id="cfg-dialog-title">${title}</h2><p>${description}</p></div><button type="button" class="cfg-dialog-close" aria-label="Fechar detalhes" onclick="closeConfigDetail()"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="cfg-dialog-body">${content}</div></section></div>`;
@@ -4454,8 +4045,8 @@ function config(){const pageEntryClass=cfgPageEntryPending?" cfg-page-enter":"";
  ${group('Planejamento',switchRow('concl','Mostrar itens concluídos','task','cyan')+detailRow('weekStart','Início da semana','cal',weekLabel,'violet'))}
  ${group('Regras da escola',detailRow('schoolRules','Médias e frequência','book','Personalizar','blue'))}
  ${group('Alertas',switchRow('am','Alertas de média','chart','violet')+switchRow('af','Alertas de frequência','calc','cyan')+switchRow('ap','Alertas de prazos','bell','blue')+detailRow('alertDetails','Limites e alertas ignorados', 'cfg',alertCount+' de 3 ativos','violet'))}
- ${typeof stzAdminGroup==='function'?stzAdminGroup():''}${group('Sobre',detailRow('updates','Histórico de atualizações','history','1.3.4','blue'))}
- <p class="cfg-ver">STZBLUE 1.3.4</p></div>${configDetail(C,nd,themeLabel,lgv,navv)}`}
+ ${group('Sobre',detailRow('updates','Histórico de atualizações','history','1.3.3','blue'))}
+ <p class="cfg-ver">STZBLUE 1.3.3</p></div>${configDetail(C,nd,themeLabel,lgv,navv)}`}
 function setIni(v){S.cfg.ini=v;save('a alteração nas configurações');render()}
 
 function dr(o){dwo=o;$('#dw').className='dw'+(o?' on':'');const h=$('#hm');if(h){h.setAttribute('aria-expanded',String(!!o));h.setAttribute('aria-controls','dw')}}
@@ -4653,7 +4244,7 @@ async function doAuth_orig(){const e=g('#ae').trim().toLowerCase(),p=g('#ap'),c=
    else{await api('/auth/v1/user',{method:'PUT',t:rtk,body:JSON.stringify({password:p})});ainfo='Senha alterada! Entre com a nova senha.';am='in'}}
  }catch(x){aerr=pt(x.message)}
  render();if($('#ae'))$('#ae').value=e}
-async function start(t){const __sp=typeof stzSplashShow==='function'?stzSplashShow():null;putS(t);ses=t.email;$('#app').innerHTML='<div class="card empty">Carregando seus dados…</div>';await pull();tab='painel';render();if(__sp)await __sp;if(typeof stzTutorialMaybe==='function')stzTutorialMaybe()}
+async function start(t){const __sp=typeof stzSplashShow==='function'?stzSplashShow():null;putS(t);ses=t.email;$('#app').innerHTML='<div class="card empty">Carregando seus dados…</div>';await pull();tab='painel';render();if(__sp)await __sp}
 function mergeState(local,remote,preferLocal=true){if(local==null)return remote;if(remote==null)return local;if(Array.isArray(local)&&Array.isArray(remote)){if(local.every(x=>x&&typeof x==='object'&&x.id)&&remote.every(x=>x&&typeof x==='object'&&x.id)){const m=new Map(remote.map(x=>[x.id,x]));local.forEach(x=>m.set(x.id,mergeState(x,m.get(x.id),preferLocal)));return [...m.values()]}return preferLocal?(local.length?local:remote):(remote.length?remote:local)}if(isObj(local)&&isObj(remote)){const lt=Number(local.updatedAt||local.updated_at||0),rt=Number(remote.updatedAt||remote.updated_at||0),wins=lt||rt?lt>rt:preferLocal,out={...remote,...local};for(const k of Object.keys(remote))if(k in local){const a=local[k],b=remote[k];out[k]=isObj(a)&&isObj(b)||Array.isArray(a)&&Array.isArray(b)?mergeState(a,b,wins):wins?a:b}return out}return preferLocal?local:remote}
 async function pull(){K='stzblue.d.'+U.uid;let meta=readSyncMeta();
  try{const at=await fresh(),r=await api('/rest/v1/stz_data?select=data,updated_at&user_id=eq.'+U.uid,{t:at});okS=true;retryDelay=1500;if(retryTimer){clearTimeout(retryTimer);retryTimer=null}
@@ -4668,7 +4259,7 @@ async function pull(){K='stzblue.d.'+U.uid;let meta=readSyncMeta();
   meta.baseHash=null;meta.dirty=true;meta.localUpdatedAt=Date.now();writeSyncMeta(meta);push(true)
  }catch(x){if(/refresh|jwt|token/i.test(String(x.message))){ses=null;U=null;try{localStorage.removeItem(SK)}catch(y){}}else{try{load()}catch(y){}sync='off';paintSyncStatus();scheduleSyncRetry(x,'pull')}}}
 const SY=()=>sync==='ok'?ic('cloud',15)+'<span class="sync-label">Sincronizado</span>':sync==='off'?ic('warn',15)+'<span class="sync-label">'+(navigator.onLine===false?'Sem conexão · salvo neste aparelho':'Falha ao sincronizar · salvo neste aparelho')+'</span>':sync==='...'?ic('cloud',15)+'<span class="sync-label">Sincronizando…</span>':ic('check',15)+'<span class="sync-label">Salvo neste aparelho</span>';
-function logout(){if(window.stzOnLogout)stzOnLogout();if(U)api('/auth/v1/logout',{method:'POST',t:U.at}).catch(()=>{});ses=null;U=null;S=null;okS=false;dwo=false;try{localStorage.removeItem(SK)}catch(x){}am='in';render()}
+function logout(){if(U)api('/auth/v1/logout',{method:'POST',t:U.at}).catch(()=>{});ses=null;U=null;S=null;okS=false;dwo=false;try{localStorage.removeItem(SK)}catch(x){}am='in';render()}
 document.addEventListener('click',e=>{if(!e.target.closest('.rt'))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();if(dwo)dr(false)}});
 
 function stzCloseRelease(){
@@ -4795,10 +4386,9 @@ function render(){const previousLiquidNav=captureLiquidNav(),clickedLiquidNav=li
  if(mq&&mq.step===2&&$('#mv'))$('#mv').focus();if(hq&&hq.step===2&&$('#hn'))$('#hn').focus();$('#dots').innerHTML=ic('dots',20);$('#menu').innerHTML=`<button onclick="go('perfil')">${ic('user',18)} Perfil e conta</button><button type="button" class="menu-history-notes" aria-label="Histórico de notas" onclick="go('historicoNotas')"><span class="ic menu-history-icon" aria-hidden="true">${ic('history',20)}</span><span class="menu-history-label">Histórico de notas</span></button><button onclick="go('config')">${ic('cfg',18)} Configurações</button>`;$('#dots').setAttribute('aria-expanded','false');if(ses)setTimeout(stzShowReleaseIfNeeded,350)}
 (async()=>{const h=location.hash;
  if(h.includes('type=recovery')){rtk=new URLSearchParams(h.slice(1)).get('access_token');am='new';history.replaceState(null,'',location.pathname)}
- else if(h.includes('access_token=')){history.replaceState(null,'',location.pathname);try{await stzOAuthReturn(h)}catch(x){aerr=pt(x.message)}}
  else if(h.includes('error_description')){aerr='O link expirou ou é inválido. Peça um novo em "Esqueci minha senha".';am='rec';history.replaceState(null,'',location.pathname)}
  else{try{const o=JSON.parse(localStorage.getItem(SK));if(o&&o.rt){U=o;ses=o.email;$('#app').innerHTML='<div class="card empty">Carregando…</div>';await pull()}}catch(x){}}
- render();if(ses&&typeof stzTutorialMaybe==='function')stzTutorialMaybe()})();
+ render()})();
 </script>
 <script>
 (function(){
